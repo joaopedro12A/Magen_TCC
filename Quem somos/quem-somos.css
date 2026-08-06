@@ -1,0 +1,166 @@
+:root{
+  --navy: #0b1330;
+  --blue: #2a3ee0;
+  --blue-dark: #1e2fb8;
+  --blue-light: #4d5ef2;
+  --ink: #10142b;
+  --muted: #6b7280;
+  --line: #e7e9f2;
+  --bg: #f6f7fb;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{
+  font-family: "Inter","Helvetica Neue",Arial,sans-serif;
+  color: var(--ink);
+  background: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+a{text-decoration:none;color:inherit;}
+button{font-family:inherit;}
+
+/* ---------- Header (shared) ---------- */
+header.site{
+  display:flex; align-items:center; justify-content:space-between;
+  padding: 18px 48px; border-bottom: 1px solid var(--line);
+  position: sticky; top:0; background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(8px); z-index: 50;
+}
+.brand{display:flex; align-items:center; gap:10px; font-weight:800; font-size:1.15rem; letter-spacing:0.02em;}
+nav.main-nav{display:flex; gap:34px; font-size:0.95rem; font-weight:500; color:#374151;}
+nav.main-nav a{position:relative;padding-bottom:4px;transition:color .15s;}
+nav.main-nav a:hover{color:var(--blue);}
+nav.main-nav a.active{color:var(--blue); font-weight:600;}
+nav.main-nav a.active::after{
+  content:""; position:absolute; left:0; right:0; bottom:-2px; height:2px;
+  background:var(--blue); border-radius:2px;
+}
+.header-actions{display:flex; align-items:center; gap:12px;}
+.btn{
+  font-size:0.9rem; font-weight:600; padding:10px 18px; border-radius:8px;
+  cursor:pointer; border:1px solid transparent; transition: all .15s ease;
+  display:inline-flex; align-items:center; gap:6px;
+}
+.btn-ghost{background:#fff; border-color:#d7dae3; color:var(--ink);}
+.btn-ghost:hover{border-color:#b7bdd0; background:#f8f9fc;}
+.btn-primary{background: var(--blue); color:#fff;}
+.btn-primary:hover{background:var(--blue-dark);}
+
+/* ---------- Hero ---------- */
+.about-hero{
+  position:relative;
+  background: linear-gradient(120deg, #171d3d 0%, #232c58 55%, #2a336b 100%);
+  color:#fff;
+  padding: 52px 48px 40px;
+  overflow:hidden;
+}
+.about-hero .bp-pattern{
+  position:absolute; inset:0; opacity:0.16;
+}
+.about-hero-content{position:relative; z-index:2; max-width:720px;}
+.eyebrow{
+  display:inline-flex; align-items:center; gap:8px;
+  font-size:0.75rem; font-weight:700; letter-spacing:0.03em;
+  color:#a9b4ff;
+  margin-bottom:18px;
+}
+.eyebrow::before{content:"●"; font-size:0.6rem; color:#5eeaff;}
+.about-hero h1{
+  font-size:2.3rem; font-weight:800; line-height:1.2; margin:0 0 18px; letter-spacing:-0.01em;
+}
+.about-hero .lede-block{
+  display:flex; gap:14px; align-items:flex-start; margin-bottom:38px;
+}
+.about-hero .lede-bar{
+  width:3px; background: var(--blue-light); border-radius:2px; flex-shrink:0; align-self:stretch;
+}
+.about-hero p{
+  font-size:0.95rem; line-height:1.65; color:#cfd3f2; margin:0; max-width:600px;
+}
+.hero-stats{
+  display:flex; gap:64px; position:relative; z-index:2;
+}
+.hero-stat-label{font-size:0.76rem; color:#9aa0d6; margin-bottom:6px;}
+.hero-stat-num{font-size:1.5rem; font-weight:800; color:#fff;}
+
+/* ---------- Team section ---------- */
+main{background: var(--bg); padding: 56px 48px 80px;}
+.wrap{max-width:1200px; margin:0 auto;}
+.team-head{text-align:center; max-width:640px; margin: 0 auto 44px;}
+.team-eyebrow{
+  font-size:0.76rem; font-weight:700; color: var(--blue); letter-spacing:0.06em;
+  text-transform:uppercase; margin-bottom:12px;
+}
+.team-head h2{font-size:1.9rem; font-weight:800; margin:0 0 12px; letter-spacing:-0.01em;}
+.team-head p{font-size:0.9rem; color: var(--muted); line-height:1.6; margin:0;}
+
+.team-grid{
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+.team-card{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding: 20px 20px 18px;
+  transition: box-shadow .2s ease, transform .2s ease;
+}
+.team-card:hover{
+  box-shadow: 0 14px 30px rgba(20,28,60,0.09);
+  transform: translateY(-2px);
+}
+.avatar{
+  width:56px; height:56px; border-radius:50%;
+  margin-bottom:16px;
+  display:flex; align-items:center; justify-content:center;
+  font-weight:700; font-size:1rem; color:#fff;
+}
+.team-name{font-size:1rem; font-weight:700; margin-bottom:2px;}
+.team-role{font-size:0.78rem; font-weight:600; color: var(--blue); margin-bottom:8px;}
+.team-desc{font-size:0.78rem; color: var(--muted); margin-bottom:2px; line-height:1.5;}
+.team-bottom{
+  display:flex; align-items:center; justify-content:space-between; margin-top:16px;
+}
+.team-socials{display:flex; gap:10px;}
+.team-socials span{
+  width:26px; height:26px; border-radius:7px; background:#f1f2f9; color:#6b7280;
+  display:flex; align-items:center; justify-content:center; font-size:0.72rem;
+}
+.team-profile-link{
+  font-size:0.8rem; font-weight:600; color: var(--blue); display:flex; align-items:center; gap:4px;
+}
+.team-profile-link:hover{color:var(--blue-dark);}
+
+/* ---------- Footer (shared) ---------- */
+footer.site{background: var(--navy); color:#c7cbe6; padding: 64px 48px 28px;}
+.footer-grid{
+  max-width:1400px; margin:0 auto; display:grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px;
+  padding-bottom: 44px; border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.footer-brand{display:flex; align-items:center; gap:8px; color:#fff; font-weight:800; margin-bottom:14px;}
+.footer-desc{font-size:0.86rem; line-height:1.6; color:#9aa0c6; max-width:260px;}
+.footer-col h4{font-size:0.82rem; letter-spacing:0.04em; color:#fff; margin:0 0 16px; font-weight:700;}
+.footer-col a{display:block; font-size:0.86rem; color:#9aa0c6; margin-bottom:11px; transition:color .15s;}
+.footer-col a:hover{color:#fff;}
+.footer-col a.underline{text-decoration:underline; text-underline-offset:3px;}
+.footer-bottom{max-width:1400px; margin:0 auto; padding-top:22px; font-size:0.8rem; color:#7f86ad; text-align:center;}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1080px){
+  .team-grid{grid-template-columns: repeat(2, 1fr);}
+}
+@media (max-width: 980px){
+  header.site{padding:14px 20px;}
+  nav.main-nav{display:none;}
+  .about-hero{padding: 36px 20px 32px;}
+  .about-hero h1{font-size:1.7rem;}
+  .hero-stats{gap:36px; flex-wrap:wrap;}
+  main{padding: 40px 20px 60px;}
+  .footer-grid{grid-template-columns:1fr 1fr; gap:32px;}
+  footer.site{padding:48px 20px 24px;}
+}
+@media (max-width:560px){
+  .team-grid{grid-template-columns:1fr;}
+  .footer-grid{grid-template-columns:1fr;}
+}

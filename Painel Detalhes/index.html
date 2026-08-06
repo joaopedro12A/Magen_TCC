@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>StrucMonitor · Detalhes do Edifício</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ================= TOP NAV ================= -->
+<header class="topnav">
+  <div class="topnav-inner">
+    <div class="brand">
+      <div class="brand-mark">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none"><rect x="3" y="3" width="7" height="7" rx="1.5" fill="#fff"/><rect x="14" y="3" width="7" height="7" rx="1.5" fill="#fff" opacity=".55"/><rect x="14" y="14" width="7" height="7" rx="1.5" fill="#fff" opacity=".55"/><rect x="3" y="14" width="7" height="7" rx="1.5" fill="#fff" opacity=".55"/></svg>
+      </div>
+      <span class="brand-name">StrucMonitor</span>
+    </div>
+
+    <div class="nav-search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" placeholder="Buscar edifícios...">
+    </div>
+
+    <nav class="nav-links">
+      <span class="nav-link">Painel</span>
+      <span class="nav-link active">Edifícios</span>
+      <span class="nav-link">Relatórios</span>
+      <span class="nav-link">Alertas</span>
+    </nav>
+
+    <div class="topnav-actions">
+      <button class="btn-primary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        Adicionar Registro
+      </button>
+      <div class="icon-btn-round">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg>
+        <span class="dot-badge"></span>
+      </div>
+      <div class="avatar-round"></div>
+    </div>
+  </div>
+</header>
+
+<!-- ================= PAGE ================= -->
+<div class="page">
+
+  <div class="col-main">
+
+    <!-- Building header -->
+    <section class="card building-head">
+      <div class="building-thumb">
+        <svg viewBox="0 0 72 72" preserveAspectRatio="none">
+          <rect width="72" height="72" fill="#6b7280"/>
+          <rect x="8" y="10" width="14" height="52" fill="#565f6e"/>
+          <rect x="26" y="4" width="16" height="58" fill="#4d5563"/>
+          <rect x="46" y="16" width="18" height="46" fill="#5a6270"/>
+          <g fill="#f2c76b" opacity=".6">
+            <rect x="11" y="16" width="3" height="3"/><rect x="17" y="16" width="3" height="3"/>
+            <rect x="11" y="24" width="3" height="3"/><rect x="17" y="24" width="3" height="3"/>
+            <rect x="30" y="12" width="3" height="3"/><rect x="36" y="12" width="3" height="3"/>
+            <rect x="30" y="20" width="3" height="3"/><rect x="36" y="20" width="3" height="3"/>
+            <rect x="30" y="28" width="3" height="3"/><rect x="36" y="28" width="3" height="3"/>
+            <rect x="50" y="22" width="3" height="3"/><rect x="56" y="22" width="3" height="3"/>
+            <rect x="50" y="30" width="3" height="3"/><rect x="56" y="30" width="3" height="3"/>
+          </g>
+        </svg>
+      </div>
+      <div class="building-info">
+        <div class="building-title">Edifício A - 123 Main St</div>
+        <div class="building-meta-row">
+          <span class="status-pill">Seguro</span>
+          <span>Última Inspeção: Hoje, 08:00 AM</span>
+        </div>
+        <div class="building-sub">Construído em: 1998 &nbsp;•&nbsp; Tipo: Comercial Alto</div>
+      </div>
+      <div class="building-actions">
+        <button class="btn-outline">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7,10 12,15 17,10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Baixar Relatório
+        </button>
+      </div>
+    </section>
+
+    <!-- Gallery -->
+    <section class="card">
+      <div class="section-head">
+        <span class="section-title">Galeria de Monitoramento de Rachaduras</span>
+        <span class="link">Ver Todas as Fotos</span>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <svg viewBox="0 0 200 174" preserveAspectRatio="xMidYMid slice">
+            <rect width="200" height="174" fill="#cbb89c"/>
+            <rect width="200" height="174" fill="#b8a488" opacity=".5"/>
+            <path d="M40 10 L70 60 L60 90 L90 130 L80 170" stroke="#3a2f24" stroke-width="2.5" fill="none"/>
+            <path d="M70 60 L100 75" stroke="#3a2f24" stroke-width="1.5" fill="none"/>
+            <path d="M60 90 L35 105" stroke="#3a2f24" stroke-width="1.5" fill="none"/>
+          </svg>
+          <div class="gallery-label">Parede Norte - Zona 1</div>
+        </div>
+        <div class="gallery-item">
+          <svg viewBox="0 0 200 174" preserveAspectRatio="xMidYMid slice">
+            <rect width="200" height="174" fill="#3a3f47"/>
+            <circle cx="100" cy="87" r="46" fill="#54606b"/>
+            <circle cx="100" cy="87" r="30" fill="#2f353c"/>
+            <circle cx="100" cy="87" r="10" fill="#6b7684"/>
+            <rect x="60" y="80" width="80" height="14" fill="#232830"/>
+          </svg>
+          <div class="gallery-label">Pilar Leste - Base</div>
+        </div>
+        <div class="gallery-item">
+          <svg viewBox="0 0 200 174" preserveAspectRatio="xMidYMid slice">
+            <rect width="200" height="174" fill="#c9c6bd"/>
+            <rect width="200" height="174" fill="#b9b6ac" opacity=".6"/>
+            <path d="M0 130 Q60 110 100 130 T200 125" stroke="#8a8579" stroke-width="1.5" fill="none" opacity=".7"/>
+            <path d="M15 40 L45 90 L30 150" stroke="#5b5548" stroke-width="2" fill="none" opacity=".7"/>
+          </svg>
+          <div class="gallery-label">Fundação - Sul</div>
+        </div>
+        <div class="gallery-item gallery-upload">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="9.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          Enviar Foto
+        </div>
+      </div>
+    </section>
+
+    <!-- Charts -->
+    <section class="charts-row">
+      <div class="card">
+        <div class="chart-head">
+          <div>
+            <div class="chart-title">Dados de Vibração (Hz)</div>
+            <div class="chart-sub">Ressonância estrutural em tempo real</div>
+          </div>
+          <div class="chart-value-box">
+            <span class="chart-value">2.4 Hz</span> <span class="chart-value-label">Média</span>
+            <div class="chart-delta up">↗ +0.1% <span>vs últimas 24h</span></div>
+          </div>
+        </div>
+        <div class="chart-svg-wrap">
+          <svg viewBox="0 0 540 230" width="100%" height="230">
+            <defs>
+              <linearGradient id="gradVib" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#3b5cf0" stop-opacity="0.22"/>
+                <stop offset="1" stop-color="#3b5cf0" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <!-- gridlines -->
+            <g stroke="#eef0f5" stroke-width="1">
+              <line x1="40" y1="18" x2="530" y2="18"/>
+              <line x1="40" y1="63" x2="530" y2="63"/>
+              <line x1="40" y1="108" x2="530" y2="108"/>
+              <line x1="40" y1="153" x2="530" y2="153"/>
+              <line x1="40" y1="188" x2="530" y2="188"/>
+            </g>
+            <g class="axis-label" text-anchor="end">
+              <text x="34" y="22">4.0</text>
+              <text x="34" y="67">3.0</text>
+              <text x="34" y="112">2.0</text>
+              <text x="34" y="157">1.0</text>
+            </g>
+            <path d="M40 153 Q100 60 128 68 T216 108 Q260 175 305 100 T392 40 Q440 25 530 90" fill="none" stroke="none"/>
+            <path d="M40 153 C90 70,110 55,140 75 C175 100,185 145,220 135 C255 125,270 55,320 60 C370 65,400 100,440 60 C470 32,500 55,530 45 L530 188 L40 188 Z" fill="url(#gradVib)"/>
+            <path d="M40 153 C90 70,110 55,140 75 C175 100,185 145,220 135 C255 125,270 55,320 60 C370 65,400 100,440 60 C470 32,500 55,530 45" fill="none" stroke="#3b5cf0" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="140" cy="75" r="4.5" fill="#fff" stroke="#3b5cf0" stroke-width="2.5"/>
+            <circle cx="220" cy="135" r="4.5" fill="#fff" stroke="#3b5cf0" stroke-width="2.5"/>
+            <circle cx="320" cy="60" r="4.5" fill="#fff" stroke="#3b5cf0" stroke-width="2.5"/>
+            <g class="axis-label" text-anchor="middle">
+              <text x="40" y="208">00:00</text>
+              <text x="163" y="208">06:00</text>
+              <text x="285" y="208">12:00</text>
+              <text x="408" y="208">18:00</text>
+              <text x="530" y="208">24:00</text>
+            </g>
+          </svg>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="chart-head">
+          <div>
+            <div class="chart-title">Níveis de Inclinação (°)</div>
+            <div class="chart-sub">Monitoramento de inclinação</div>
+          </div>
+          <div class="chart-value-box">
+            <span class="chart-value">0.05°</span> <span class="chart-value-label">Máx</span>
+            <div class="chart-delta down">↗ +0.02° <span>vs últimas 24h</span></div>
+          </div>
+        </div>
+        <div class="chart-svg-wrap">
+          <svg viewBox="0 0 540 230" width="100%" height="230">
+            <defs>
+              <linearGradient id="gradIncl" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#3b5cf0" stop-opacity="0.22"/>
+                <stop offset="1" stop-color="#3b5cf0" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <g stroke="#eef0f5" stroke-width="1">
+              <line x1="40" y1="18" x2="530" y2="18"/>
+              <line x1="40" y1="63" x2="530" y2="63"/>
+              <line x1="40" y1="108" x2="530" y2="108" stroke-dasharray="4 4" stroke="#c9cedb"/>
+              <line x1="40" y1="153" x2="530" y2="153"/>
+              <line x1="40" y1="188" x2="530" y2="188"/>
+            </g>
+            <g class="axis-label" text-anchor="end">
+              <text x="34" y="22">0.10</text>
+              <text x="34" y="67">0.05</text>
+              <text x="34" y="112">0.00</text>
+              <text x="34" y="157">-0.05</text>
+            </g>
+            <path d="M40 112 C110 108,150 116,190 110 C240 103,270 55,330 55 C390 55,420 95,460 100 C485 103,510 96,530 92 L530 188 L40 188 Z" fill="url(#gradIncl)"/>
+            <path d="M40 112 C110 108,150 116,190 110 C240 103,270 55,330 55 C390 55,420 95,460 100 C485 103,510 96,530 92" fill="none" stroke="#3b5cf0" stroke-width="2.5" stroke-linecap="round"/>
+            <g class="axis-label" text-anchor="middle">
+              <text x="40" y="208">00:00</text>
+              <text x="163" y="208">06:00</text>
+              <text x="285" y="208">12:00</text>
+              <text x="408" y="208">18:00</text>
+              <text x="530" y="208">24:00</text>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- ================= HISTORY SIDEBAR ================= -->
+  <aside class="card history-card">
+    <div class="history-head">
+      <span class="history-title">Histórico de Registros</span>
+      <div class="filter-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="22,3 2,3 10,12.5 10,19 14,21 14,12.5"/></svg>
+      </div>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="t-icon blue">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20,6 9,17 4,12"/></svg>
+        </div>
+        <div class="t-body">
+          <div class="t-time">Hoje, 08:00 AM</div>
+          <div class="t-title">Inspeção de Rotina</div>
+          <div class="t-desc">Inspetor J. Doe completou checagem visual. Nenhuma nova anomalia detectada.</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="t-icon red">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.9 2.6 17a1.8 1.8 0 0 0 1.5 2.7h15.8A1.8 1.8 0 0 0 21.4 17L13.7 3.9a1.8 1.8 0 0 0-3.4 0Z"/><line x1="12" y1="9.5" x2="12" y2="13.5"/><line x1="12" y1="16.3" x2="12" y2="16.3"/></svg>
+        </div>
+        <div class="t-body">
+          <div class="t-time">Ontem, 14:30 PM</div>
+          <div class="t-title">Pico de Vibração</div>
+          <div class="t-desc">Sensor V-04 registrou um pico breve (4.2 Hz). Rastreado para construção pesada próxima.</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="t-icon green">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 1-5.4 5.4L4 17l3 3 5.3-5.3a4 4 0 0 1 5.4-5.4L21 6l-3-3-3.3 3.3Z"/></svg>
+        </div>
+        <div class="t-body">
+          <div class="t-time">Out 12, 09:15 AM</div>
+          <div class="t-title">Manutenção Realizada</div>
+          <div class="t-desc">Reforço da base do Pilar Leste completado pela equipe contratada.</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="t-icon purple">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 12.5a5 5 0 0 1 7 0"/><path d="M5.5 9.5a9 9 0 0 1 13 0"/><circle cx="12" cy="16" r="1.4" fill="currentColor" stroke="none"/></svg>
+        </div>
+        <div class="t-body">
+          <div class="t-time">Out 05, 11:00 AM</div>
+          <div class="t-title">Calibração de Sensor</div>
+          <div class="t-desc">Todos os sensores de saúde estrutural recalibrados com sucesso.</div>
+        </div>
+      </div>
+    </div>
+
+    <button class="btn-block">Ver Todos os Registros</button>
+  </aside>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

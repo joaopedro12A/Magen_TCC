@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MAGEN — Cadastrar Edifício</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topnav">
+  <div class="brand">
+    <span class="ic">📈</span> Plataforma de Monitoramento Estrutural
+  </div>
+  <nav class="top-links">
+    <a href="#">Painel</a>
+    <a href="#" class="active">Cadastrar Edifício</a>
+    <a href="#">Dados do Sensor</a>
+    <a href="#">Alertas</a>
+  </nav>
+  <button class="profile-btn">Perfil</button>
+</header>
+
+<main>
+  <div class="page-head">
+    <h1>Cadastrar Edifício e Enviar Dados</h1>
+    <p>Insira os detalhes do edifício e faça upload dos dados do sensor para análise.</p>
+  </div>
+
+  <form class="form-grid" id="buildingForm">
+
+    <!-- Left: Building form -->
+    <div class="panel">
+      <div class="panel-title"><span class="ic">🏢</span> Cadastrar Novo Edifício</div>
+      <div class="panel-sub">Insira os detalhes do edifício abaixo</div>
+      <div class="panel-divider"></div>
+
+      <div class="field">
+        <label for="buildingName">Nome do Edifício</label>
+        <input type="text" id="buildingName" placeholder="ex. Edifício Skyline">
+      </div>
+
+      <div class="field">
+        <label for="address">Endereço</label>
+        <input type="text" id="address" placeholder="Rua Principal, 123, Cidade">
+      </div>
+
+      <div class="field">
+        <label for="yearBuilt">Ano de Construção</label>
+        <input type="text" id="yearBuilt" placeholder="AAAA" maxlength="4" inputmode="numeric">
+      </div>
+
+      <div class="field">
+        <label for="buildingType">Tipo de Edifício</label>
+        <div class="select-wrap">
+          <select id="buildingType" class="placeholder" onchange="this.classList.toggle('placeholder', this.value==='')">
+            <option value="">Selecione o Tipo</option>
+            <option value="residencial">Residencial</option>
+            <option value="comercial">Comercial</option>
+            <option value="industrial">Industrial</option>
+            <option value="infraestrutura">Infraestrutura Pública</option>
+            <option value="hospitalar">Hospitalar</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: Upload -->
+    <div class="panel">
+      <div class="panel-title"><span class="ic">📄</span> Enviar Dados do Sensor</div>
+      <div class="panel-sub">Faça upload dos dados do sensor e imagens de rachaduras em alta resolução</div>
+      <div class="panel-divider"></div>
+
+      <div class="dropzone" id="dropzone">
+        <div class="cloud-icon">☁️</div>
+        <h4>Arraste e solte os arquivos aqui</h4>
+        <p>Formatos suportados: CSV, Excel para dados de sensores. JPEG, PNG para imagens de rachaduras de alta resolução.</p>
+        <div class="dz-divider">ou</div>
+        <button type="button" class="browse-btn" id="browseBtn">Procurar Arquivos</button>
+        <input type="file" id="fileInput" multiple accept=".csv,.xls,.xlsx,image/png,image/jpeg">
+        <div class="file-list" id="fileList"></div>
+      </div>
+
+      <div class="panel-footer">
+        <button type="button" class="btn-cancel" id="cancelBtn">Cancelar</button>
+        <button type="submit" class="btn-submit" id="submitBtn">📤 Enviar</button>
+      </div>
+    </div>
+
+  </form>
+</main>
+
+<div class="toast" id="toast">✓ Edifício cadastrado com sucesso!</div>
+
+<script src="script.js"></script>
+</body>
+</html>

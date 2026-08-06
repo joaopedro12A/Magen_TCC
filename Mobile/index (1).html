@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MAGEN — Monitoramento de Integridade Estrutural</title>
+<style>
+  :root{
+    --navy: #0b1330;
+    --navy-2: #121a3d;
+    --blue: #2a3ee0;
+    --blue-dark: #1e2fb8;
+    --ink: #10142b;
+    --muted: #6b7280;
+    --line: #e7e9f2;
+    --bg: #ffffff;
+    --panel: #ffffff;
+    --green: #16a34a;
+    --amber: #f59e0b;
+    --cyan: #22d3ee;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    font-family: "Inter","Helvetica Neue",Arial,sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+  }
+  a{text-decoration:none;color:inherit;}
+  img{max-width:100%;display:block;}
+
+  /* ---------- Header ---------- */
+  header.site{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding: 18px 48px;
+    border-bottom: 1px solid var(--line);
+    position: sticky;
+    top:0;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(8px);
+    z-index: 50;
+  }
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-weight:800;
+    font-size:1.15rem;
+    letter-spacing:0.02em;
+  }
+  .brand svg{flex-shrink:0;}
+  nav.main-nav{
+    display:flex;
+    gap:34px;
+    font-size:0.95rem;
+    font-weight:500;
+    color:#374151;
+  }
+  nav.main-nav a{position:relative;padding-bottom:4px;transition:color .15s;}
+  nav.main-nav a:hover{color:var(--blue);}
+  nav.main-nav a.active{color:var(--blue); font-weight:600;}
+  nav.main-nav a.active::after{
+    content:"";
+    position:absolute;
+    left:0; right:0; bottom:-2px;
+    height:2px;
+    background:var(--blue);
+    border-radius:2px;
+  }
+  .header-actions{display:flex; align-items:center; gap:12px;}
+  .menu-toggle{
+    display:none;
+    background:none;
+    border:none;
+    cursor:pointer;
+    padding:6px;
+    flex-direction:column;
+    gap:4px;
+  }
+  .menu-toggle span{
+    width:22px; height:2px; background: var(--ink); border-radius:2px;
+    transition: transform .2s ease, opacity .2s ease;
+  }
+  .menu-toggle.open span:nth-child(1){transform: translateY(6px) rotate(45deg);}
+  .menu-toggle.open span:nth-child(2){opacity:0;}
+  .menu-toggle.open span:nth-child(3){transform: translateY(-6px) rotate(-45deg);}
+
+  .mobile-panel{
+    display:none;
+    position:fixed;
+    top:0; left:0; right:0; bottom:0;
+    background: rgba(11,19,48,0.35);
+    z-index:60;
+    opacity:0;
+    pointer-events:none;
+    transition: opacity .2s ease;
+  }
+  .mobile-panel.open{opacity:1; pointer-events:auto;}
+  .mobile-panel-sheet{
+    position:absolute;
+    top:0; right:0;
+    width: 78%;
+    max-width: 320px;
+    height:100%;
+    background:#fff;
+    box-shadow: -10px 0 30px rgba(11,19,48,0.2);
+    padding: 20px 24px 30px;
+    transform: translateX(100%);
+    transition: transform .25s ease;
+    display:flex;
+    flex-direction:column;
+  }
+  .mobile-panel.open .mobile-panel-sheet{transform: translateX(0);}
+  .mobile-panel-top{
+    display:flex; align-items:center; justify-content:space-between;
+    margin-bottom: 24px;
+  }
+  .mobile-panel-close{
+    background:none; border:none; font-size:1.3rem; cursor:pointer; color: var(--ink); line-height:1;
+  }
+  .mobile-nav-links{
+    display:flex; flex-direction:column; gap:4px;
+    margin-bottom: 26px;
+  }
+  .mobile-nav-links a{
+    padding: 12px 4px;
+    font-size:1rem;
+    font-weight:600;
+    color:#374151;
+    border-bottom: 1px solid var(--line);
+  }
+  .mobile-nav-links a.active{color: var(--blue);}
+  .mobile-panel-actions{
+    display:flex; flex-direction:column; gap:10px;
+    margin-top:auto;
+  }
+  .mobile-panel-actions .btn{width:100%; justify-content:center;}
+  .mobile-nav-links a.cta{
+    color: var(--blue);
+    font-weight:800;
+  }
+  .mobile-nav-divider{
+    height:1px; background: var(--line); margin: 6px 0 10px;
+  }
+  .btn{
+    font-size:0.9rem;
+    font-weight:600;
+    padding:10px 18px;
+    border-radius:8px;
+    cursor:pointer;
+    border:1px solid transparent;
+    transition: all .15s ease;
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+  }
+  .btn-ghost{
+    background:#fff;
+    border-color:#d7dae3;
+    color:var(--ink);
+  }
+  .btn-ghost:hover{border-color:#b7bdd0; background:#f8f9fc;}
+  .btn-primary{
+    background: var(--blue);
+    color:#fff;
+  }
+  .btn-primary:hover{background:var(--blue-dark);}
+  .btn-outline{
+    background:#fff;
+    border-color:#d7dae3;
+    color:var(--ink);
+  }
+  .btn-outline:hover{border-color:#b7bdd0; background:#f8f9fc;}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    padding: 64px 48px 90px;
+    display:grid;
+    grid-template-columns: 1.05fr 1fr;
+    gap: 56px;
+    align-items:center;
+    max-width:1400px;
+    margin:0 auto;
+  }
+  .eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-size:0.78rem;
+    font-weight:600;
+    color:#3346e6;
+    background:#eef0fd;
+    border:1px solid #dde1fb;
+    padding:6px 12px;
+    border-radius:999px;
+    margin-bottom:22px;
+  }
+  .eyebrow .dot{
+    width:7px;height:7px;border-radius:50%;
+    background:#3346e6;
+    box-shadow:0 0 0 0 rgba(51,70,230,0.5);
+    animation: pulseDot 2s infinite;
+  }
+  @keyframes pulseDot{
+    0%{box-shadow:0 0 0 0 rgba(51,70,230,0.45);}
+    70%{box-shadow:0 0 0 6px rgba(51,70,230,0);}
+    100%{box-shadow:0 0 0 0 rgba(51,70,230,0);}
+  }
+  h1.headline{
+    font-size: 3.15rem;
+    line-height:1.08;
+    font-weight:800;
+    letter-spacing:-0.02em;
+    margin:0 0 22px;
+    color:#161c33;
+  }
+  h1.headline .accent{color:var(--blue);}
+  .lede{
+    font-size:1.05rem;
+    line-height:1.6;
+    color:var(--muted);
+    max-width:480px;
+    margin-bottom:34px;
+  }
+  .hero-ctas{display:flex; gap:14px; margin-bottom:52px;}
+  .btn-lg{padding:13px 24px; font-size:0.95rem; border-radius:9px;}
+  .stats{display:flex; align-items:center; gap:28px;}
+  .stat-num{font-size:2.6rem; font-weight:800; color:#161c33; letter-spacing:-0.02em;}
+  .stat-label{font-size:0.82rem; color:var(--muted); margin-top:2px;}
+  .stat-divider{width:1px; height:52px; background:var(--line);}
+
+  /* ---------- Hero visual card ---------- */
+  .hero-visual{position:relative;}
+  .live-feed-card{
+    background: var(--navy);
+    border-radius: 16px;
+    overflow:hidden;
+    box-shadow: 0 20px 50px -12px rgba(11,19,48,0.35);
+    position:relative;
+  }
+  .feed-top-bar{
+    display:flex; align-items:center; gap:8px;
+    padding: 12px 16px;
+    color:#cdd3f0;
+    font-size:0.8rem;
+    font-weight:600;
+  }
+  .feed-canvas-wrap{position:relative; height:190px; overflow:hidden;}
+  #feedCanvas{width:100%; height:100%; display:block;}
+  .feed-tag{
+    position:absolute; left:14px; bottom:12px;
+    background:rgba(10,14,35,0.55);
+    color:#8ee6ff;
+    font-size:0.72rem;
+    font-weight:700;
+    padding:4px 8px;
+    border-radius:5px;
+    letter-spacing:0.03em;
+  }
+  .status-card{
+    position:absolute;
+    top:18px; right:18px;
+    background:#fff;
+    border-radius:12px;
+    padding:14px 16px;
+    width:170px;
+    box-shadow:0 10px 25px rgba(11,19,48,0.18);
+  }
+  .status-card .title{
+    display:flex; align-items:center; gap:6px;
+    font-size:0.78rem; font-weight:700; color:#111;
+    margin-bottom:10px;
+  }
+  .status-card .title .dot{width:7px;height:7px;border-radius:50%;background:var(--green);}
+  .eff-bar-track{
+    height:5px; background:#eef0f5; border-radius:4px; overflow:hidden; margin-bottom:6px;
+  }
+  .eff-bar-fill{
+    height:100%; width:0%;
+    background: linear-gradient(90deg, var(--blue), #4d5ef2);
+    border-radius:4px;
+    transition: width 1s ease;
+  }
+  .eff-row{display:flex; justify-content:space-between; font-size:0.72rem; color:var(--muted);}
+  .eff-row b{color:#111; font-size:0.78rem;}
+
+  .metrics-panel{
+    background:#fff;
+    border: 1px solid var(--line);
+    border-top:none;
+    border-radius: 0 0 16px 16px;
+    padding: 18px 20px;
+  }
+  .metric-row{
+    display:flex; align-items:center; justify-content:space-between;
+    padding: 10px 0;
+  }
+  .metric-row + .metric-row{border-top:1px solid var(--line);}
+  .metric-left{display:flex; align-items:center; gap:12px;}
+  .metric-icon{
+    width:36px;height:36px; border-radius:9px;
+    display:flex; align-items:center; justify-content:center;
+    background:#eef0fd; color:var(--blue); flex-shrink:0;
+  }
+  .metric-icon.amber{background:#fef3e2; color:#c07a10;}
+  .metric-name{font-weight:600; font-size:0.88rem;}
+  .metric-sub{font-size:0.76rem; color:var(--muted);}
+  .metric-value{font-weight:800; font-size:1.05rem; text-align:right;}
+  .metric-value.green{color:var(--green);}
+  .metric-status{font-size:0.74rem; text-align:right; color:var(--muted);}
+  .metric-status.good{color:var(--green);}
+
+  .alert-card{
+    position:absolute;
+    left:24px; bottom:-38px;
+    width: 235px;
+    background: #161c33;
+    color:#fff;
+    border-radius:12px;
+    padding:14px 16px;
+    box-shadow: 0 16px 34px rgba(11,19,48,0.3);
+  }
+  .alert-top{display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;}
+  .alert-top span.label{font-size:0.72rem; font-weight:700; color:#a9b0d6;}
+  .live-pill{
+    background:#e23b3b; color:#fff; font-size:0.62rem; font-weight:700;
+    padding:2px 8px; border-radius:999px; letter-spacing:0.04em;
+  }
+  .alert-item{display:flex; gap:8px; align-items:flex-start;}
+  .alert-item .dot{
+    width:7px; height:7px; border-radius:50%; background:var(--amber);
+    margin-top:5px; flex-shrink:0;
+  }
+  .alert-text b{display:block; font-size:0.82rem; font-weight:700; line-height:1.35;}
+  .alert-time{font-size:0.7rem; color:#8a91b8; margin-top:4px;}
+
+  /* ---------- Footer ---------- */
+  footer.site{
+    background: var(--navy);
+    color:#c7cbe6;
+    padding: 64px 48px 28px;
+    margin-top: 90px;
+  }
+  .footer-grid{
+    max-width:1400px; margin:0 auto;
+    display:grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 40px;
+    padding-bottom: 44px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .footer-brand{display:flex; align-items:center; gap:8px; color:#fff; font-weight:800; margin-bottom:14px;}
+  .footer-desc{font-size:0.86rem; line-height:1.6; color:#9aa0c6; max-width:260px;}
+  .footer-col h4{font-size:0.82rem; letter-spacing:0.04em; color:#fff; margin:0 0 16px; font-weight:700;}
+  .footer-col a{
+    display:block; font-size:0.86rem; color:#9aa0c6; margin-bottom:11px; transition:color .15s;
+  }
+  .footer-col a:hover{color:#fff;}
+  .footer-col a.underline{text-decoration:underline; text-underline-offset:3px;}
+  .footer-bottom{
+    max-width:1400px; margin:0 auto; padding-top:22px;
+    font-size:0.8rem; color:#7f86ad; text-align:center;
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 980px){
+    header.site{padding:14px 20px;}
+    nav.main-nav{display:none;}
+    .header-actions{display:none;}
+    .menu-toggle{display:flex;}
+    .hero{grid-template-columns:1fr; padding: 32px 20px 60px; gap:40px;}
+    .eyebrow{font-size:0.72rem;}
+    h1.headline{font-size:2rem;}
+    .lede{font-size:0.95rem; max-width:none;}
+    .stats{gap:20px;}
+    .stat-num{font-size:2.1rem;}
+    .alert-card{position:static; width:100%; margin-top:48px;}
+    .footer-grid{grid-template-columns:1fr 1fr; gap:32px;}
+    footer.site{padding:48px 20px 24px;}
+  }
+  @media (max-width:560px){
+    .footer-grid{grid-template-columns:1fr;}
+    .hero-ctas{flex-direction:column;}
+    .btn-lg{width:100%; justify-content:center;}
+    .metric-value{font-size:0.95rem;}
+    .status-card{width:150px; padding:12px 14px;}
+    .live-feed-card{border-radius:14px;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="brand">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+      <path d="M12 2L4 5v6c0 5.2 3.4 9.9 8 11 4.6-1.1 8-5.8 8-11V5l-8-3z" fill="#161c33"/>
+      <path d="M9 12.2l2.1 2.1L15.5 9.5" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    MAGEN
+  </div>
+  <nav class="main-nav">
+    <a href="#" class="active">Home</a>
+    <a href="#">Instruções</a>
+    <a href="#">Produtos</a>
+    <a href="#">Quem Somos?</a>
+    <a href="#">Referências</a>
+    <a href="#">Jogo</a>
+  </nav>
+  <div class="header-actions">
+    <button class="btn btn-ghost">Login</button>
+    <button class="btn btn-primary">Cadastre-se</button>
+  </div>
+  <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<div class="mobile-panel" id="mobilePanel">
+  <div class="mobile-panel-sheet">
+    <div class="mobile-panel-top">
+      <div class="brand" style="font-size:1.05rem;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+          <path d="M12 2L4 5v6c0 5.2 3.4 9.9 8 11 4.6-1.1 8-5.8 8-11V5l-8-3z" fill="#161c33"/>
+          <path d="M9 12.2l2.1 2.1L15.5 9.5" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        MAGEN
+      </div>
+      <button class="mobile-panel-close" id="mobilePanelClose" aria-label="Fechar menu">✕</button>
+    </div>
+    <nav class="mobile-nav-links">
+      <a href="index.html" class="active">Home</a>
+      <a href="instrucoes.html">Instruções</a>
+      <a href="produtos.html">Produtos</a>
+      <a href="quem-somos.html">Quem Somos?</a>
+      <a href="referencias.html">Referências</a>
+      <a href="jogo.html">Jogo</a>
+      <div class="mobile-nav-divider"></div>
+      <a href="login.html">Login</a>
+      <a href="#" class="cta">Criar Conta →</a>
+    </nav>
+  </div>
+</div>
+
+<section class="hero">
+  <div class="hero-copy">
+    <div class="eyebrow"><span class="dot"></span> Sistema MAGEN v2.0 Live</div>
+    <h1 class="headline">Monitoramento de precisão da <span class="accent">integridade estrutural</span></h1>
+    <p class="lede">Detecção avançada em tempo real de fissuras, deformações e análise de estabilidade para engenharia de infraestrutura moderna.</p>
+    <div class="hero-ctas">
+      <button class="btn btn-primary btn-lg">Conhecer Site →</button>
+      <button class="btn btn-outline btn-lg">Criar uma conta</button>
+    </div>
+    <div class="stats">
+      <div>
+        <div class="stat-num">99.9%</div>
+        <div class="stat-label">SLA de tempo de atividade</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div>
+        <div class="stat-num" id="sensorCount">50+</div>
+        <div class="stat-label">Tipos de sensores</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="live-feed-card">
+      <div class="feed-top-bar">
+        <span>📡</span> Live Feed: Sector 7G
+      </div>
+      <div class="feed-canvas-wrap">
+        <canvas id="feedCanvas"></canvas>
+        <div class="feed-tag">#IB960</div>
+      </div>
+
+      <div class="status-card">
+        <div class="title"><span class="dot"></span> System Status</div>
+        <div class="eff-bar-track"><div class="eff-bar-fill" id="effBar"></div></div>
+        <div class="eff-row">Efficiency <b id="effVal">92%</b></div>
+      </div>
+    </div>
+
+    <div class="metrics-panel">
+      <div class="metric-row">
+        <div class="metric-left">
+          <div class="metric-icon">⚡</div>
+          <div>
+            <div class="metric-name">Vibration Analysis</div>
+            <div class="metric-sub">Sensor Array A-12</div>
+          </div>
+        </div>
+        <div>
+          <div class="metric-value green" id="vibVal">0.042g</div>
+          <div class="metric-status good">Normal Range</div>
+        </div>
+      </div>
+      <div class="metric-row">
+        <div class="metric-left">
+          <div class="metric-icon amber">🧱</div>
+          <div>
+            <div class="metric-name">Structural Load</div>
+            <div class="metric-sub">Sensor Array B-04</div>
+          </div>
+        </div>
+        <div>
+          <div class="metric-value" id="loadVal">842 MPa</div>
+          <div class="metric-status good">Stable</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="alert-card">
+      <div class="alert-top">
+        <span class="label">Recent Alerts</span>
+        <span class="live-pill">Live</span>
+      </div>
+      <div class="alert-item">
+        <span class="dot"></span>
+        <div class="alert-text">
+          <b>Micro-fracture detected in Sector B2</b>
+          <div class="alert-time" id="alertTime">2 mins ago</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <path d="M12 2L4 5v6c0 5.2 3.4 9.9 8 11 4.6-1.1 8-5.8 8-11V5l-8-3z" fill="#fff"/>
+          <path d="M9 12.2l2.1 2.1L15.5 9.5" stroke="#161c33" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        MAGEN
+      </div>
+      <p class="footer-desc">Sistema avançado de monitoramento estrutural para detecção de fissuras e análise de deformações.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigation</h4>
+      <a href="#">Home</a>
+      <a href="#">Instruções</a>
+      <a href="#" class="underline">Produtos</a>
+      <a href="#">Quem Somos?</a>
+      <a href="#">Jogo</a>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <a href="#" class="underline">Política de Privacidade</a>
+      <a href="#" class="underline">Termos de Serviço</a>
+    </div>
+    <div class="footer-col">
+      <h4>Connect</h4>
+      <a href="#">GitHub</a>
+      <a href="#">LinkedIn</a>
+      <br>
+      <div style="font-size:0.86rem; color:#9aa0c6; margin-bottom:6px;">Email:</div>
+      <a href="mailto:contact@magen.com">contact@magen.com</a>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2026 MAGEN Sistema de Monitoramento Estrutural. Todos os direitos reservados.</div>
+</footer>
+
+<script>
+  // ---- Efficiency bar animation ----
+  const effBar = document.getElementById('effBar');
+  const effVal = document.getElementById('effVal');
+  function setEfficiency(v){
+    effBar.style.width = v + '%';
+    effVal.textContent = v + '%';
+  }
+  setTimeout(()=> setEfficiency(92), 300);
+  setInterval(()=>{
+    const v = 88 + Math.round(Math.random()*8);
+    setEfficiency(v);
+  }, 4000);
+
+  // ---- Live metric jitter ----
+  const vibVal = document.getElementById('vibVal');
+  const loadVal = document.getElementById('loadVal');
+  setInterval(()=>{
+    const vib = (0.035 + Math.random()*0.015).toFixed(3);
+    vibVal.textContent = vib + 'g';
+    const load = 830 + Math.round(Math.random()*25);
+    loadVal.textContent = load + ' MPa';
+  }, 2500);
+
+  // ---- Alert timestamp ----
+  let mins = 2;
+  const alertTime = document.getElementById('alertTime');
+  setInterval(()=>{
+    mins++;
+    alertTime.textContent = mins + ' mins ago';
+  }, 60000);
+
+  // ---- Canvas: stylized structural / network live feed ----
+  const canvas = document.getElementById('feedCanvas');
+  const ctx = canvas.getContext('2d');
+  let W, H;
+  function resize(){
+    W = canvas.clientWidth;
+    H = canvas.clientHeight;
+    canvas.width = W * devicePixelRatio;
+    canvas.height = H * devicePixelRatio;
+    ctx.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0);
+  }
+  window.addEventListener('resize', resize);
+  resize();
+
+  // network node graph (hexagonal cluster) over a dark gradient
+  const nodes = [];
+  const cx = () => W*0.62, cy = () => H*0.42;
+  const nodeCount = 7;
+  for(let i=0;i<nodeCount;i++){
+    const angle = (i/nodeCount) * Math.PI*2;
+    nodes.push({
+      baseAngle: angle,
+      radius: 42 + Math.random()*8,
+      phase: Math.random()*Math.PI*2
+    });
+  }
+
+  // background grid dots (map-like)
+  const gridDots = [];
+  for(let i=0;i<70;i++){
+    gridDots.push({x: Math.random(), y: Math.random(), r: Math.random()*1.4+0.4});
+  }
+
+  // scaffolding lines (right side, structural silhouette)
+  function drawScaffold(t){
+    ctx.save();
+    ctx.strokeStyle = 'rgba(160,180,255,0.18)';
+    ctx.lineWidth = 1;
+    const baseX = W*0.72, baseY = H*0.95;
+    for(let i=0;i<5;i++){
+      ctx.beginPath();
+      ctx.moveTo(baseX + i*14, baseY);
+      ctx.lineTo(baseX + i*14 - 40, H*0.15);
+      ctx.stroke();
+    }
+    for(let j=0;j<6;j++){
+      const y = H*0.15 + j*(H*0.8/6);
+      ctx.beginPath();
+      ctx.moveTo(baseX - 40, y);
+      ctx.lineTo(baseX + 56, y);
+      ctx.stroke();
+    }
+    ctx.restore();
+  }
+
+  function draw(t){
+    // background
+    const g = ctx.createLinearGradient(0,0,W,H);
+    g.addColorStop(0, '#141a3a');
+    g.addColorStop(1, '#0c1230');
+    ctx.fillStyle = g;
+    ctx.fillRect(0,0,W,H);
+
+    // faint world-map style dots
+    ctx.fillStyle = 'rgba(140,160,255,0.10)';
+    gridDots.forEach(d=>{
+      ctx.beginPath();
+      ctx.arc(d.x*W, d.y*H, d.r, 0, Math.PI*2);
+      ctx.fill();
+    });
+
+    drawScaffold(t);
+
+    // hex network graph
+    const time = t/1000;
+    const cxv = cx(), cyv = cy();
+    const pts = nodes.map(n=>{
+      const wob = Math.sin(time*0.6 + n.phase) * 3;
+      const r = n.radius + wob;
+      return {
+        x: cxv + Math.cos(n.baseAngle + time*0.05) * r,
+        y: cyv + Math.sin(n.baseAngle + time*0.05) * r
+      };
+    });
+
+    // connecting lines
+    ctx.strokeStyle = 'rgba(94,234,255,0.55)';
+    ctx.lineWidth = 1.2;
+    for(let i=0;i<pts.length;i++){
+      const a = pts[i], b = pts[(i+1)%pts.length];
+      ctx.beginPath();
+      ctx.moveTo(a.x,a.y);
+      ctx.lineTo(b.x,b.y);
+      ctx.stroke();
+      // spokes to center
+      ctx.beginPath();
+      ctx.moveTo(cxv,cyv);
+      ctx.lineTo(a.x,a.y);
+      ctx.strokeStyle = 'rgba(94,234,255,0.22)';
+      ctx.stroke();
+      ctx.strokeStyle = 'rgba(94,234,255,0.55)';
+    }
+
+    // pulse traveling along one edge
+    const pulseIdx = Math.floor(time*0.8) % pts.length;
+    const a = pts[pulseIdx], b = pts[(pulseIdx+1)%pts.length];
+    const frac = (time*0.8) % 1;
+    const px = a.x + (b.x-a.x)*frac;
+    const py = a.y + (b.y-a.y)*frac;
+    ctx.beginPath();
+    ctx.arc(px,py,3,0,Math.PI*2);
+    ctx.fillStyle = '#eafcff';
+    ctx.shadowColor = '#5eeaff';
+    ctx.shadowBlur = 8;
+    ctx.fill();
+    ctx.shadowBlur = 0;
+
+    // nodes
+    pts.forEach((p,i)=>{
+      ctx.beginPath();
+      ctx.arc(p.x,p.y, i===0?4:2.6, 0, Math.PI*2);
+      ctx.fillStyle = '#bff3ff';
+      ctx.fill();
+    });
+    // center node
+    ctx.beginPath();
+    ctx.arc(cxv,cyv,4,0,Math.PI*2);
+    ctx.fillStyle = '#5eeaff';
+    ctx.shadowColor = '#5eeaff';
+    ctx.shadowBlur = 10;
+    ctx.fill();
+    ctx.shadowBlur = 0;
+
+    requestAnimationFrame(draw);
+  }
+  requestAnimationFrame(draw);
+
+  // ---- Mobile menu toggle ----
+  const menuToggle = document.getElementById('menuToggle');
+  const mobilePanel = document.getElementById('mobilePanel');
+  const mobilePanelClose = document.getElementById('mobilePanelClose');
+
+  function openMenu(){
+    mobilePanel.classList.add('open');
+    menuToggle.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMenu(){
+    mobilePanel.classList.remove('open');
+    menuToggle.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  menuToggle.addEventListener('click', ()=>{
+    mobilePanel.classList.contains('open') ? closeMenu() : openMenu();
+  });
+  mobilePanelClose.addEventListener('click', closeMenu);
+  mobilePanel.addEventListener('click', (e)=>{
+    if(e.target === mobilePanel) closeMenu();
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MAGEN — Login</title>
+<link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+  <header class="site">
+  <div class="brand">
+    <img src="../Logo.png" alt="MAGEN" width="39" height="40">
+    MAGEN
+</div>
+  <nav class="main-nav">
+    <a href="../index.html">Home</a>
+    <a href="./Instruções/instrucoes.html">Instruções</a>
+    <a href="./Produtos/index.html">Produtos</a>
+    <a href="./Quem somos/quem-somos.html">Quem Somos?</a>
+    <a href="./Referencias/index.html">Referências</a>
+    <a href="../Jogo/jogo.html">Jogo</a>
+  </nav>
+  <div class="header-actions">
+    <button class="btn btn-ghost">Login</button>
+    <button class="btn btn-primary">Cadastre-se</button>
+  </div>
+</header>
+
+<div class="login-wrap">
+  <div class="brand-block">
+    <div class="brand-icon">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M12 3l6 17-6-4-6 4 6-17z" stroke="#fff" stroke-width="1.6" stroke-linejoin="round" fill="none"/>
+      </svg>
+    </div>
+    <div class="brand-name">MAGEN</div>
+    <div class="brand-sub">Monitoramento de integridade estrutural em tempo real</div>
+  </div>
+
+  <div class="login-card">
+    <div class="card-title">Bem-vindo de volta</div>
+    <div class="card-sub">Insira suas credenciais para acessar o painel</div>
+
+    <form id="loginForm" novalidate>
+      <div class="field">
+        <label for="email">E-mail</label>
+        <div class="input-wrap">
+          <span class="icon">✉</span>
+          <input type="email" id="email" placeholder="nome@empresa.com.br" required>
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="field-top">
+          <label for="password">Senha</label>
+          <a href="#" class="forgot">Esqueceu a senha?</a>
+        </div>
+        <div class="input-wrap">
+          <span class="icon">🔒</span>
+          <input type="password" id="password" placeholder="••••••••" required>
+          <button type="button" class="toggle-eye" id="toggleEye">👁</button>
+        </div>
+        <div class="error-msg" id="errorMsg">E-mail ou senha inválidos.</div>
+      </div>
+
+      <div class="remember-row">
+        <input type="checkbox" id="remember">
+        <label for="remember">Lembrar de mim neste dispositivo</label>
+      </div>
+
+      <button type="submit" class="btn-submit" id="submitBtn">Entrar →</button>
+    </form>
+
+    <div class="divider">OU CONTINUE COM</div>
+
+    <div class="sso-row">
+      <button class="sso-btn" type="button">
+        <svg width="16" height="16" viewBox="0 0 24 24"><path fill="#4285F4" d="M23.49 12.27c0-.79-.07-1.54-.2-2.27H12v4.3h6.47c-.28 1.5-1.13 2.77-2.4 3.62v3h3.88c2.27-2.09 3.54-5.17 3.54-8.65z"/><path fill="#34A853" d="M12 24c3.24 0 5.95-1.07 7.93-2.9l-3.88-3c-1.08.72-2.45 1.15-4.05 1.15-3.11 0-5.75-2.1-6.69-4.92H1.3v3.09C3.26 21.3 7.3 24 12 24z"/><path fill="#FBBC05" d="M5.31 14.33A7.4 7.4 0 0 1 4.9 12c0-.81.14-1.6.4-2.33V6.58H1.3A11.98 11.98 0 0 0 0 12c0 1.93.46 3.76 1.3 5.42l4.01-3.09z"/><path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.44-3.44C17.94 1.19 15.24 0 12 0 7.3 0 3.26 2.7 1.3 6.58l4.01 3.09C6.25 6.85 8.89 4.75 12 4.75z"/></svg>
+        Google
+      </button>
+      <button class="sso-btn" type="button">
+        <svg width="16" height="16" viewBox="0 0 23 23"><rect x="1" y="1" width="10" height="10" fill="#f25022"/><rect x="12" y="1" width="10" height="10" fill="#7fba00"/><rect x="1" y="12" width="10" height="10" fill="#00a4ef"/><rect x="12" y="12" width="10" height="10" fill="#ffb900"/></svg>
+        Azure AD
+      </button>
+    </div>
+
+    <div class="signup-note">Não possui uma conta? <a href="#">Entre em contato</a></div>
+  </div>
+</div>
+
+<div class="status-bar">
+  <div class="status-left">
+    <span class="sys"><span class="dot"></span> SISTEMA ONLINE</span>
+    <span>V 2.4.0-STABLE</span>
+  </div>
+  <div>© 2026 STRUCTURAL MONITOR SECURITY SYSTEMS</div>
+</div>
+
+<script src="login.js"></script>
+
+</body>
+</html>
