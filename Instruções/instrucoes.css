@@ -8,6 +8,8 @@
   --line: #e7e9f2;
   --bg: #f6f7fb;
   --green: #16a34a;
+  --blue-deep2: #0037B0;
+  --cinza: #64748B;
 }
 *{box-sizing:border-box;}
 html,body{margin:0;padding:0;}
@@ -102,7 +104,7 @@ main{
   font-size:0.72rem; font-weight:700;
   color:#dfe3ff;
   background: rgba(255,255,255,0.14);
-  border:1px solid rgba(255,255,255,0.22);
+  border:1px solid rgba();
   padding:5px 12px;
   border-radius:999px;
   letter-spacing:0.03em;
@@ -125,7 +127,7 @@ main{
 }
 .btn-white{
   background:#fff;
-  color: var(--blue-deep);
+  color: var(--blue-deep2);
   font-weight:700;
   padding:11px 20px;
   border-radius:8px;
@@ -151,21 +153,47 @@ main{
 
 
 /* ---------- Section titles ---------- */
-.content-grid{
-  display:grid;
-  grid-template-columns: 1.55fr 1fr;
-  gap: 32px;
-  align-items:start;
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
-.section-title{
-  display:flex; align-items:center; gap:8px;
-  font-size:1.05rem; font-weight:700;
+
+.title-icon {
+  width: 15px;
+  height: 1px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.05rem;
+  font-weight: 700;
   color: var(--ink);
   margin: 0 0 18px;
 }
-.section-title .icon{
-  color: var(--blue);
-  font-size:1rem;
+
+.title-icon {
+  width: 15px;
+  height: 15px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.tip-card h4 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tip-icon {
+  width: 15px;
+  height: 15px;
+  object-fit: contain;
+  flex-shrink: 0;
 }
 
 /* ---------- Steps ---------- */
@@ -242,7 +270,7 @@ main{
   border-top:1px solid var(--line);
   font-size:0.86rem;
   font-weight:500;
-  color: var(--ink);
+  color: var(--cinza);
   transition: color .15s ease;
 }
 .link-row:hover{color: var(--blue);}
