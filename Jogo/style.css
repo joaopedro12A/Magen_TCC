@@ -6,6 +6,7 @@
   --muted: #6b7280;
   --line: #e7e9f2;
   --bg: #f6f7fb;
+  --blue2: #0037B0;
 }
 *{box-sizing:border-box;}
 html,body{margin:0;padding:0;}
@@ -201,10 +202,10 @@ footer.site{background: var(--navy); color:#c7cbe6; padding: 64px 48px 28px;}
   padding: 46px 24px 54px;
 }
 .game-hero h1{
-  font-size:1.7rem; font-weight:800; margin:0 0 14px; letter-spacing:-0.01em;
+  font-size:1.7rem; font-weight:700; margin:0 0 14px; letter-spacing:-0.01em; font-family: "DM Sans", sans-serif;
 }
 .game-hero p{
-  max-width:640px; margin:0 auto; font-size:0.88rem; line-height:1.7; color:#c3c8e8;
+  max-width:640px; margin:0 auto; font-size:0.88rem; line-height:1.7; color:#c3c8e8; font-family: "DM Sans", sans-serif;
 }
 
 .game-main{background: var(--bg); padding: 42px 24px 70px;}
@@ -261,10 +262,11 @@ footer.site{background: var(--navy); color:#c7cbe6; padding: 64px 48px 28px;}
 }
 .info-title{
   display:flex; align-items:center; gap:8px;
-  font-size:0.92rem; font-weight:700; margin-bottom:14px;
+  font-size:0.92rem; font-weight:600; margin-bottom:14px;
+  font-family: "DM Sans", sans-serif;
 }
 .steps{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:12px;}
-.steps li{display:flex; align-items:center; gap:12px; font-size:0.86rem; color:#374151;}
+.steps li{display:flex; align-items:center; gap:12px; font-size:0.86rem; color:#374151; font-weight:400;}
 .step-num{
   width:20px; height:20px; min-width:20px;
   border-radius:50%;
@@ -287,9 +289,9 @@ footer.site{background: var(--navy); color:#c7cbe6; padding: 64px 48px 28px;}
 }
 .meta-icon{font-size:1.1rem; margin-bottom:8px; color: var(--blue);}
 .meta-label{
-  font-size:0.66rem; font-weight:700; letter-spacing:0.06em; color: var(--muted); margin-bottom:6px;
+  font-size:0.66rem; font-weight:600; letter-spacing:0.06em; color: var(--muted); margin-bottom:6px;
 }
-.meta-value{font-size:0.92rem; font-weight:700;}
+.meta-value{font-size:0.92rem; font-weight:600;}
 
 /* Botões largos */
 .btn-block{
@@ -303,9 +305,9 @@ footer.site{background: var(--navy); color:#c7cbe6; padding: 64px 48px 28px;}
   border: 1px solid transparent;
   transition: all .15s ease;
 }
-.btn-block-primary{background: var(--blue); color:#fff;}
+.btn-block-primary{background: var(--blue); color:#fff; font-weight: 400;}
 .btn-block-primary:hover{background: var(--blue-dark);}
-.btn-block-ghost{background:#fff; border-color:#d7dae3; color: var(--ink);}
+.btn-block-ghost{background:#fff; border-color:#d7dae3; color: var(); font-weight: 400;}
 .btn-block-ghost:hover{border-color:#b7bdd0; background:#f8f9fc;}
 
 @media (max-width: 560px){
