@@ -48,8 +48,8 @@ nav.main-nav a.active::after{
 /* ---------- Page shell ---------- */
 main{background: var(--bg); padding: 40px 48px 80px;}
 .wrap{max-width:1200px; margin:0 auto;}
-.page-head{margin-bottom:34px;}
-.page-head h1{font-size:1.9rem; font-weight:800; margin:0 0 8px; letter-spacing:-0.01em;}
+.page-head{margin-bottom:34px; font-weight:500; font-family: "DM Sans", sans-serif;}
+.page-head h1{font-size:1.9rem; margin:0 0 8px; letter-spacing:-0.01em; font-weight:700; font-family: "DM Sans", sans-serif;}
 .page-head p{font-size:0.92rem; color:var(--muted); margin:0; max-width:640px; line-height:1.55;}
 
 /* ---------- Featured article ---------- */
@@ -80,6 +80,8 @@ main{background: var(--bg); padding: 40px 48px 80px;}
   border-radius:6px;
   letter-spacing:0.03em;
   z-index:2;
+  font-weight:600; 
+  font-family: "DM Sans", sans-serif;
 }
 .featured-text{padding: 30px 34px;}
 .article-meta{
