@@ -7,6 +7,7 @@
   --muted: #6b7280;
   --line: #e7e9f2;
   --bg: #f6f7fb;
+  --cinza: #45556C;
 }
 *{box-sizing:border-box;}
 html,body{margin:0;padding:0;}
@@ -110,13 +111,25 @@ main{background: var(--bg); padding: 56px 48px 80px;}
   box-shadow: 0 14px 30px rgba(20,28,60,0.09);
   transform: translateY(-2px);
 }
-.avatar{
-  width:56px; height:56px; border-radius:50%;
-  margin-bottom:16px;
-  display:flex; align-items:center; justify-content:center;
-  font-weight:700; font-size:1rem; color:#fff;
+.avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin-bottom: 16px;
+  overflow: hidden;
+  flex-shrink: 0;
+
+  transform: translateX(-12px);
 }
-.team-name{font-size:1rem; font-weight:700; margin-bottom:2px;}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.team-name{font-size:1.5rem; font-weight:600; margin-bottom:2px;}
 .team-role{font-size:0.78rem; font-weight:600; color: var(--blue); margin-bottom:8px;}
 .team-desc{font-size:0.78rem; color: var(--muted); margin-bottom:2px; line-height:1.5;}
 .team-bottom{
@@ -128,9 +141,9 @@ main{background: var(--bg); padding: 56px 48px 80px;}
   display:flex; align-items:center; justify-content:center; font-size:0.72rem;
 }
 .team-profile-link{
-  font-size:0.8rem; font-weight:600; color: var(--blue); display:flex; align-items:center; gap:4px;
+  font-size:0.8rem; font-weight:600; color: var(--cinza); display:flex; align-items:center; gap:4px;
 }
-.team-profile-link:hover{color:var(--blue-dark);}
+.team-profile-link:hover{color:var(--cinza);}
 
 /* ---------- Footer (shared) ---------- */
 footer.site{background: var(--navy); color:#c7cbe6; padding: 64px 48px 28px;}
