@@ -25,14 +25,40 @@
     <button class="btn btn-ghost">Login</button>
     <button class="btn btn-primary">Cadastre-se</button>
   </div>
+  <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
+    <span></span><span></span><span></span>
+  </button>
 </header>
+
+<div class="mobile-panel" id="mobilePanel">
+  <div class="mobile-panel-sheet">
+    <div class="mobile-panel-top">
+      <div class="brand" style="font-size:1.05rem;">
+        <img src="../Logo.png" alt="MAGEN" width="28" height="28">
+        MAGEN
+      </div>
+      <button class="mobile-panel-close" id="mobilePanelClose" aria-label="Fechar menu">✕</button>
+    </div>
+    <nav class="mobile-nav-links">
+      <a href="../index.html">Home</a>
+      <a href="./instrucoes.html" class="active">Instruções</a>
+      <a href="../Produtos/index.html">Produtos</a>
+      <a href="../Quem somos/quem-somos.html">Quem Somos?</a>
+      <a href="../Referencias/index.html">Referências</a>
+      <a href="../Jogo/jogo.html">Jogo</a>
+      <div class="mobile-nav-divider"></div>
+      <a href="#">Login</a>
+      <a href="#" class="cta">Criar Conta →</a>
+    </nav>
+  </div>
+</div>
 
 <main>
   <div class="wrap">
 
     <section class="instr-hero">
 
-  <img src="./Project Team.png" class="instr-hero-bg" alt="">
+  <img src="../Instruções/Project Team.png" class="instr-hero-bg" alt="">
 
   <div class="instr-hero-content">
     <span class="instr-badge">GUIA DE INTERAÇÃO</span>
@@ -46,7 +72,7 @@
     <div class="content-grid">
       <div>
        <h2 class="section-title" id="fluxo">
-  <img src="./icons/Planilha.png" class="title-icon" alt="">
+  <img src="../Instruções/icons/Planilha.png" class="title-icon" alt="">
   Fluxo de Implementação
       </h2>
 
@@ -77,13 +103,13 @@
 
      <div>
   <h2 class="section-title">
-    <img src="./icons/Lampada.png" class="title-icon" alt="">
+    <img src="../Instruções/icons/Lampada.png" class="title-icon" alt="">
     Dicas de Especialistas
   </h2>
 
   <div class="tip-card">
     <h4>
-      <img src="./icons/Velocidade.png" class="tip-icon" alt="">
+      <img src="../Instruções/icons/Velocidade.png" class="tip-icon" alt="">
       Atalho Rápido
     </h4>
     <p>Use Ctrl+K para abrir a busca global e navegar entre sensores instantaneamente.</p>
@@ -91,7 +117,7 @@
 
   <div class="tip-card">
     <h4>
-      <img src="./icons/Terminal.png" class="tip-icon" alt="">
+      <img src="../Instruções/icons/Terminal.png" class="tip-icon" alt="">
       Modo Headless
     </h4>
     <p>Rode o Magen sem interface gráfica em servidores dedicados para monitoramento contínuo.</p>
@@ -99,7 +125,7 @@
 
   <div class="tip-card">
     <h4>
-      <img src="./icons/Segurança.png" class="tip-icon" alt="">
+      <img src="../Instruções/icons/Segurança.png" class="tip-icon" alt="">
       Verificação de Segurança
     </h4>
     <p>Revise as permissões de acesso da equipe antes de liberar o ambiente em produção.</p>
@@ -132,11 +158,11 @@
     </div>
     <div class="footer-col">
       <h4>Navigation</h4>
-      <a href="index.html">Home</a>
-      <a href="#">Instruções</a>
-      <a href="#">Produtos</a>
-      <a href="#">Quem Somos?</a>
-      <a href="#">Jogo</a>
+      <a href="../index.html">Home</a>
+      <a href="./instrucoes.html">Instruções</a>
+      <a href="../Produtos/index.html">Produtos</a>
+      <a href="../Quem somos/quem-somos.html">Quem Somos?</a>
+      <a href="../Jogo/jogo.html">Jogo</a>
     </div>
     <div class="footer-col">
       <h4>Legal</h4>
@@ -154,6 +180,31 @@
   </div>
   <div class="footer-bottom">© 2026 MAGEN Sistema de Monitoramento Estrutural. Todos os direitos reservados.</div>
 </footer>
+
+<script>
+  // ---- Mobile menu toggle ----
+  const menuToggle = document.getElementById('menuToggle');
+  const mobilePanel = document.getElementById('mobilePanel');
+  const mobilePanelClose = document.getElementById('mobilePanelClose');
+
+  function openMobileMenu(){
+    mobilePanel.classList.add('open');
+    menuToggle.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMobileMenu(){
+    mobilePanel.classList.remove('open');
+    menuToggle.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  menuToggle.addEventListener('click', ()=>{
+    mobilePanel.classList.contains('open') ? closeMobileMenu() : openMobileMenu();
+  });
+  mobilePanelClose.addEventListener('click', closeMobileMenu);
+  mobilePanel.addEventListener('click', (e)=>{
+    if(e.target === mobilePanel) closeMobileMenu();
+  });
+</script>
 
 </body>
 </html>
