@@ -58,10 +58,10 @@ main{background: var(--bg); padding: 40px 48px 80px;}
 
 .page-head{margin-bottom:34px;}
 .page-head h1{
-  font-size:1.9rem; font-weight:800; margin:0 0 8px; letter-spacing:-0.01em;
+  font-size:1.9rem; font-weight:700; margin:0 0 8px; letter-spacing:-0.01em; font-family: "DM Sans", sans-serif;
 }
 .page-head p{
-  font-size:0.92rem; color:var(--muted); margin:0; max-width:640px; line-height:1.55;
+  font-size:0.92rem; color:var(--muted); margin:0; max-width:640px; line-height:1.55; font-family: "DM Sans", sans-serif;
 }
 
 /* ---------- Featured product ---------- */
@@ -90,13 +90,13 @@ main{background: var(--bg); padding: 40px 48px 80px;}
   border:1px solid #dde1fb;
 }
 .featured-top{display:flex; align-items:flex-start; justify-content:space-between; margin-bottom:14px;}
-.featured-title{font-size:1.25rem; font-weight:800; letter-spacing:0.01em;}
+.featured-title{font-size:1.25rem; font-weight:700; letter-spacing:0.01em; font-family: "DM Sans", sans-serif;}
 .featured-price{font-size:1.15rem; font-weight:800; color: var(--blue);}
 .featured-desc{
-  font-size:0.85rem; line-height:1.65; color: var(--muted); margin: 0 0 22px; max-width:460px;
+  font-size:0.85rem; line-height:1.65; color: var(--muted); margin: 0 0 22px; max-width:460px; font-family: "DM Sans", sans-serif;
 }
 .feature-list{
-  display:grid; grid-template-columns: 1fr 1fr; gap: 10px 20px; margin-bottom:26px;
+  display:grid; grid-template-columns: 1fr 1fr; gap: 10px 20px; margin-bottom:26px; font-family: "DM Sans", sans-serif; font-weight: 500;
 }
 .feature-item{
   display:flex; align-items:center; gap:8px; font-size:0.85rem; color:#374151;
@@ -111,6 +111,8 @@ main{background: var(--bg); padding: 40px 48px 80px;}
   width:100%; background: var(--blue); color:#fff; font-weight:700; font-size:0.9rem;
   padding:13px; border-radius:9px; text-align:center; border:none; cursor:pointer;
   transition: background .15s ease;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 500;
 }
 .btn-block:hover{background: var(--blue-dark);}
 
@@ -175,10 +177,10 @@ main{background: var(--bg); padding: 40px 48px 80px;}
 }
 .product-thumb svg{width:80%; height:80%;}
 .product-body{padding: 18px 20px 20px;}
-.product-name{font-size:1rem; font-weight:700; margin-bottom:3px;}
-.product-desc{font-size:0.8rem; color: var(--muted); margin-bottom:14px;}
+.product-name{font-size:1rem; font-weight:600; margin-bottom:3px; font-family: "DM Sans", sans-serif;}
+.product-desc{font-size:0.8rem; color: var(--muted); margin-bottom:14px; font-family: "DM Sans", sans-serif; font-weight: 400;}
 .product-bottom{display:flex; align-items:center; justify-content:space-between;}
-.product-price{font-weight:800; font-size:0.95rem;}
+.product-price{font-weight:600; font-size:0.95rem; font-family: "DM Sans", sans-serif;}
 .product-link{font-size:0.82rem; font-weight:600; color: var(--blue); display:flex; align-items:center; gap:4px;}
 .product-link:hover{color:var(--blue-dark);}
 

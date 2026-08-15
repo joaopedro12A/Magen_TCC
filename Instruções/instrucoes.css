@@ -14,7 +14,7 @@
 *{box-sizing:border-box;}
 html,body{margin:0;padding:0;}
 body{
-  font-family: "Inter","Helvetica Neue",Arial,sans-serif;
+  font-family: "Inter", sans-serif;
   color: var(--ink);
   background: #fff;
   -webkit-font-smoothing: antialiased;
@@ -181,7 +181,7 @@ main{
 .instr-hero h1{
   color:#fff;
   font-size:2rem;
-  font-weight:800;
+  font-weight:500;
   line-height:1.2;
   margin: 0 0 14px;
   letter-spacing:-0.01em;
@@ -229,6 +229,8 @@ main{
   font-weight: 700;
   color: var(--ink);
   margin: 0 0 18px;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 600;
 }
 
 .title-icon {
@@ -262,6 +264,7 @@ main{
   gap:16px;
   margin-bottom: 14px;
   transition: box-shadow .15s ease, border-color .15s ease;
+  
 }
 .step-card:hover{box-shadow: 0 8px 20px rgba(20,28,60,0.06); border-color:#d9dcf5;}
 .step-num{
@@ -273,16 +276,18 @@ main{
   font-size:0.9rem;
   display:flex; align-items:center; justify-content:center;
   flex-shrink:0;
+  
 }
 .step-body h3{
   margin:0 0 4px;
   font-size:0.98rem;
-  font-weight:700;
+  font-weight:600;
 }
 .step-body p{
   margin:0;
   font-size:0.84rem;
   color: var(--muted);
+  
 }
 
 /* ---------- Tip cards ---------- */
@@ -293,6 +298,8 @@ main{
   padding:16px 18px;
   margin-bottom:14px;
   transition: box-shadow .15s ease, border-color .15s ease;
+  font-family: "DM Sans", sans-serif;
+  
 }
 .tip-card:hover{box-shadow: 0 8px 20px rgba(20,28,60,0.06); border-color:#d9dcf5;}
 .tip-card h4{
@@ -301,6 +308,7 @@ main{
   font-weight:700;
   color: var(--blue-dark);
   display:flex; align-items:center; gap:7px;
+  font-family: "DM Sans", sans-serif;
 }
 .tip-card p{
   margin:0;
@@ -317,7 +325,7 @@ main{
 .links-card h4{
   margin:0 0 12px;
   font-size:0.92rem;
-  font-weight:700;
+  font-weight:600;
 }
 .link-row{
   display:flex; align-items:center; justify-content:space-between;
