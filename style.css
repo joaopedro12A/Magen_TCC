@@ -1,4 +1,237 @@
 :root{
+  --bg-light:#f7f9fc;
+  --bg-dark:#0b1220;
+  --bg-dark-2:#0f1930;
+  --blue:#2f5fe0;
+  --blue-light:#4f7dff;
+  --cyan:#22d3ee;
+  --text-dark:#0b1220;
+  --text-muted:#5b6472;
+  --text-muted-light:#8b95a7;
+  --card-border:#e4e8f0;
+  --card-border-dark:#1c2a48;
+  --radius:16px;
+  --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, Helvetica, Arial, sans-serif;
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+body{
+  font-family:var(--font);
+  background:var(--bg-light);
+  color:var(--text-dark);
+  line-height:1.5;
+}
+section{padding:96px 24px;}
+.wrap{max-width:1120px; margin:0 auto;}
+.eyebrow{
+  display:inline-flex; align-items:center; gap:8px;
+  font-size:13px; font-weight:600; letter-spacing:.02em;
+  color:var(--blue);
+  background:#eaf0ff;
+  border:1px solid #d6e0fb;
+  padding:6px 14px; border-radius:999px;
+  margin-bottom:20px;
+}
+.eyebrow .dot{width:6px; height:6px; border-radius:50%; background:var(--blue);}
+h2{
+  font-size:40px; font-weight:800; letter-spacing:-0.02em;
+  line-height:1.15; margin-bottom:16px; max-width:640px;
+}
+h2 span{color:var(--blue);}
+.lede{
+  font-size:17px; color:var(--text-muted); max-width:600px; margin-bottom:56px;
+}
+
+/* ---------- OBJETIVO ---------- */
+.objetivo{background:var(--bg-light);}
+.obj-grid{display:grid; grid-template-columns:1.1fr .9fr; gap:64px; align-items:start;}
+.obj-copy p{color:var(--text-muted); font-size:15px; margin-bottom:20px;}
+.obj-copy .academic{
+  border-left:3px solid var(--blue);
+  padding:14px 20px; background:#eef2fd; border-radius:0 10px 10px 0;
+  font-size:14px; color:#33415e;
+}
+.obj-cards{display:flex; flex-direction:column; gap:16px; transform: translateY(-7rem);}
+.obj-card{
+  background:#fff; border:1px solid var(--card-border); border-radius:var(--radius);
+  padding:22px 24px; display:flex; gap:16px; align-items:flex-start;
+  transition:transform .15s ease, box-shadow .15s ease;
+}
+.obj-card:hover{transform:translateY(-2px); box-shadow:0 12px 28px rgba(20,40,90,.08);}
+.obj-icon{
+  flex-shrink:0; width:42px; height:42px; border-radius:10px;
+  background:linear-gradient(135deg, var(--blue), var(--cyan));
+  display:flex; align-items:center; justify-content:center; color:#fff; font-size:18px;
+}
+.obj-card h4{font-size:15px; font-weight:700; margin-bottom:4px;}
+.obj-card p{font-size:13.5px; color:var(--text-muted);}
+
+/* ---------- DIFERENCIAL ---------- */
+.diferencial{background:var(--bg-dark); color:#fff; position:relative; overflow:hidden;}
+.diferencial::before{
+  content:""; position:absolute; top:-200px; right:-200px; width:500px; height:500px;
+  background:radial-gradient(circle, rgba(47,95,224,.25), transparent 70%);
+  pointer-events:none;
+}
+.diferencial .eyebrow{background:rgba(47,95,224,.12); border-color:rgba(79,125,255,.3); color:var(--blue-light);}
+.diferencial h2{color:#fff;}
+.diferencial .lede{color:var(--text-muted-light);}
+.diff-table{
+  position:relative; z-index:1;
+  display:grid; grid-template-columns:1fr auto 1fr; gap:0;
+  background:var(--bg-dark-2); border:1px solid var(--card-border-dark); border-radius:var(--radius);
+  overflow:hidden;
+}
+.diff-col{padding:32px;}
+.diff-col.old{color:var(--text-muted-light);}
+.diff-col.new{background:rgba(47,95,224,.06);}
+.diff-divider{width:1px; background:var(--card-border-dark);}
+.diff-label{font-size:12px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; margin-bottom:20px;}
+.diff-col.old .diff-label{color:var(--text-muted-light);}
+.diff-col.new .diff-label{color:var(--cyan);}
+.diff-row{
+  display:flex; gap:12px; align-items:flex-start; padding:14px 0;
+  border-top:1px solid var(--card-border-dark); font-size:14px;
+}
+.diff-row:first-of-type{border-top:none;}
+.diff-row .mark{flex-shrink:0; width:18px; height:18px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:11px; margin-top:1px;}
+.diff-col.old .mark{background:rgba(255,255,255,.08); color:var(--text-muted-light);}
+.diff-col.new .mark{background:var(--blue); color:#fff;}
+
+/* ---------- CREDITO / UNASP ---------- */
+.credito{
+  position:relative;
+  min-height:520px;
+  display:flex; align-items:center;
+  padding:0 24px;
+  background:
+    linear-gradient(100deg, rgba(6,10,20,.92) 0%, rgba(6,10,20,.78) 38%, rgba(6,10,20,.35) 65%, rgba(6,10,20,.15) 100%),
+    url('CAPA_unaspsp.jpg') center/cover no-repeat;
+  background-color:#0b1220;
+  color:#fff;
+  overflow:hidden;
+}
+.credito .wrap{padding:96px 0;}
+.credito-content {
+  max-width: 560px;
+  transform: translateX(-290px);
+}
+.credito .eyebrow{background:rgba(79,125,255,.14); border-color:rgba(79,125,255,.35); color:var(--blue-light);}
+.credito h2{color:#fff; font-size:34px; max-width:520px;}
+.credito h2 span{color:var(--cyan);}
+.credito p{color:var(--text-muted-light); font-size:15.5px; max-width:480px; margin-bottom:32px;}
+.credito-badges{display:flex; gap:12px; flex-wrap:wrap;}
+.credito-badge{
+  display:flex; align-items:center; gap:10px;
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.14);
+  backdrop-filter:blur(6px);
+  padding:10px 16px; border-radius:12px;
+  font-size:13px; font-weight:600;
+}
+.credito-badge .ico{
+  width:28px; height:28px; border-radius:8px;
+  background:linear-gradient(135deg, var(--blue), var(--cyan));
+  display:flex; align-items:center; justify-content:center; font-size:13px;
+}
+.credito-tag{
+  position:absolute; right:40px; bottom:40px;
+  text-align:right; font-size:12.5px; color:var(--text-muted-light);
+  letter-spacing:.02em;
+}
+.credito-tag strong{display:block; color:#fff; font-size:14px; margin-bottom:2px;}
+
+
+/* ---------- FAQ ---------- */
+.faq{background:var(--bg-light);}
+.faq-list{max-width:760px; margin:0 auto;}
+.faq-item{
+  border:1px solid var(--card-border); border-radius:14px; margin-bottom:12px;
+  background:#fff; overflow:hidden;
+}
+.faq-q{
+  width:100%; text-align:left; background:none; border:none; cursor:pointer;
+  padding:20px 24px; font-size:15.5px; font-weight:600; color:var(--text-dark);
+  display:flex; justify-content:space-between; align-items:center; gap:16px;
+  font-family:inherit;
+}
+.faq-q .plus{
+  flex-shrink:0; width:26px; height:26px; border-radius:50%; background:#eef2fd; color:var(--blue);
+  display:flex; align-items:center; justify-content:center; font-size:16px; transition:transform .2s ease;
+}
+.faq-item.open .plus{transform:rotate(45deg); background:var(--blue); color:#fff;}
+.faq-a{
+  max-height:0; overflow:hidden; transition:max-height .25s ease;
+}
+.faq-item.open .faq-a{max-height:200px;}
+.faq-a-inner{padding:0 24px 20px; font-size:14.5px; color:var(--text-muted);}
+
+/* ===================== TABLET (≤860px) ===================== */
+@media(max-width:860px){
+  section{padding:64px 20px;}
+  h2{font-size:30px;}
+  .lede{margin-bottom:40px;}
+
+  /* Objetivo */
+  .obj-grid{grid-template-columns:1fr; gap:40px;}
+
+  /* Diferencial */
+  .diff-table{grid-template-columns:1fr;}
+  .diff-divider{display:none;}
+  .diff-col.new{border-top:1px solid var(--card-border-dark);}
+
+  /* Credito */
+  .credito{min-height:auto;}
+  .credito .wrap{padding:72px 0;}
+  .credito h2{font-size:26px;}
+  .credito-tag{position:static; margin-top:40px; text-align:left;}
+}
+
+/* ===================== MOBILE (≤520px) ===================== */
+@media(max-width:520px){
+  section{padding:48px 16px;}
+  .wrap{max-width:100%;}
+  .eyebrow{font-size:12px; padding:5px 12px; margin-bottom:16px;}
+  h2{font-size:24px; letter-spacing:-0.01em; margin-bottom:12px;}
+  .lede{font-size:15px; margin-bottom:32px;}
+
+  /* Objetivo */
+  .obj-copy p{font-size:14px; margin-bottom:16px;}
+  .obj-copy .academic{font-size:13px; padding:12px 16px;}
+  .obj-cards{gap:12px;}
+  .obj-card{padding:18px; gap:12px;}
+  .obj-icon{width:36px; height:36px; font-size:16px; border-radius:9px;}
+  .obj-card h4{font-size:14px;}
+  .obj-card p{font-size:13px;}
+
+  /* Diferencial */
+  .diferencial::before{width:320px; height:320px; top:-140px; right:-140px;}
+  .diff-col{padding:22px 18px;}
+  .diff-label{font-size:11px; margin-bottom:14px;}
+  .diff-row{font-size:13.5px; padding:12px 0; gap:10px;}
+  .diff-row .mark{width:16px; height:16px; font-size:10px;}
+
+  /* Credito */
+  .credito .wrap{padding:56px 0;}
+  .credito h2{font-size:22px;}
+  .credito p{font-size:14px; margin-bottom:24px;}
+  .credito-badges{gap:8px;}
+  .credito-badge{padding:8px 12px; font-size:12px; gap:8px;}
+  .credito-badge .ico{width:24px; height:24px; font-size:11px;}
+  .credito-tag{font-size:12px;}
+  .credito-tag strong{font-size:13px;}
+
+  /* FAQ */
+  .faq-q{padding:16px 18px; font-size:14.5px; gap:12px;}
+  .faq-q .plus{width:22px; height:22px; font-size:14px;}
+  .faq-a-inner{padding:0 18px 16px; font-size:13.5px;}
+  .faq-item{border-radius:12px; margin-bottom:10px;}
+}
+
+/* ==================================================================
+   ARQUIVO 2
+   ================================================================== */
+
+:root{
   --navy: #0b1330;
   --navy-2: #121a3d;
   --blue: #2a3ee0;
