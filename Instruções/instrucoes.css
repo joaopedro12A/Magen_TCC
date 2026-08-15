@@ -95,12 +95,7 @@ main{
   align-items:center;
   margin-bottom: 46px;
 }
-.instr-hero .silhouette{
-  position:absolute;
-  right:0; top:0; bottom:0;
-  width: 46%;
-  opacity: 0.9;
-}
+
 .instr-hero-content{position:relative; z-index:2; max-width:560px;}
 .instr-badge{
   display:inline-flex; align-items:center; gap:6px;
@@ -141,6 +136,19 @@ main{
   transition: transform .15s ease, box-shadow .15s ease;
 }
 .btn-white:hover{transform: translateY(-1px); box-shadow:0 8px 18px rgba(0,0,0,0.18);}
+
+.instr-hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  opacity: 0.4;
+}
+
+
+
 
 /* ---------- Section titles ---------- */
 .content-grid{
