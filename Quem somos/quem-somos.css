@@ -67,7 +67,7 @@ nav.main-nav a.active::after{
 }
 .eyebrow::before{content:"●"; font-size:0.6rem; color:#5eeaff;}
 .about-hero h1{
-  font-size:2.3rem; font-weight:800; line-height:1.2; margin:0 0 18px; letter-spacing:-0.01em;
+  font-size:2.3rem; font-weight:700; line-height:1.2; margin:0 0 18px; letter-spacing:-0.01em; font-family: "Inter", sans-serif;
 }
 .about-hero .lede-block{
   display:flex; gap:14px; align-items:flex-start; margin-bottom:38px;
@@ -81,8 +81,8 @@ nav.main-nav a.active::after{
 .hero-stats{
   display:flex; gap:64px; position:relative; z-index:2;
 }
-.hero-stat-label{font-size:0.76rem; color:#9aa0d6; margin-bottom:6px;}
-.hero-stat-num{font-size:1.5rem; font-weight:800; color:#fff;}
+.hero-stat-label{font-size:0.76rem; color:#9aa0d6; margin-bottom:6px; font-weight: 500;}
+.hero-stat-num{font-size:1.5rem; font-weight:800; color:#fff; font-weight: 600;}
 
 /* ---------- Team section ---------- */
 main{background: var(--bg); padding: 56px 48px 80px;}
@@ -92,8 +92,8 @@ main{background: var(--bg); padding: 56px 48px 80px;}
   font-size:0.76rem; font-weight:700; color: var(--blue); letter-spacing:0.06em;
   text-transform:uppercase; margin-bottom:12px;
 }
-.team-head h2{font-size:1.9rem; font-weight:800; margin:0 0 12px; letter-spacing:-0.01em;}
-.team-head p{font-size:0.9rem; color: var(--muted); line-height:1.6; margin:0;}
+.team-head h2{font-size:1.9rem; font-weight:800; margin:0 0 12px; letter-spacing:-0.01em; font-weight: 700;}
+.team-head p{font-size:0.9rem; color: var(--muted); line-height:1.6; margin:0; font-weight: 400;}
 
 .team-grid{
   display:grid;
@@ -130,8 +130,8 @@ main{background: var(--bg); padding: 56px 48px 80px;}
 }
 
 .team-name{font-size:1.5rem; font-weight:600; margin-bottom:2px;}
-.team-role{font-size:0.78rem; font-weight:600; color: var(--blue); margin-bottom:8px;}
-.team-desc{font-size:0.78rem; color: var(--muted); margin-bottom:2px; line-height:1.5;}
+.team-role{font-size:0.78rem; font-weight:400; color: var(--blue); margin-bottom:8px;}
+.team-desc{font-size:0.78rem; color: var(--muted); margin-bottom:2px; line-height:1.5; font-weight:400;}
 .team-bottom{
   display:flex; align-items:center; justify-content:space-between; margin-top:16px;
 }
@@ -141,7 +141,7 @@ main{background: var(--bg); padding: 56px 48px 80px;}
   display:flex; align-items:center; justify-content:center; font-size:0.72rem;
 }
 .team-profile-link{
-  font-size:0.8rem; font-weight:600; color: var(--cinza); display:flex; align-items:center; gap:4px;
+  font-size:0.8rem; font-weight:500; color: var(--cinza); display:flex; align-items:center; gap:4px;
 }
 .team-profile-link:hover{color:var(--cinza);}
 
