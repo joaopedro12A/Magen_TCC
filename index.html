@@ -31,7 +31,31 @@
     <button class="btn btn-ghost">Login</button>
     <button class="btn btn-primary">Cadastre-se</button>
   </div>
+
+  <button class="hamburger" id="hamburgerBtn" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobileMenu" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 </header>
+
+<div class="mobile-menu-overlay" id="mobileMenuOverlay" onclick="closeMenu()"></div>
+<nav class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu-brand">
+    <img src="../Logo.png" alt="MAGEN" width="32" height="33">
+    MAGEN
+  </div>
+  <a href="../index.html" class="active" onclick="closeMenu()">Home</a>
+  <a href="../Instruções/instrucoes.html" onclick="closeMenu()">Instruções</a>
+  <a href="../Produtos/index.html" onclick="closeMenu()">Produtos</a>
+  <a href="../Quem somos/quem-somos.html" onclick="closeMenu()">Quem Somos?</a>
+  <a href="../Referencias/index.html" onclick="closeMenu()">Referências</a>
+  <a href="../Jogo/jogo.html" onclick="closeMenu()">Jogo</a>
+  <div class="mobile-menu-actions">
+    <button class="btn btn-ghost">Login</button>
+    <button class="btn btn-primary">Cadastre-se</button>
+  </div>
+</nav>
 
 <section class="hero">
   <div class="hero-copy">
@@ -194,7 +218,7 @@
   <div class="wrap">
     <div class="credito-content">
       <span class="eyebrow"><span class="dot"></span>Sobre o projeto</span>
-      <h2>Construído e projetado por <span>estudantes de TI</span> do campus UNASP</h2>
+      <h2>Construído e projetado por <span>estudantes de TI</span> do Campus UNASP São Paulo</h2>
       <p>O MAGEN é um projeto acadêmico desenvolvido do zero por alunos do curso de Tecnologia da Informação, unindo engenharia de software, IoT e análise de dados em uma solução real de monitoramento estrutural.</p>
       <div class="credito-badges">
         <div class="credito-badge"><span class="ico">◈</span>Desenvolvido em equipe</div>
@@ -279,7 +303,7 @@
       <p class="footer-desc">Sistema avançado de monitoramento estrutural para detecção de fissuras e análise de deformações.</p>
     </div>
     <div class="footer-col">
-      <h4>Navigation</h4>
+      <h4>Navegação</h4>
       <a href="#">Home</a>
       <a href="#">Instruções</a>
       <a href="#">Produtos</a>

@@ -172,3 +172,46 @@ function toggleFaq(btn){
   document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
   if(!wasOpen) item.classList.add('open');
 }
+
+// ---- Mobile hamburger menu ----
+const hamburgerBtn = document.getElementById('hamburgerBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+
+function openMenu(){
+  hamburgerBtn.classList.add('open');
+  hamburgerBtn.setAttribute('aria-expanded', 'true');
+  mobileMenu.classList.add('open');
+  mobileMenuOverlay.classList.add('open');
+  document.body.classList.add('menu-open');
+}
+
+function closeMenu(){
+  hamburgerBtn.classList.remove('open');
+  hamburgerBtn.setAttribute('aria-expanded', 'false');
+  mobileMenu.classList.remove('open');
+  mobileMenuOverlay.classList.remove('open');
+  document.body.classList.remove('menu-open');
+}
+
+function toggleMenu(){
+  if(mobileMenu.classList.contains('open')){
+    closeMenu();
+  } else {
+    openMenu();
+  }
+}
+
+// Fecha o menu automaticamente se a tela for redimensionada para desktop
+window.addEventListener('resize', ()=>{
+  if(window.innerWidth > 860 && mobileMenu.classList.contains('open')){
+    closeMenu();
+  }
+});
+
+// Fecha o menu com a tecla Esc
+document.addEventListener('keydown', (e)=>{
+  if(e.key === 'Escape' && mobileMenu.classList.contains('open')){
+    closeMenu();
+  }
+});
