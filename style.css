@@ -104,7 +104,7 @@ h2 span{color:var(--blue);}
   display:flex; align-items:center;
   padding:0 24px;
   background:
-    linear-gradient(100deg, rgba(6,10,20,.92) 0%, rgba(6,10,20,.78) 38%, rgba(6,10,20,.35) 65%, rgba(6,10,20,.15) 100%),
+    linear-gradient(110deg, rgba(6,10,20,.92) 0%, rgba(6,10,20,.78) 38%, rgba(6,10,20,.35) 65%, rgba(6,10,20,.15) 100%),
     url('CAPA_unaspsp.jpg') center/cover no-repeat;
   background-color:#0b1220;
   color:#fff;
@@ -118,7 +118,7 @@ h2 span{color:var(--blue);}
 .credito .eyebrow{background:rgba(79,125,255,.14); border-color:rgba(79,125,255,.35); color:var(--blue-light);}
 .credito h2{color:#fff; font-size:34px; max-width:520px;}
 .credito h2 span{color:var(--cyan);}
-.credito p{color:var(--text-muted-light); font-size:15.5px; max-width:480px; margin-bottom:32px;}
+.credito p{color:var(--card-border); font-size:15.5px; max-width:480px; margin-bottom:32px;}
 .credito-badges{display:flex; gap:12px; flex-wrap:wrap;}
 .credito-badge{
   display:flex; align-items:center; gap:10px;
