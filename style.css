@@ -331,6 +331,8 @@ nav.main-nav a.active::after{
 }
 .btn-outline:hover{border-color:#b7bdd0; background:#f8f9fc;}
 
+
+
 /* ---------- Hero ---------- */
 .hero{
   padding: 64px 48px 90px;
@@ -711,3 +713,5 @@ body.menu-open{ overflow:hidden; }
   .footer-brand{font-size:1rem;}
   .footer-desc{font-size:0.8rem;}
 }
+
+
