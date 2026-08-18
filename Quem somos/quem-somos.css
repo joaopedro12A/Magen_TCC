@@ -424,19 +424,727 @@ main,
 
 
 /* =========================================================
-   MOBILE
+   MOBILE — QUEM SOMOS
    ========================================================= */
 
 @media (max-width: 560px) {
+
+  /* ---------- BODY ---------- */
+
+  html,
+  body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+
+  /* ---------- HEADER ---------- */
+
+  header.site {
+    padding: 12px 16px;
+    min-height: 64px;
+  }
+
+  .brand {
+    gap: 8px;
+    font-size: 1rem;
+  }
+
+  .brand img {
+    width: 34px;
+    height: 35px;
+  }
+
+  nav.main-nav {
+    display: none;
+  }
+
+  .header-actions {
+    gap: 6px;
+  }
+
+  .header-actions .btn {
+    padding: 8px 10px;
+    font-size: 0.75rem;
+    border-radius: 7px;
+  }
+
+  .header-actions .btn-ghost {
+    display: none;
+  }
+
+  .header-actions .btn-primary {
+    padding: 8px 12px;
+  }
+
+
+  /* =====================================================
+     HERO
+     ===================================================== */
+
+  .about-hero {
+    padding: 36px 20px 30px;
+    min-height: auto;
+  }
+
+  .about-hero .bp-pattern {
+    opacity: 0.10;
+  }
+
+  .about-hero-content {
+    max-width: 100%;
+  }
+
+  .eyebrow {
+    font-size: 0.65rem;
+    margin-bottom: 13px;
+  }
+
+  .eyebrow::before {
+    font-size: 0.5rem;
+  }
+
+  .about-hero h1 {
+    font-size: 1.65rem;
+    line-height: 1.22;
+    margin-bottom: 18px;
+    letter-spacing: -0.02em;
+  }
+
+  .about-hero .lede-block {
+    gap: 10px;
+    margin-bottom: 30px;
+  }
+
+  .about-hero .lede-bar {
+    width: 3px;
+  }
+
+  .about-hero p {
+    font-size: 0.82rem;
+    line-height: 1.6;
+  }
+
+
+  /* =====================================================
+     ESTATÍSTICAS
+     ===================================================== */
+
+  .hero-stats {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 4px;
+  }
+
+  .hero-stats > div {
+    min-width: 0;
+  }
+
+  .hero-stat-label {
+    font-size: 0.62rem;
+    line-height: 1.35;
+    margin-bottom: 5px;
+  }
+
+  .hero-stat-num {
+    font-size: 1.15rem;
+    line-height: 1.2;
+  }
+
+
+  /* =====================================================
+     ÁREA DA EQUIPE
+     ===================================================== */
+
+  main {
+    padding: 38px 16px 55px;
+  }
+
+  .wrap {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .team-head {
+    max-width: 100%;
+    margin-bottom: 30px;
+  }
+
+  .team-eyebrow {
+    font-size: 0.67rem;
+    margin-bottom: 10px;
+  }
+
+  .team-head h2 {
+    font-size: 1.45rem;
+    line-height: 1.25;
+    margin-bottom: 10px;
+  }
+
+  .team-head p {
+    font-size: 0.82rem;
+    line-height: 1.55;
+  }
+
+
+  /* =====================================================
+     GRID DOS INTEGRANTES
+     ===================================================== */
+
+  .team-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+
+  /* =====================================================
+     CARD
+     ===================================================== */
+
+  .team-card {
+    width: 100%;
+    padding: 20px;
+    border-radius: 13px;
+  }
+
+  .team-card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+
+  /* ---------- Foto ---------- */
+
+  .avatar {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 15px;
+    transform: none;
+  }
+
+  .avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+
+  /* ---------- Informações ---------- */
+
+  .team-name {
+    text-align: center;
+    font-size: 1.25rem;
+    margin-bottom: 4px;
+  }
+
+  .team-role {
+    text-align: center;
+    font-size: 0.75rem;
+    margin-bottom: 8px;
+  }
+
+  .team-desc {
+    text-align: center;
+    font-size: 0.77rem;
+    line-height: 1.5;
+  }
+
+
+  /* ---------- Parte inferior ---------- */
+
+  .team-bottom {
+    margin-top: 17px;
+  }
+
+  .team-socials {
+    gap: 8px;
+  }
+
+  .team-socials span {
+    width: 28px;
+    height: 28px;
+  }
+
+  .team-profile-link {
+    font-size: 0.76rem;
+  }
+
+
+  /* =====================================================
+     FOOTER
+     ===================================================== */
+
+  footer.site {
+    padding: 42px 20px 22px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding-bottom: 30px;
+  }
+
+  .footer-brand {
+    font-size: 1rem;
+  }
+
+  .footer-desc {
+    max-width: 100%;
+    font-size: 0.8rem;
+    line-height: 1.55;
+  }
+
+  .footer-col h4 {
+    font-size: 0.78rem;
+    margin-bottom: 12px;
+  }
+
+  .footer-col a {
+    font-size: 0.8rem;
+    margin-bottom: 9px;
+  }
+
+  .footer-bottom {
+    font-size: 0.7rem;
+    line-height: 1.5;
+    padding-top: 18px;
+  }
+
+
+  /* =====================================================
+     BOTÃO DE TEMA
+     ===================================================== */
 
   .theme-toggle {
     width: 44px;
     height: 44px;
 
-    right: 16px;
-    bottom: 16px;
+    right: 15px;
+    bottom: 15px;
 
-    font-size: 1.1rem;
+    font-size: 1.05rem;
+  }
+
+}
+
+@media (max-width: 380px) {
+
+  header.site {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .brand {
+    font-size: 0.95rem;
+  }
+
+  .brand img {
+    width: 31px;
+    height: 32px;
+  }
+
+  .header-actions .btn-primary {
+    font-size: 0.7rem;
+    padding: 7px 10px;
+  }
+
+  .about-hero {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .about-hero h1 {
+    font-size: 1.5rem;
+  }
+
+  .about-hero p {
+    font-size: 0.78rem;
+  }
+
+  .hero-stats {
+    gap: 6px;
+  }
+
+  .hero-stat-label {
+    font-size: 0.58rem;
+  }
+
+  .hero-stat-num {
+    font-size: 1rem;
+  }
+
+  main {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .team-card {
+    padding: 18px;
+  }
+
+}
+
+/* =========================================================
+   MENU MOBILE
+   ========================================================= */
+
+/* Botão hambúrguer escondido no desktop */
+
+.mobile-menu-btn {
+  display: none;
+
+  width: 42px;
+  height: 42px;
+
+  padding: 9px;
+
+  border: 1px solid var(--line);
+  border-radius: 8px;
+
+  background: #fff;
+
+  cursor: pointer;
+
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.mobile-menu-btn span {
+  width: 20px;
+  height: 2px;
+
+  background: var(--ink);
+
+  border-radius: 2px;
+
+  transition:
+    transform 0.25s ease,
+    opacity 0.2s ease;
+}
+
+
+/* Menu mobile */
+
+.mobile-menu {
+  display: none;
+}
+
+
+/* =========================================================
+   MENU MOBILE — MAGEN
+   ========================================================= */
+
+/* Botão hambúrguer */
+.mobile-menu-btn {
+  display: none;
+
+  width: 42px;
+  height: 42px;
+
+  padding: 9px;
+
+  border: 1px solid var(--line);
+  border-radius: 8px;
+
+  background: #fff;
+  color: var(--ink);
+
+  cursor: pointer;
+
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+
+  transition:
+    background-color .2s ease,
+    border-color .2s ease,
+    transform .2s ease;
+}
+
+.mobile-menu-btn:hover {
+  background: #f7f8fc;
+}
+
+.mobile-menu-btn span {
+  width: 20px;
+  height: 2px;
+
+  background: currentColor;
+
+  border-radius: 2px;
+
+  transition:
+    transform .25s ease,
+    opacity .2s ease;
+}
+
+
+/* =========================================================
+   MENU
+   ========================================================= */
+
+.mobile-menu {
+  position: fixed;
+
+  top: 77px;
+  left: 0;
+  right: 0;
+
+  background: #fff;
+
+  border-bottom: 1px solid var(--line);
+
+  box-shadow: 0 12px 30px rgba(20, 28, 60, .12);
+
+  padding: 18px 20px 22px;
+
+  z-index: 49;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transform: translateY(-15px);
+
+  transition:
+    opacity .22s ease,
+    transform .25s ease,
+    visibility .25s ease;
+}
+
+
+/* Menu aberto */
+.mobile-menu.open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+
+  transform: translateY(0);
+}
+
+
+/* =========================================================
+   LINKS
+   ========================================================= */
+
+.mobile-menu nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.mobile-menu nav a {
+  display: block;
+
+  padding: 13px 12px;
+
+  border-radius: 8px;
+
+  font-size: .9rem;
+  font-weight: 500;
+
+  color: var(--ink);
+
+  transition:
+    background-color .15s ease,
+    color .15s ease;
+}
+
+.mobile-menu nav a:hover {
+  background: #f1f3fa;
+  color: var(--blue);
+}
+
+.mobile-menu nav a.active {
+  background: #eef0fd;
+  color: var(--blue);
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   BOTÕES DO MENU
+   ========================================================= */
+
+.mobile-menu-actions {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 10px;
+
+  margin-top: 16px;
+  padding-top: 16px;
+
+  border-top: 1px solid var(--line);
+}
+
+.mobile-menu-actions .btn {
+  width: 100%;
+  justify-content: center;
+}
+
+
+/* =========================================================
+   HAMBÚRGUER → X
+   ========================================================= */
+
+.mobile-menu-btn.active span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.mobile-menu-btn.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-menu-btn.active span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+
+/* =========================================================
+   MODO ESCURO
+   ========================================================= */
+
+body.dark-mode .mobile-menu-btn {
+  background: #171d2b;
+  border-color: #343c50;
+  color: #f1f3f9;
+}
+
+body.dark-mode .mobile-menu-btn:hover {
+  background: #20283a;
+}
+
+body.dark-mode .mobile-menu {
+  background: #0f1421;
+  border-bottom-color: #293044;
+
+  box-shadow: 0 12px 30px rgba(0, 0, 0, .35);
+}
+
+body.dark-mode .mobile-menu nav a {
+  color: #f1f3f9;
+}
+
+body.dark-mode .mobile-menu nav a:hover {
+  background: #1b2333;
+  color: #7180ff;
+}
+
+body.dark-mode .mobile-menu nav a.active {
+  background: #20294a;
+  color: #7180ff;
+}
+
+body.dark-mode .mobile-menu-actions {
+  border-top-color: #293044;
+}
+
+
+/* =========================================================
+   TABLET / MOBILE
+   ========================================================= */
+
+@media (max-width: 980px) {
+
+  nav.main-nav {
+    display: none;
+  }
+
+  .mobile-menu-btn {
+    display: flex;
+  }
+
+}
+
+
+/* =========================================================
+   CELULAR
+   ========================================================= */
+
+@media (max-width: 560px) {
+
+  header.site {
+    padding: 11px 16px;
+    min-height: 61px;
+  }
+
+  .brand {
+    gap: 8px;
+    font-size: 1rem;
+  }
+
+  .brand img {
+    width: 34px;
+    height: 35px;
+  }
+
+  .header-actions {
+    gap: 7px;
+  }
+
+  /* Esconde Login do header */
+  .header-actions .btn-ghost {
+    display: none;
+  }
+
+  .header-actions .btn-primary {
+    display: inline-flex;
+
+    padding: 8px 11px;
+
+    font-size: .73rem;
+  }
+
+  .mobile-menu-btn {
+    width: 40px;
+    height: 40px;
+  }
+
+  .mobile-menu {
+    top: 61px;
+
+    padding: 16px 16px 20px;
+  }
+
+}
+
+
+/* =========================================================
+   CELULARES PEQUENOS
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+  header.site {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .brand {
+    font-size: .95rem;
+  }
+
+  .brand img {
+    width: 31px;
+    height: 32px;
+  }
+
+  .header-actions .btn-primary {
+    font-size: .7rem;
+    padding: 7px 10px;
+  }
+
+  .mobile-menu {
+    padding-left: 12px;
+    padding-right: 12px;
   }
 
 }

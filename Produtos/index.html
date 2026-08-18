@@ -15,10 +15,12 @@
 <body>
 
 <header class="site">
-   <div class="brand">
+
+  <div class="brand">
     <img src="../Logo.png" alt="MAGEN" width="39" height="40">
     MAGEN
-</div>
+  </div>
+
   <nav class="main-nav">
     <a href="../index.html">Home</a>
     <a href="../Instruções/instrucoes.html">Instruções</a>
@@ -27,10 +29,19 @@
     <a href="../Referencias/index.html">Referências</a>
     <a href="../Jogo/jogo.html">Jogo</a>
   </nav>
+
   <div class="header-actions">
     <button class="btn btn-ghost">Login</button>
     <button class="btn btn-primary">Cadastre-se</button>
   </div>
+
+  <!-- BOTÃO MOBILE -->
+  <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
 </header>
 
 <main>
@@ -173,10 +184,13 @@
 <script>
   const themeToggle = document.getElementById("themeToggle");
 
-  // Recupera o tema salvo
-  if (localStorage.getItem("magen-theme") === "dark") {
+  // Recupera a preferência salva
+  const savedTheme = localStorage.getItem("magen-theme");
+
+  if (savedTheme === "dark") {
     document.body.classList.add("dark-mode");
     themeToggle.textContent = "☀";
+    themeToggle.setAttribute("aria-label", "Ativar modo claro");
   }
 
   themeToggle.addEventListener("click", () => {
@@ -184,12 +198,15 @@
 
     const isDark = document.body.classList.contains("dark-mode");
 
-    themeToggle.textContent = isDark ? "☀" : "☾";
-
-    localStorage.setItem(
-      "magen-theme",
-      isDark ? "dark" : "light"
-    );
+    if (isDark) {
+      themeToggle.textContent = "☀";
+      themeToggle.setAttribute("aria-label", "Ativar modo claro");
+      localStorage.setItem("magen-theme", "dark");
+    } else {
+      themeToggle.textContent = "☾";
+      themeToggle.setAttribute("aria-label", "Ativar modo escuro");
+      localStorage.setItem("magen-theme", "light");
+    }
   });
 </script>
 

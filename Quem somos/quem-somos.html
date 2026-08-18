@@ -15,10 +15,12 @@
 <body>
 
 <header class="site">
-   <div class="brand">
+
+  <div class="brand">
     <img src="../Logo.png" alt="MAGEN" width="39" height="40">
     MAGEN
-</div>
+  </div>
+
   <nav class="main-nav">
     <a href="../index.html">Home</a>
     <a href="../Instruções/instrucoes.html">Instruções</a>
@@ -27,11 +29,39 @@
     <a href="../Referencias/index.html">Referências</a>
     <a href="../Jogo/jogo.html">Jogo</a>
   </nav>
+
   <div class="header-actions">
     <button class="btn btn-ghost">Login</button>
     <button class="btn btn-primary">Cadastre-se</button>
+
+    <!-- Botão do menu mobile -->
+    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Abrir menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
   </div>
+
 </header>
+
+<!-- Menu mobile -->
+<div class="mobile-menu" id="mobileMenu">
+
+  <nav>
+    <a href="../index.html">Home</a>
+    <a href="../Instruções/instrucoes.html">Instruções</a>
+    <a href="../Produtos/index.html">Produtos</a>
+    <a href="../Quem somos/quem-somos.html" class="active">Quem Somos?</a>
+    <a href="../Referencias/index.html">Referências</a>
+    <a href="../Jogo/jogo.html">Jogo</a>
+  </nav>
+
+  <div class="mobile-menu-actions">
+    <button class="btn btn-ghost">Login</button>
+    <button class="btn btn-primary">Cadastre-se</button>
+  </div>
+
+</div>
 
 <section class="about-hero">
   <svg class="bp-pattern" viewBox="0 0 800 300" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">

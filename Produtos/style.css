@@ -504,3 +504,503 @@ main,
   }
 
 }
+
+/* =========================================================
+   MENU MOBILE
+   ========================================================= */
+
+.menu-toggle {
+  display: none;
+
+  background: none;
+  border: none;
+
+  cursor: pointer;
+
+  padding: 6px;
+
+  flex-direction: column;
+  gap: 4px;
+}
+
+.menu-toggle span {
+  width: 22px;
+  height: 2px;
+
+  background: var(--ink);
+
+  border-radius: 2px;
+
+  transition:
+    transform .2s ease,
+    opacity .2s ease;
+}
+
+/* Animação do botão */
+
+.menu-toggle.open span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.menu-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.open span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+
+/* =========================================================
+   PAINEL MOBILE
+   ========================================================= */
+
+.mobile-panel {
+
+  display: none;
+
+  position: fixed;
+
+  inset: 0;
+
+  background: rgba(11, 19, 48, 0.35);
+
+  z-index: 100;
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  transition: opacity .2s ease;
+}
+
+.mobile-panel.open {
+
+  opacity: 1;
+
+  pointer-events: auto;
+}
+
+
+/* ---------- Caixa do menu ---------- */
+
+.mobile-panel-sheet {
+
+  position: absolute;
+
+  top: 0;
+  right: 0;
+
+  width: 78%;
+  max-width: 320px;
+
+  height: 100%;
+
+  background: #fff;
+
+  box-shadow:
+    -10px 0 30px rgba(11, 19, 48, 0.20);
+
+  padding: 20px 24px 30px;
+
+  transform: translateX(100%);
+
+  transition: transform .25s ease;
+
+  display: flex;
+
+  flex-direction: column;
+}
+
+.mobile-panel.open .mobile-panel-sheet {
+
+  transform: translateX(0);
+
+}
+
+
+/* ---------- Topo ---------- */
+
+.mobile-panel-top {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  margin-bottom: 24px;
+}
+
+.mobile-brand {
+
+  font-size: 1.05rem;
+}
+
+
+/* ---------- Botão fechar ---------- */
+
+.mobile-panel-close {
+
+  background: none;
+
+  border: none;
+
+  font-size: 1.3rem;
+
+  cursor: pointer;
+
+  color: var(--ink);
+
+  line-height: 1;
+}
+
+
+/* ---------- Links ---------- */
+
+.mobile-nav-links {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 2px;
+}
+
+.mobile-nav-links a {
+
+  padding: 12px 4px;
+
+  font-size: 1rem;
+
+  font-weight: 600;
+
+  color: #374151;
+
+  border-bottom: 1px solid var(--line);
+
+  transition: color .15s ease;
+}
+
+.mobile-nav-links a:hover {
+
+  color: var(--blue);
+}
+
+.mobile-nav-links a.active {
+
+  color: var(--blue);
+}
+
+.mobile-nav-links a.cta {
+
+  color: var(--blue);
+
+  font-weight: 800;
+}
+
+
+/* ---------- Divisor ---------- */
+
+.mobile-nav-divider {
+
+  height: 1px;
+
+  background: var(--line);
+
+  margin: 6px 0 10px;
+}
+
+/* =========================================================
+   TABLET / MOBILE
+   ========================================================= */
+
+@media (max-width: 980px) {
+
+  /* HEADER */
+
+  header.site {
+    padding: 14px 20px;
+  }
+
+  nav.main-nav {
+    display: none;
+  }
+
+  .header-actions {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  .mobile-panel {
+    display: block;
+  }
+
+
+  /* MAIN */
+
+  main {
+    padding: 28px 20px 60px;
+  }
+
+
+  /* TÍTULO */
+
+  .page-head {
+    margin-bottom: 26px;
+  }
+
+  .page-head h1 {
+    font-size: 1.65rem;
+  }
+
+  .page-head p {
+    font-size: 0.88rem;
+  }
+
+
+  /* PRODUTO DESTAQUE */
+
+  .featured {
+
+    grid-template-columns: 1fr;
+
+    padding: 26px;
+
+    gap: 20px;
+  }
+
+  .featured-visual {
+
+    order: -1;
+
+    height: 190px;
+  }
+
+  .featured-image {
+
+    max-width: 320px;
+
+    height: 190px;
+
+    transform: none;
+  }
+
+
+  /* BADGE */
+
+  .kit-badge {
+
+    position: static;
+
+    display: inline-flex;
+
+    margin-bottom: 14px;
+  }
+
+
+  /* PRODUTOS */
+
+  .product-grid {
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 18px;
+  }
+
+
+  /* FOOTER */
+
+  .footer-grid {
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 32px;
+  }
+
+  footer.site {
+
+    padding: 48px 20px 24px;
+  }
+}
+
+
+/* =========================================================
+   CELULAR
+   ========================================================= */
+
+@media (max-width: 640px) {
+
+  /* HEADER */
+
+  header.site {
+    padding: 12px 16px;
+  }
+
+  .brand {
+    font-size: 1rem;
+  }
+
+  .brand img {
+    width: 33px;
+    height: 34px;
+  }
+
+
+  /* MAIN */
+
+  main {
+    padding: 24px 16px 50px;
+  }
+
+
+  /* TÍTULO */
+
+  .page-head {
+    margin-bottom: 22px;
+  }
+
+  .page-head h1 {
+
+    font-size: 1.45rem;
+
+    line-height: 1.25;
+  }
+
+  .page-head p {
+
+    font-size: 0.84rem;
+
+    line-height: 1.55;
+  }
+
+
+  /* PRODUTO DESTAQUE */
+
+  .featured {
+
+    padding: 20px;
+
+    border-radius: 14px;
+
+    gap: 18px;
+  }
+
+  .featured-visual {
+
+    height: 160px;
+  }
+
+  .featured-image {
+
+    max-width: 280px;
+
+    height: 160px;
+
+    transform: none;
+  }
+
+
+  /* TÍTULO + PREÇO */
+
+  .featured-top {
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 5px;
+  }
+
+  .featured-title {
+    font-size: 1.1rem;
+  }
+
+  .featured-price {
+    font-size: 1rem;
+  }
+
+
+  /* DESCRIÇÃO */
+
+  .featured-desc {
+
+    font-size: 0.82rem;
+
+    line-height: 1.6;
+  }
+
+
+  /* LISTA */
+
+  .feature-list {
+
+    grid-template-columns: 1fr;
+
+    gap: 9px;
+  }
+
+
+  /* PRODUTOS */
+
+  .product-grid {
+
+    grid-template-columns: 1fr;
+
+    gap: 16px;
+  }
+
+  .product-thumb {
+
+    height: 170px;
+  }
+
+  .product-body {
+
+    padding: 16px;
+  }
+
+
+  /* FOOTER */
+
+  .footer-grid {
+
+    grid-template-columns: 1fr;
+
+    gap: 28px;
+  }
+
+  footer.site {
+
+    padding: 42px 16px 24px;
+  }
+
+  .footer-desc {
+
+    max-width: 100%;
+  }
+
+  .footer-bottom {
+
+    font-size: 0.75rem;
+
+    line-height: 1.5;
+  }
+
+
+  /* BOTÃO TEMA */
+
+  .theme-toggle {
+
+    right: 16px;
+
+    bottom: 16px;
+
+    width: 44px;
+
+    height: 44px;
+  }
+}
