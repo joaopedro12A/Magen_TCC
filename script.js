@@ -216,3 +216,48 @@ document.addEventListener('keydown', (e)=>{
   }
 });
 
+const themeToggle = document.getElementById("themeToggle");
+const themeIcon = document.getElementById("themeIcon");
+
+const moonIcon = "../lua.png";
+const sunIcon = "../sol.png";
+
+
+// Verifica se o usuário já tinha escolhido um tema
+const savedTheme = localStorage.getItem("magen-theme");
+
+if (savedTheme === "dark") {
+  document.body.classList.add("dark-mode");
+  themeIcon.src = sunIcon;
+  themeIcon.alt = "Modo claro";
+} else {
+  themeIcon.src = moonIcon;
+  themeIcon.alt = "Modo escuro";
+}
+
+
+// Alternar tema
+themeToggle.addEventListener("click", () => {
+
+  document.body.classList.toggle("dark-mode");
+
+  const isDark = document.body.classList.contains("dark-mode");
+
+  if (isDark) {
+
+    themeIcon.src = sunIcon;
+    themeIcon.alt = "Modo claro";
+
+    localStorage.setItem("magen-theme", "dark");
+
+  } else {
+
+    themeIcon.src = moonIcon;
+    themeIcon.alt = "Modo escuro";
+
+    localStorage.setItem("magen-theme", "light");
+
+  }
+
+});
+

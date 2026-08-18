@@ -165,5 +165,33 @@
   <div class="footer-bottom">© 2026 MAGEN Sistema de Monitoramento Estrutural. Todos os direitos reservados.</div>
 </footer>
 
+<!-- Botão de modo escuro -->
+<button id="themeToggle" class="theme-toggle" aria-label="Alternar modo escuro">
+  ☾
+</button>
+
+<script>
+  const themeToggle = document.getElementById("themeToggle");
+
+  // Recupera o tema salvo
+  if (localStorage.getItem("magen-theme") === "dark") {
+    document.body.classList.add("dark-mode");
+    themeToggle.textContent = "☀";
+  }
+
+  themeToggle.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+
+    const isDark = document.body.classList.contains("dark-mode");
+
+    themeToggle.textContent = isDark ? "☀" : "☾";
+
+    localStorage.setItem(
+      "magen-theme",
+      isDark ? "dark" : "light"
+    );
+  });
+</script>
+
 </body>
 </html>

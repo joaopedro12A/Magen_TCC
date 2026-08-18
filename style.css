@@ -715,3 +715,287 @@ body.menu-open{ overflow:hidden; }
 }
 
 
+/* =========================================================
+   BOTÃO DE TEMA
+   ========================================================= */
+
+.theme-toggle {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+
+  width: 52px;
+  height: 52px;
+
+  border: 1px solid #dfe3ec;
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.92);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+
+  box-shadow: 0 8px 25px rgba(11, 19, 48, 0.15);
+
+  backdrop-filter: blur(10px);
+
+  z-index: 9999;
+
+  transition:
+    background .25s ease,
+    border-color .25s ease,
+    transform .25s ease,
+    box-shadow .25s ease;
+}
+
+.theme-toggle:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(11, 19, 48, 0.22);
+}
+
+.theme-toggle:active {
+  transform: scale(.92);
+}
+
+.theme-toggle img {
+  width: 23px;
+  height: 23px;
+  object-fit: contain;
+}
+
+
+/* =========================================================
+   TEMA ESCURO
+   ========================================================= */
+
+body.dark-mode {
+  background: #080d1a;
+  color: #eef2ff;
+}
+
+
+/* Header */
+
+body.dark-mode header.site {
+  background: rgba(8, 13, 26, 0.92);
+  border-color: #1c2740;
+}
+
+body.dark-mode .brand {
+  color: #fff;
+}
+
+body.dark-mode nav.main-nav {
+  color: #c7cee2;
+}
+
+body.dark-mode nav.main-nav a:hover {
+  color: #6d8cff;
+}
+
+body.dark-mode nav.main-nav a.active {
+  color: #6d8cff;
+}
+
+body.dark-mode .hamburger span {
+  background: #fff;
+}
+
+
+/* Hero */
+
+body.dark-mode .hero {
+  background: #080d1a;
+}
+
+body.dark-mode h1.headline {
+  color: #f5f7ff;
+}
+
+body.dark-mode .lede {
+  color: #9da8bf;
+}
+
+body.dark-mode .stat-num {
+  color: #fff;
+}
+
+body.dark-mode .stat-label {
+  color: #8f9ab2;
+}
+
+body.dark-mode .stat-divider {
+  background: #27324b;
+}
+
+
+/* Botões */
+
+body.dark-mode .btn-outline,
+body.dark-mode .btn-ghost {
+  background: #111a2e;
+  border-color: #293652;
+  color: #fff;
+}
+
+body.dark-mode .btn-outline:hover,
+body.dark-mode .btn-ghost:hover {
+  background: #17223a;
+  border-color: #3a4a6d;
+}
+
+
+/* Eyebrow */
+
+body.dark-mode .eyebrow {
+  background: rgba(79, 125, 255, .12);
+  border-color: rgba(79, 125, 255, .25);
+  color: #7d9aff;
+}
+
+
+/* Objetivo */
+
+body.dark-mode .objetivo,
+body.dark-mode .faq {
+  background: #080d1a;
+}
+
+body.dark-mode .objetivo .obj-copy p {
+  color: #9da8bf;
+}
+
+body.dark-mode .obj-copy .academic {
+  background: #101a30;
+  color: #aeb8ce;
+}
+
+body.dark-mode .obj-card {
+  background: #101827;
+  border-color: #1f2b44;
+}
+
+body.dark-mode .obj-card h4 {
+  color: #fff;
+}
+
+body.dark-mode .obj-card p {
+  color: #929eb6;
+}
+
+body.dark-mode .obj-card:hover {
+  box-shadow: 0 12px 30px rgba(0, 0, 0, .3);
+}
+
+
+/* FAQ */
+
+body.dark-mode .faq-item {
+  background: #101827;
+  border-color: #1f2b44;
+}
+
+body.dark-mode .faq-q {
+  color: #fff;
+}
+
+body.dark-mode .faq-q .plus {
+  background: #17233d;
+  color: #7d9aff;
+}
+
+body.dark-mode .faq-a-inner {
+  color: #9da8bf;
+}
+
+
+/* Botão de tema no modo escuro */
+
+body.dark-mode .theme-toggle {
+  background: rgba(17, 27, 47, .94);
+  border-color: #2a3958;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, .35);
+}
+
+
+/* Mobile menu */
+
+body.dark-mode .mobile-menu {
+  background: #0c1425;
+}
+
+body.dark-mode .mobile-menu-brand {
+  color: #fff;
+  border-color: #1f2b44;
+}
+
+body.dark-mode .mobile-menu a {
+  color: #c7cee2;
+  border-color: #1f2b44;
+}
+
+body.dark-mode .mobile-menu a.active {
+  color: #6d8cff;
+}
+
+
+/* Métricas */
+
+body.dark-mode .metrics-panel {
+  background: #101827;
+  border-color: #1f2b44;
+}
+
+body.dark-mode .metric-row + .metric-row {
+  border-color: #1f2b44;
+}
+
+body.dark-mode .metric-name {
+  color: #fff;
+}
+
+body.dark-mode .metric-sub {
+  color: #8f9ab2;
+}
+
+
+/* Transição geral */
+
+body,
+header.site,
+.objetivo,
+.faq,
+.obj-card,
+.faq-item,
+.metrics-panel,
+.mobile-menu,
+.theme-toggle,
+.btn-outline,
+.btn-ghost {
+  transition:
+    background-color .3s ease,
+    color .3s ease,
+    border-color .3s ease,
+    box-shadow .3s ease;
+}
+
+
+/* Mobile */
+
+@media (max-width: 520px) {
+  .theme-toggle {
+    width: 46px;
+    height: 46px;
+    right: 16px;
+    bottom: 16px;
+  }
+
+  .theme-toggle img {
+    width: 20px;
+    height: 20px;
+  }
+}
+

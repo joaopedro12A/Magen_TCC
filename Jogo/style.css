@@ -322,3 +322,170 @@ footer.site{background: var(--navy); color:#c7cbe6; padding: 64px 48px 28px;}
   .meta-cards{grid-template-columns:1fr 1fr;}
   .game-hero h1{font-size:1.4rem;}
 }
+
+/* ==================================================
+   BOTÃO DE TEMA — CANTO INFERIOR DIREITO
+   ================================================== */
+
+.theme-toggle{
+  position:fixed;
+  right:24px;
+  bottom:24px;
+
+  width:46px;
+  height:46px;
+
+  border:1px solid var(--line);
+  border-radius:50%;
+
+  background:#fff;
+  color:var(--ink);
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  font-size:1.25rem;
+  cursor:pointer;
+
+  box-shadow:0 8px 24px rgba(20,28,60,0.14);
+
+   transition:
+    background .25s ease,
+    border-color .25s ease,
+    transform .25s ease,
+    box-shadow .25s ease;
+
+  z-index:9999;
+}
+
+.theme-toggle:hover{
+  transform:translateY(-2px);
+  box-shadow:0 12px 28px rgba(20,28,60,0.20);
+}
+
+.theme-toggle:active{
+  transform:scale(.94);
+}
+
+
+/* ==================================================
+   TEMA ESCURO
+   ================================================== */
+
+body.dark-theme{
+  --ink:#f3f4ff;
+  --muted:#aeb4cf;
+  --line:#292f4a;
+  --bg:#0b1024;
+
+  background:#0b1024;
+  color:#f3f4ff;
+}
+
+
+/* Header */
+
+body.dark-theme header.site{
+  background:rgba(11,16,36,.92);
+  border-color:#292f4a;
+}
+
+body.dark-theme .brand{
+  color:#fff;
+}
+
+body.dark-theme nav.main-nav{
+  color:#c8cce0;
+}
+
+body.dark-theme nav.main-nav a:hover,
+body.dark-theme nav.main-nav a.active{
+  color:#6f7fff;
+}
+
+
+/* Botão Login */
+
+body.dark-theme .btn-ghost{
+  background:#151b35;
+  border-color:#303753;
+  color:#f3f4ff;
+}
+
+body.dark-theme .btn-ghost:hover{
+  background:#1c2341;
+  border-color:#414a69;
+}
+
+
+/* Área principal */
+
+body.dark-theme main,
+body.dark-theme .game-main{
+  background:#0b1024;
+}
+
+
+/* Hero */
+
+body.dark-theme .game-hero{
+  background:linear-gradient(
+    160deg,
+    #080d20,
+    #111936 55%,
+    #080d20
+  );
+}
+
+
+/* Caixa Como jogar */
+
+body.dark-theme .info-box{
+  background:#121832;
+  border-color:#292f4a;
+}
+
+body.dark-theme .steps li{
+  color:#c8cce0;
+}
+
+body.dark-theme .step-num{
+  background:#202957;
+  color:#8c99ff;
+}
+
+
+/* Cards */
+
+body.dark-theme .meta-card{
+  background:#121832;
+  border-color:#292f4a;
+}
+
+body.dark-theme .meta-value{
+  color:#f3f4ff;
+}
+
+
+/* Botão voltar */
+
+body.dark-theme .btn-block-ghost{
+  background:#121832;
+  border-color:#303753;
+  color:#f3f4ff;
+}
+
+body.dark-theme .btn-block-ghost:hover{
+  background:#191f3a;
+  border-color:#414a69;
+}
+
+
+/* Botão de tema no modo escuro */
+
+body.dark-theme .theme-toggle{
+  background:#171d38;
+  border-color:#343b59;
+  color:#fff;
+}

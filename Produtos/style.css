@@ -222,3 +222,285 @@ footer.site{background: var(--navy); color:#c7cbe6; padding: 64px 48px 28px;}
   .feature-list{grid-template-columns:1fr;}
   .footer-grid{grid-template-columns:1fr;}
 }
+
+/* =========================================================
+   MODO ESCURO
+   ========================================================= */
+
+body {
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease;
+}
+
+
+/* ---------- Botão do modo escuro ---------- */
+
+.theme-toggle {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+
+  width: 48px;
+  height: 48px;
+
+  border: 1px solid var(--line);
+  border-radius: 50%;
+
+  background: #ffffff;
+  color: var(--ink);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 1.25rem;
+  line-height: 1;
+
+  cursor: pointer;
+
+  box-shadow: 0 8px 24px rgba(20, 28, 60, 0.15);
+
+  z-index: 100;
+
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.2s ease,
+    box-shadow 0.25s ease;
+}
+
+.theme-toggle:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(20, 28, 60, 0.22);
+}
+
+
+/* =========================================================
+   MODO ESCURO
+   ========================================================= */
+
+body.dark-mode {
+  --ink: #f1f3ff;
+  --muted: #a8aec5;
+  --line: #30364f;
+  --bg: #0d1124;
+  --navy: #080c1c;
+
+  background: #0d1124;
+  color: var(--ink);
+}
+
+
+/* ---------- Header ---------- */
+
+body.dark-mode header.site {
+  background: rgba(13, 17, 36, 0.92);
+  border-bottom-color: var(--line);
+}
+
+body.dark-mode nav.main-nav {
+  color: #c5c9dc;
+}
+
+body.dark-mode nav.main-nav a:hover,
+body.dark-mode nav.main-nav a.active {
+  color: #7180ff;
+}
+
+body.dark-mode nav.main-nav a.active::after {
+  background: #7180ff;
+}
+
+
+/* ---------- Botão Login ---------- */
+
+body.dark-mode .btn-ghost {
+  background: #171c34;
+  border-color: #353b55;
+  color: #eef0ff;
+}
+
+body.dark-mode .btn-ghost:hover {
+  background: #202640;
+  border-color: #48506d;
+}
+
+
+/* ---------- Conteúdo ---------- */
+
+body.dark-mode main {
+  background: var(--bg);
+}
+
+
+/* ---------- Título da página ---------- */
+
+body.dark-mode .page-head h1 {
+  color: #f1f3ff;
+}
+
+body.dark-mode .page-head p {
+  color: #a8aec5;
+}
+
+
+/* =========================================================
+   PRODUTO EM DESTAQUE
+   ========================================================= */
+
+body.dark-mode .featured {
+  background: #151a30;
+  border-color: #30364f;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+body.dark-mode .featured-title {
+  color: #f1f3ff;
+}
+
+body.dark-mode .featured-price {
+  color: #7180ff;
+}
+
+body.dark-mode .featured-desc {
+  color: #a8aec5;
+}
+
+body.dark-mode .feature-item {
+  color: #c5c9dc;
+}
+
+
+/* ---------- Badge ---------- */
+
+body.dark-mode .kit-badge {
+  background: #20275a;
+  color: #8490ff;
+  border-color: #353d70;
+}
+
+
+/* ---------- Botão Ver Detalhes ---------- */
+
+body.dark-mode .btn-block {
+  background: var(--blue);
+  color: #fff;
+}
+
+body.dark-mode .btn-block:hover {
+  background: var(--blue-dark);
+}
+
+
+/* =========================================================
+   CARDS DOS PRODUTOS
+   ========================================================= */
+
+body.dark-mode .product-card {
+  background: #151a30;
+  border-color: #30364f;
+}
+
+body.dark-mode .product-card:hover {
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.30);
+  border-color: #424b70;
+}
+
+
+/* ---------- Imagem do produto ---------- */
+
+body.dark-mode .product-thumb {
+  background: linear-gradient(
+    160deg,
+    #1b213a,
+    #202641
+  );
+
+  border-bottom-color: #30364f;
+}
+
+
+/* ---------- Informações ---------- */
+
+body.dark-mode .product-name {
+  color: #f1f3ff;
+}
+
+body.dark-mode .product-desc {
+  color: #a8aec5;
+}
+
+body.dark-mode .product-price {
+  color: #f1f3ff;
+}
+
+body.dark-mode .product-link {
+  color: #8490ff;
+}
+
+body.dark-mode .product-link:hover {
+  color: #a0a9ff;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+body.dark-mode footer.site {
+  background: #080c1c;
+}
+
+
+/* =========================================================
+   BOTÃO DO TEMA NO MODO ESCURO
+   ========================================================= */
+
+body.dark-mode .theme-toggle {
+  background: #1b2139;
+  border-color: #3a4260;
+  color: #f5f7ff;
+
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+body.dark-mode .theme-toggle:hover {
+  background: #242b48;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45);
+}
+
+
+/* =========================================================
+   TRANSIÇÕES
+   ========================================================= */
+
+.featured,
+.product-card,
+.product-thumb,
+header.site,
+main,
+.theme-toggle {
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+/* ---------- Mobile ---------- */
+
+@media (max-width: 640px) {
+
+  .theme-toggle {
+    right: 16px;
+    bottom: 16px;
+
+    width: 44px;
+    height: 44px;
+  }
+
+}

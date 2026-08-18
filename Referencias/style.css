@@ -211,3 +211,265 @@ footer.site{background: var(--navy); color:#c7cbe6; padding: 64px 48px 28px;}
 @media (max-width:560px){
   .footer-grid{grid-template-columns:1fr;}
 }
+
+/* =========================================================
+   BOTÃO DE TEMA
+   ========================================================= */
+
+.theme-toggle {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  width: 52px;
+  height: 52px;
+
+  border: 1px solid #dfe3ec;
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.92);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+
+  box-shadow: 0 8px 25px rgba(11, 19, 48, 0.15);
+
+  backdrop-filter: blur(10px);
+
+  z-index: 9999;
+
+  transition:
+    background-color .3s ease,
+    border-color .3s ease,
+    transform .25s ease,
+    box-shadow .25s ease;
+}
+
+.theme-toggle:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(11, 19, 48, 0.22);
+}
+
+.theme-toggle:active {
+  transform: scale(.92);
+}
+
+.theme-toggle img {
+  width: 23px;
+  height: 23px;
+  object-fit: contain;
+}
+
+
+/* =========================================================
+   TEMA ESCURO
+   ========================================================= */
+
+body.dark-mode {
+  background: #080d1a;
+  color: #eef2ff;
+}
+
+
+/* ---------- Header ---------- */
+
+body.dark-mode header.site {
+  background: rgba(8, 13, 26, 0.92);
+  border-color: #1c2740;
+}
+
+body.dark-mode .brand {
+  color: #fff;
+}
+
+body.dark-mode nav.main-nav {
+  color: #c7cee2;
+}
+
+body.dark-mode nav.main-nav a:hover {
+  color: #6d8cff;
+}
+
+body.dark-mode nav.main-nav a.active {
+  color: #6d8cff;
+}
+
+
+/* ---------- Conteúdo ---------- */
+
+body.dark-mode main {
+  background: #080d1a;
+}
+
+body.dark-mode .page-head h1 {
+  color: #f5f7ff;
+}
+
+body.dark-mode .page-head p {
+  color: #9da8bf;
+}
+
+
+/* ---------- Artigo em destaque ---------- */
+
+body.dark-mode .featured-article {
+  background: #101827;
+  border-color: #1f2b44;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .25);
+}
+
+body.dark-mode .featured-text h2 {
+  color: #f5f7ff;
+}
+
+body.dark-mode .featured-text .desc {
+  color: #9da8bf;
+}
+
+body.dark-mode .article-meta .read {
+  color: #8f9ab2;
+}
+
+body.dark-mode .article-meta .sep {
+  color: #39445d;
+}
+
+body.dark-mode .author-avatar {
+  background: #1c2942;
+  color: #9da8bf;
+}
+
+body.dark-mode .author-name {
+  color: #fff;
+}
+
+body.dark-mode .author-sub {
+  color: #8f9ab2;
+}
+
+body.dark-mode .read-link {
+  color: #6d8cff;
+}
+
+body.dark-mode .read-link:hover {
+  color: #8ba3ff;
+}
+
+
+/* ---------- Título dos artigos ---------- */
+
+body.dark-mode .grid-title {
+  color: #fff;
+}
+
+
+/* ---------- Cards ---------- */
+
+body.dark-mode .article-card {
+  background: #101827;
+  border-color: #1f2b44;
+}
+
+body.dark-mode .article-card:hover {
+  box-shadow: 0 14px 30px rgba(0, 0, 0, .3);
+}
+
+body.dark-mode .article-tag {
+  color: #8f9ab2;
+}
+
+body.dark-mode .article-title {
+  color: #f5f7ff;
+}
+
+body.dark-mode .article-authors {
+  color: #929eb6;
+}
+
+body.dark-mode .article-bottom {
+  border-color: #1f2b44;
+}
+
+body.dark-mode .article-date {
+  color: #8f9ab2;
+}
+
+
+/* ---------- Bookmark ---------- */
+
+body.dark-mode .bookmark {
+  color: #8f9ab2;
+  border-color: #2a3958;
+}
+
+body.dark-mode .bookmark:hover {
+  color: #7d9aff;
+  border-color: #3d4f78;
+}
+
+body.dark-mode .bookmark.active {
+  color: #fff;
+  background: var(--blue);
+  border-color: var(--blue);
+}
+
+
+/* ---------- Botão de tema ---------- */
+
+body.dark-mode .theme-toggle {
+  background: rgba(17, 27, 47, .94);
+  border-color: #2a3958;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, .35);
+}
+
+
+/* ---------- Botões do Header ---------- */
+
+body.dark-mode .btn-ghost {
+  background: #111a2e;
+  border-color: #293652;
+  color: #fff;
+}
+
+body.dark-mode .btn-ghost:hover {
+  background: #17223a;
+  border-color: #3a4a6d;
+}
+
+
+/* ---------- Transição ---------- */
+
+body,
+header.site,
+main,
+.featured-article,
+.article-card,
+.btn-ghost,
+.theme-toggle {
+  transition:
+    background-color .3s ease,
+    color .3s ease,
+    border-color .3s ease,
+    box-shadow .3s ease;
+}
+
+
+/* ---------- Mobile ---------- */
+
+@media (max-width: 520px) {
+
+  .theme-toggle {
+    width: 46px;
+    height: 46px;
+    right: 16px;
+    bottom: 16px;
+  }
+
+  .theme-toggle img {
+    width: 20px;
+    height: 20px;
+  }
+
+}
