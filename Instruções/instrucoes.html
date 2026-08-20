@@ -31,6 +31,13 @@
     <button class="btn btn-ghost">Login</button>
     <button class="btn btn-primary">Cadastre-se</button>
   </div>
+
+  <!-- Botão hambúrguer (aparece só no mobile) -->
+  <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-controls="mobilePanel" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 </header>
 
 <div class="mobile-panel" id="mobilePanel">
@@ -61,7 +68,7 @@
 
     <section class="instr-hero">
 
-  <img src="./Project Team.png" class="instr-hero-bg" alt="">
+  <img src="../Instruções/Project Team.png" class="instr-hero-bg" alt="">
 
   <div class="instr-hero-content">
     <span class="instr-badge">GUIA DE INTERAÇÃO</span>
@@ -242,6 +249,53 @@
   });
 </script>
 
+<!-- Menu mobile (hambúrguer) -->
+<script>
+  const menuToggle = document.getElementById("menuToggle");
+  const mobilePanel = document.getElementById("mobilePanel");
+  const mobilePanelClose = document.getElementById("mobilePanelClose");
+
+  function openMobilePanel() {
+    mobilePanel.classList.add("open");
+    menuToggle.classList.add("open");
+    menuToggle.setAttribute("aria-expanded", "true");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeMobilePanel() {
+    mobilePanel.classList.remove("open");
+    menuToggle.classList.remove("open");
+    menuToggle.setAttribute("aria-expanded", "false");
+    document.body.style.overflow = "";
+  }
+
+  menuToggle.addEventListener("click", () => {
+    const isOpen = mobilePanel.classList.contains("open");
+    isOpen ? closeMobilePanel() : openMobilePanel();
+  });
+
+  mobilePanelClose.addEventListener("click", closeMobilePanel);
+
+  // Fecha ao clicar fora do painel (no fundo escurecido)
+  mobilePanel.addEventListener("click", (e) => {
+    if (e.target === mobilePanel) closeMobilePanel();
+  });
+
+  // Fecha ao clicar em qualquer link do menu
+  document.querySelectorAll(".mobile-nav-links a").forEach((link) => {
+    link.addEventListener("click", closeMobilePanel);
+  });
+
+  // Fecha automaticamente se a tela crescer para além do breakpoint mobile
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 425) closeMobilePanel();
+  });
+
+  // Fecha com a tecla Esc
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeMobilePanel();
+  });
+</script>
 
 </body>
 </html>

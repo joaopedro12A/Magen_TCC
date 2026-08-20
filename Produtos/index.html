@@ -36,13 +36,37 @@
   </div>
 
   <!-- BOTÃO MOBILE -->
-  <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
+  <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-controls="mobilePanel" aria-expanded="false">
     <span></span>
     <span></span>
     <span></span>
   </button>
 
 </header>
+
+<!-- PAINEL MOBILE -->
+<div class="mobile-panel" id="mobilePanel">
+  <div class="mobile-panel-sheet">
+    <div class="mobile-panel-top">
+      <div class="brand mobile-brand">
+        <img src="../Logo.png" alt="MAGEN" width="28" height="28">
+        MAGEN
+      </div>
+      <button class="mobile-panel-close" id="mobilePanelClose" aria-label="Fechar menu">✕</button>
+    </div>
+    <nav class="mobile-nav-links">
+      <a href="../index.html">Home</a>
+      <a href="../Instruções/instrucoes.html">Instruções</a>
+      <a href="../Produtos/index.html" class="active">Produtos</a>
+      <a href="../Quem somos/quem-somos.html">Quem Somos?</a>
+      <a href="../Referencias/index.html">Referências</a>
+      <a href="../Jogo/jogo.html">Jogo</a>
+      <div class="mobile-nav-divider"></div>
+      <a href="#">Login</a>
+      <a href="#" class="cta">Criar Conta →</a>
+    </nav>
+  </div>
+</div>
 
 <main>
   <div class="wrap">
@@ -207,6 +231,54 @@
       themeToggle.setAttribute("aria-label", "Ativar modo escuro");
       localStorage.setItem("magen-theme", "light");
     }
+  });
+</script>
+
+<!-- Menu mobile (hambúrguer) -->
+<script>
+  const menuToggle = document.getElementById("menuToggle");
+  const mobilePanel = document.getElementById("mobilePanel");
+  const mobilePanelClose = document.getElementById("mobilePanelClose");
+
+  function openMobilePanel() {
+    mobilePanel.classList.add("open");
+    menuToggle.classList.add("open");
+    menuToggle.setAttribute("aria-expanded", "true");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeMobilePanel() {
+    mobilePanel.classList.remove("open");
+    menuToggle.classList.remove("open");
+    menuToggle.setAttribute("aria-expanded", "false");
+    document.body.style.overflow = "";
+  }
+
+  menuToggle.addEventListener("click", () => {
+    const isOpen = mobilePanel.classList.contains("open");
+    isOpen ? closeMobilePanel() : openMobilePanel();
+  });
+
+  mobilePanelClose.addEventListener("click", closeMobilePanel);
+
+  // Fecha ao clicar fora do painel (no fundo escurecido)
+  mobilePanel.addEventListener("click", (e) => {
+    if (e.target === mobilePanel) closeMobilePanel();
+  });
+
+  // Fecha ao clicar em qualquer link do menu
+  document.querySelectorAll(".mobile-nav-links a").forEach((link) => {
+    link.addEventListener("click", closeMobilePanel);
+  });
+
+  // Fecha automaticamente se a tela crescer para além do breakpoint mobile
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 425) closeMobilePanel();
+  });
+
+  // Fecha com a tecla Esc
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeMobilePanel();
   });
 </script>
 
