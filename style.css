@@ -113,7 +113,25 @@ h2 span{color:var(--blue);}
 .credito .wrap{padding:96px 0;}
 .credito-content {
   max-width: 560px;
-  transform: translateX(-290px);
+  margin-left: 0;
+  margin-right: auto;
+  transform: none;
+}
+
+@media (min-width: 861px) {
+  .credito .wrap {
+    max-width: none;
+    width: 100%;
+    margin: 0;
+    padding-left: 170px;
+    padding-right: 24px;
+  }
+
+  .credito-content {
+    margin-left: 0;
+    margin-right: auto;
+    transform: none;
+  }
 }
 .credito .eyebrow{background:rgba(79,125,255,.14); border-color:rgba(79,125,255,.35); color:var(--blue-light);}
 .credito h2{color:#fff; font-size:34px; max-width:520px;}
@@ -544,115 +562,10 @@ footer.site{
 }
 
 /* ==================================================================
-   ARQUIVO 3 — MENU HAMBURGER + MOBILE (a partir de 425px)
+   ARQUIVO 3 — MENU HAMBURGER + MOBILE
+   O componente do menu hambúrguer (HTML, CSS e JS) agora é único e
+   compartilhado por todas as páginas — veja enhance.css / enhance.js.
    ================================================================== */
-
-/* Hamburger button: escondido no desktop */
-.hamburger{
-  display:none;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  gap:5px;
-  width:40px;
-  height:40px;
-  background:none;
-  border:none;
-  cursor:pointer;
-  padding:0;
-  z-index:110;
-  flex-shrink:0;
-}
-.hamburger span{
-  display:block;
-  width:22px;
-  height:2px;
-  background:var(--ink, #10142b);
-  border-radius:2px;
-  transition: transform .25s ease, opacity .2s ease;
-}
-.hamburger.open span:nth-child(1){ transform: translateY(7px) rotate(45deg); }
-.hamburger.open span:nth-child(2){ opacity:0; }
-.hamburger.open span:nth-child(3){ transform: translateY(-7px) rotate(-45deg); }
-
-/* Overlay escuro atrás do menu */
-.mobile-menu-overlay{
-  display:none;
-  position:fixed;
-  inset:0;
-  background:rgba(11,18,32,0.45);
-  z-index:90;
-  opacity:0;
-  transition:opacity .25s ease;
-}
-.mobile-menu-overlay.open{
-  display:block;
-  opacity:1;
-}
-
-/* Painel do menu mobile (slide-in pela direita) */
-.mobile-menu{
-  position:fixed;
-  top:0;
-  right:0;
-  height:100vh;
-  width:78%;
-  max-width:320px;
-  background:#fff;
-  z-index:100;
-  display:flex;
-  flex-direction:column;
-  gap:4px;
-  padding:28px 28px 32px;
-  box-shadow:-12px 0 40px rgba(11,19,48,0.18);
-  transform:translateX(100%);
-  transition:transform .3s ease;
-  overflow-y:auto;
-}
-.mobile-menu.open{
-  transform:translateX(0);
-}
-.mobile-menu-brand{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  font-weight:800;
-  font-size:1.1rem;
-  letter-spacing:0.02em;
-  color:var(--ink, #10142b);
-  padding-bottom:22px;
-  margin-bottom:14px;
-  border-bottom:1px solid var(--line, #e7e9f2);
-}
-.mobile-menu-brand img{flex-shrink:0;}
-.mobile-menu a{
-  font-size:1.02rem;
-  font-weight:600;
-  color:#374151;
-  padding:14px 4px;
-  border-bottom:1px solid var(--line, #e7e9f2);
-}
-.mobile-menu a.active{color:var(--blue, #2a3ee0);}
-.mobile-menu-actions{
-  display:flex;
-  flex-direction:column;
-  gap:12px;
-  margin-top:24px;
-}
-.mobile-menu-actions .btn{
-  width:100%;
-  justify-content:center;
-  padding:12px 18px;
-}
-
-body.menu-open{ overflow:hidden; }
-
-/* ===================== A partir de 860px: ativa o hamburger ===================== */
-@media (max-width:860px){
-  nav.main-nav{display:none;}
-  .header-actions{display:none;}
-  .hamburger{display:flex;}
-}
 
 /* ===================== MOBILE — a partir de 425px ===================== */
 @media (max-width:425px){

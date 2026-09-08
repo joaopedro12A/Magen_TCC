@@ -60,83 +60,8 @@ nav.main-nav a.active::after{
 .btn-primary{background: var(--blue); color:#fff;}
 .btn-primary:hover{background:var(--blue-dark);}
 
-/* ---------- Botão hambúrguer (mobile) ---------- */
-.menu-toggle{
-  display:none;
-  background:none;
-  border:none;
-  cursor:pointer;
-  padding:6px;
-  flex-direction:column;
-  justify-content:center;
-  gap:5px;
-}
-.menu-toggle span{
-  display:block;
-  width:23px; height:2px; background: var(--ink); border-radius:2px;
-  transition: transform .2s ease, opacity .2s ease;
-}
-.menu-toggle.open span:nth-child(1){transform: translateY(7px) rotate(45deg);}
-.menu-toggle.open span:nth-child(2){opacity:0;}
-.menu-toggle.open span:nth-child(3){transform: translateY(-7px) rotate(-45deg);}
-
-/* ---------- Painel de navegação mobile ---------- */
-.mobile-panel{
-  display:none;
-  position:fixed;
-  inset:0;
-  background: rgba(11,19,48,0.45);
-  z-index:999;
-  opacity:0;
-  pointer-events:none;
-  transition: opacity .25s ease;
-}
-.mobile-panel.open{opacity:1; pointer-events:auto;}
-.mobile-panel-sheet{
-  position:absolute;
-  top:0; right:0;
-  width: 82%;
-  max-width: 320px;
-  height:100%;
-  background:#fff;
-  box-shadow: -12px 0 35px rgba(11,19,48,0.2);
-  padding: 22px 24px 30px;
-  transform: translateX(100%);
-  transition: transform .3s ease;
-  display:flex;
-  flex-direction:column;
-}
-.mobile-panel.open .mobile-panel-sheet{transform: translateX(0);}
-.mobile-panel-top{
-  display:flex; align-items:center; justify-content:space-between;
-  margin-bottom: 28px;
-}
-.mobile-brand{font-size:1.05rem;}
-.mobile-panel-close{
-  width:36px; height:36px;
-  display:flex; align-items:center; justify-content:center;
-  background:none; border:none; border-radius:8px;
-  font-size:1.25rem; cursor:pointer; color: var(--ink); line-height:1;
-  transition: background .2s ease, color .2s ease;
-}
-.mobile-panel-close:hover{background:#f1f3f8;}
-.mobile-nav-links{
-  display:flex; flex-direction:column; gap:2px;
-}
-.mobile-nav-links a{
-  padding: 14px 4px;
-  font-size:0.98rem;
-  font-weight:600;
-  color:#374151;
-  border-bottom: 1px solid var(--line);
-  transition: color .2s ease, padding-left .2s ease;
-}
-.mobile-nav-links a:hover{color: var(--blue); padding-left:8px;}
-.mobile-nav-links a.active{color: var(--blue);}
-.mobile-nav-links a.cta{color: var(--blue); font-weight:800;}
-.mobile-nav-divider{
-  height:1px; background: var(--line); margin: 8px 0 10px;
-}
+/* O menu mobile (hambúrguer) agora é um componente único, compartilhado
+   por todas as páginas — veja enhance.css / enhance.js. */
 
 /* ---------- Page shell ---------- */
 main{background: var(--bg); padding: 40px 48px 80px;}
@@ -499,42 +424,7 @@ body.dark-mode .product-link:hover {
 }
 
 
-/* ---------- Menu mobile (dark) ---------- */
-
-body.dark-mode .mobile-panel {
-  background: rgba(0, 0, 0, 0.58);
-}
-
-body.dark-mode .mobile-panel-sheet {
-  background: #11162a;
-}
-
-body.dark-mode .mobile-panel-close {
-  color: #f1f3ff;
-}
-
-body.dark-mode .mobile-panel-close:hover {
-  background: #1c2340;
-}
-
-body.dark-mode .mobile-nav-links a {
-  color: #c5c9dc;
-  border-bottom-color: #30364f;
-}
-
-body.dark-mode .mobile-nav-links a:hover,
-body.dark-mode .mobile-nav-links a.active,
-body.dark-mode .mobile-nav-links a.cta {
-  color: #8490ff;
-}
-
-body.dark-mode .mobile-nav-divider {
-  background: #30364f;
-}
-
-body.dark-mode .menu-toggle span {
-  background: #f1f3ff;
-}
+/* Modo escuro do menu mobile: veja enhance.css (componente compartilhado). */
 
 
 /* =========================================================
@@ -595,18 +485,6 @@ main,
   .brand{font-size:1rem;}
   .brand img{width:33px; height:34px;}
 
-  /* Esconde nav e ações desktop, mostra hambúrguer */
-  nav.main-nav{display:none;}
-  .header-actions{display:none;}
-  .menu-toggle{display:flex;}
-
-  /* Painel mobile fica disponível para abrir */
-  .mobile-panel{display:block;}
-  .mobile-panel-sheet{
-    width: 88%;
-    max-width: none;
-  }
-
   /* Conteúdo */
   main{padding: 24px 16px 50px;}
 
@@ -662,12 +540,18 @@ main,
   footer.site{padding:42px 16px 24px;}
   .footer-desc{max-width:100%;}
   .footer-bottom{font-size:0.75rem; line-height:1.5;}
-
-  /* Botão de tema */
-  .theme-toggle{
-    right:16px;
-    bottom:16px;
-    width:44px;
-    height:44px;
-  }
 }
+
+/* ===================== TABLET — de 426px a 860px ===================== */
+@media (max-width: 860px) and (min-width: 426px){
+  header.site{padding:16px 24px;}
+  main{padding: 32px 24px 60px;}
+
+  .featured{grid-template-columns:1fr; padding:26px; gap:22px;}
+  .featured-visual{order:-1; height:220px;}
+  .featured-image{max-width:320px; height:220px; transform:none;}
+  .kit-badge{position:static; display:inline-flex; margin-bottom:14px;}
+
+  .product-grid{grid-template-columns:repeat(2, 1fr); gap:18px;}
+}
+
