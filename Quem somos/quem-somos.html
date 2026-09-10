@@ -11,6 +11,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 <title>MAGEN — Quem Somos</title>
 <link rel="stylesheet" href="quem-somos.css">
+<link rel="stylesheet" href="../enhance.css">
 </head>
 <body>
 
@@ -33,35 +34,44 @@
   <div class="header-actions">
     <button class="btn btn-ghost">Login</button>
     <button class="btn btn-primary">Cadastre-se</button>
-
-    <!-- Botão do menu mobile -->
-    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobileMenu">
-      <span></span>
-      <span></span>
-      <span></span>
+    <button class="theme-toggle theme-toggle-header" aria-label="Alternar tema" title="Alternar tema claro/escuro">
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4 8.5 8.5 0 1 0 20 14.5Z" fill="currentColor"/></svg>
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="12" cy="12" r="4.2" fill="currentColor"/><g stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="12" y1="1.5" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22.5"/><line x1="1.5" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22.5" y2="12"/><line x1="4.2" y1="4.2" x2="5.9" y2="5.9"/><line x1="18.1" y1="18.1" x2="19.8" y2="19.8"/><line x1="4.2" y1="19.8" x2="5.9" y2="18.1"/><line x1="18.1" y1="5.9" x2="19.8" y2="4.2"/></g></svg>
     </button>
   </div>
 
+  <button class="hamburger" id="hamburgerBtn" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobileMenu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
 </header>
 
-<!-- Menu mobile -->
-<div class="mobile-menu" id="mobileMenu">
-
-  <nav>
-    <a href="../index.html">Home</a>
-    <a href="../Instruções/instrucoes.html">Instruções</a>
-    <a href="../Produtos/index.html">Produtos</a>
-    <a href="../Quem somos/quem-somos.html" class="active">Quem Somos?</a>
-    <a href="../Referencias/index.html">Referências</a>
-    <a href="../Jogo/jogo.html">Jogo</a>
-  </nav>
-
+<div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+<nav class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu-top">
+    <div class="mobile-menu-brand">
+      <img src="../Logo.png" alt="MAGEN" width="32" height="33">
+      MAGEN
+    </div>
+    <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Fechar menu">✕</button>
+  </div>
+  <a href="../index.html">Home</a>
+  <a href="../Instruções/instrucoes.html">Instruções</a>
+  <a href="../Produtos/index.html">Produtos</a>
+  <a href="../Quem somos/quem-somos.html" class="active">Quem Somos?</a>
+  <a href="../Referencias/index.html">Referências</a>
+  <a href="../Jogo/jogo.html">Jogo</a>
   <div class="mobile-menu-actions">
     <button class="btn btn-ghost">Login</button>
     <button class="btn btn-primary">Cadastre-se</button>
+    <button class="theme-toggle-mobile-row" aria-label="Alternar tema">
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4 8.5 8.5 0 1 0 20 14.5Z" fill="currentColor"/></svg>
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="12" cy="12" r="4.2" fill="currentColor"/><g stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="12" y1="1.5" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22.5"/><line x1="1.5" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22.5" y2="12"/><line x1="4.2" y1="4.2" x2="5.9" y2="5.9"/><line x1="18.1" y1="18.1" x2="19.8" y2="19.8"/><line x1="4.2" y1="19.8" x2="5.9" y2="18.1"/><line x1="18.1" y1="5.9" x2="19.8" y2="4.2"/></g></svg>
+    </button>
   </div>
-
-</div>
+</nav>
 
 <section class="about-hero">
   <svg class="bp-pattern" viewBox="0 0 800 300" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
@@ -120,26 +130,28 @@
     <div class="team-desc">Descrição..</div>
     <div class="team-bottom">
       <div class="team-socials">
-        <span>in</span>
-        <span>✉</span>
+        <a href="#" aria-label="Instagram de Erick Ferraz" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.7"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"/></svg></a>
+        <a href="#" aria-label="LinkedIn de Erick Ferraz" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4" stroke="currentColor" stroke-width="1.7"/><circle cx="8" cy="8.3" r="1.15" fill="currentColor"/><path d="M8 11v6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M12.2 17v-3.4c0-1.4 1-2.3 2.2-2.3s2 0.8 2 2.2V17" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M12.2 11v6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></a>
+        <a href="mailto:#" aria-label="E-mail de Erick Ferraz"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5" stroke="currentColor" stroke-width="1.7"/><path d="M4 6.5l8 6 8-6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       </div>
-      <a href="#" class="team-profile-link">Ver Perfil →</a>
+      <button class="team-profile-link" data-profile-trigger="erick">Ver Perfil →</button>
     </div>
   </div>
 
   <div class="team-card">
     <div class="avatar">
-      <img src="../Integrantes/João.png" alt="João Pedro B.">
+      <img src="../Integrantes/João.png" alt="João Pedro">
     </div>
-    <div class="team-name">João Pedro B.</div>
+    <div class="team-name">João Pedro</div>
     <div class="team-role">Descrição..</div>
     <div class="team-desc">Descrição..</div>
     <div class="team-bottom">
       <div class="team-socials">
-        <span>in</span>
-        <span>✉</span>
+        <a href="#" aria-label="Instagram de João Pedro B." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.7"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"/></svg></a>
+        <a href="#" aria-label="LinkedIn de João Pedro B." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4" stroke="currentColor" stroke-width="1.7"/><circle cx="8" cy="8.3" r="1.15" fill="currentColor"/><path d="M8 11v6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M12.2 17v-3.4c0-1.4 1-2.3 2.2-2.3s2 0.8 2 2.2V17" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M12.2 11v6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></a>
+        <a href="mailto:#" aria-label="E-mail de João Pedro B."><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5" stroke="currentColor" stroke-width="1.7"/><path d="M4 6.5l8 6 8-6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       </div>
-      <a href="#" class="team-profile-link">Ver Perfil →</a>
+      <button class="team-profile-link" data-profile-trigger="joao">Ver Perfil →</button>
     </div>
   </div>
 
@@ -152,10 +164,11 @@
     <div class="team-desc">Descrição..</div>
     <div class="team-bottom">
       <div class="team-socials">
-        <span>in</span>
-        <span>✉</span>
+        <a href="#" aria-label="Instagram de Leonardo Braga" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.7"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"/></svg></a>
+        <a href="#" aria-label="LinkedIn de Leonardo Braga" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4" stroke="currentColor" stroke-width="1.7"/><circle cx="8" cy="8.3" r="1.15" fill="currentColor"/><path d="M8 11v6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M12.2 17v-3.4c0-1.4 1-2.3 2.2-2.3s2 0.8 2 2.2V17" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M12.2 11v6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></a>
+        <a href="mailto:#" aria-label="E-mail de Leonardo Braga"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5" stroke="currentColor" stroke-width="1.7"/><path d="M4 6.5l8 6 8-6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       </div>
-      <a href="#" class="team-profile-link">Ver Perfil →</a>
+      <button class="team-profile-link" data-profile-trigger="leonardo">Ver Perfil →</button>
     </div>
   </div>
 
@@ -168,10 +181,11 @@
     <div class="team-desc">Descrição..</div>
     <div class="team-bottom">
       <div class="team-socials">
-        <span>in</span>
-        <span>✉</span>
+        <a href="#" aria-label="Instagram de Raul Egas" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.7"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"/></svg></a>
+        <a href="#" aria-label="LinkedIn de Raul Egas" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4" stroke="currentColor" stroke-width="1.7"/><circle cx="8" cy="8.3" r="1.15" fill="currentColor"/><path d="M8 11v6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M12.2 17v-3.4c0-1.4 1-2.3 2.2-2.3s2 0.8 2 2.2V17" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M12.2 11v6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></a>
+        <a href="mailto:#" aria-label="E-mail de Raul Egas"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5" stroke="currentColor" stroke-width="1.7"/><path d="M4 6.5l8 6 8-6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       </div>
-      <a href="#" class="team-profile-link">Ver Perfil →</a>
+      <button class="team-profile-link" data-profile-trigger="raul">Ver Perfil →</button>
     </div>
   </div>
 
@@ -184,10 +198,11 @@
     <div class="team-desc">Descrição..</div>
     <div class="team-bottom">
       <div class="team-socials">
-        <span>in</span>
-        <span>✉</span>
+        <a href="#" aria-label="Instagram de Vinicius Ferreira" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.7"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"/></svg></a>
+        <a href="#" aria-label="LinkedIn de Vinicius Ferreira" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4" stroke="currentColor" stroke-width="1.7"/><circle cx="8" cy="8.3" r="1.15" fill="currentColor"/><path d="M8 11v6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M12.2 17v-3.4c0-1.4 1-2.3 2.2-2.3s2 0.8 2 2.2V17" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M12.2 11v6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></a>
+        <a href="mailto:#" aria-label="E-mail de Vinicius Ferreira"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5" stroke="currentColor" stroke-width="1.7"/><path d="M4 6.5l8 6 8-6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       </div>
-      <a href="#" class="team-profile-link">Ver Perfil →</a>
+      <button class="team-profile-link" data-profile-trigger="vini">Ver Perfil →</button>
     </div>
   </div>
 
@@ -196,6 +211,18 @@
     </div>
   </div>
 </main>
+
+<!-- Pop-up "Ver Perfil" -->
+<div class="profile-modal-overlay" id="profileModalOverlay">
+  <div class="profile-modal" role="dialog" aria-modal="true" aria-labelledby="profileModalName">
+    <button class="profile-modal-close" id="profileModalClose" aria-label="Fechar">✕</button>
+    <div class="profile-modal-avatar"><img id="profileModalImg" src="" alt=""></div>
+    <div class="profile-modal-name" id="profileModalName">—</div>
+    <div class="profile-modal-role" id="profileModalRole"></div>
+    <p class="profile-modal-bio" id="profileModalBio"></p>
+    <div class="profile-modal-socials" id="profileModalSocials"></div>
+  </div>
+</div>
 
 <footer class="site">
   <div class="footer-grid">
@@ -211,11 +238,11 @@
     </div>
     <div class="footer-col">
       <h4>Navegação</h4>
-      <a href="index.html">Home</a>
-      <a href="instrucoes.html">Instruções</a>
-      <a href="produtos.html">Produtos</a>
-      <a href="#">Quem Somos?</a>
-      <a href="#">Jogo</a>
+      <a href="../index.html">Home</a>
+      <a href="../Instruções/instrucoes.html">Instruções</a>
+      <a href="../Produtos/index.html">Produtos</a>
+      <a href="quem-somos.html">Quem Somos?</a>
+      <a href="../Jogo/jogo.html">Jogo</a>
     </div>
     <div class="footer-col">
       <h4>Legal</h4>
@@ -235,31 +262,8 @@
 </footer>
 
 <script src="quem-somos.js"></script>
-
-<!-- Botão de modo escuro -->
-<button id="themeToggle" class="theme-toggle" aria-label="Alternar modo escuro">
-  ☾
-</button>
-
-<script>
-  const themeToggle = document.getElementById("themeToggle");
-
-  // Mantém a preferência salva
-  if (localStorage.getItem("magen-theme") === "dark") {
-    document.body.classList.add("dark-mode");
-    themeToggle.textContent = "☀";
-  }
-
-  themeToggle.addEventListener("click", () => {
-    document.body.classList.toggle("dark-mode");
-
-    const darkMode = document.body.classList.contains("dark-mode");
-
-    themeToggle.textContent = darkMode ? "☀" : "☾";
-
-    localStorage.setItem("magen-theme", darkMode ? "dark" : "light");
-  });
-</script>
+<script src="team-profiles.js"></script>
+<script src="../enhance.js"></script>
 
 </body>
 </html>
