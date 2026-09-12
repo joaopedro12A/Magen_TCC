@@ -10,35 +10,35 @@ const TEAM_PROFILES = {
     role: "Descrição..",
     image: "../Integrantes/Erick.png",
     bio: "Ainda não adicionamos uma biografia para este integrante. Edite este texto em team-profiles.js com uma descrição real do papel dele no projeto MAGEN.",
-    socials: { instagram: "#", linkedin: "#", email: "#" }
+    socials: { instagram: "https://www.instagram.com/itz_eerick/", linkedin: "https://www.linkedin.com/in/erick-ferraz-visenfad-17482b396/", email: "#" }
   },
   "joao": {
     name: "João Pedro",
     role: "Descrição..",
     image: "../Integrantes/João.png",
     bio: "Ainda não adicionamos uma biografia para este integrante. Edite este texto em team-profiles.js com uma descrição real do papel dele no projeto MAGEN.",
-    socials: { instagram: "#", linkedin: "#", email: "#" }
+    socials: { instagram: "https://www.instagram.com/itzjota_/", linkedin: "https://www.linkedin.com/in/jo%C3%A3o-pedro-borges-643352390/", email: "#" }
   },
   "leonardo": {
     name: "Leonardo Braga",
     role: "Descrição..",
     image: "../Integrantes/Leonardo.png",
     bio: "Ainda não adicionamos uma biografia para este integrante. Edite este texto em team-profiles.js com uma descrição real do papel dele no projeto MAGEN.",
-    socials: { instagram: "#", linkedin: "#", email: "#" }
+    socials: { instagram: "ttps://www.instagram.com/leozinho007c/", linkedin: "https://www.linkedin.com/in/leonardo-braga-de-souza-479243392/", email: "#" }
   },
   "raul": {
     name: "Raul Egas",
     role: "Descrição..",
     image: "../Integrantes/Raul.png",
     bio: "Ainda não adicionamos uma biografia para este integrante. Edite este texto em team-profiles.js com uma descrição real do papel dele no projeto MAGEN.",
-    socials: { instagram: "#", linkedin: "#", email: "#" }
+    socials: { instagram: "https://www.instagram.com/raul9egas/", linkedin: "https://www.linkedin.com/in/raul-egas-855a04391/", email: "#" }
   },
   "vini": {
     name: "Vinicius Ferreira",
     role: "Descrição..",
     image: "../Integrantes/Vini.png",
     bio: "Ainda não adicionamos uma biografia para este integrante. Edite este texto em team-profiles.js com uma descrição real do papel dele no projeto MAGEN.",
-    socials: { instagram: "#", linkedin: "#", email: "#" }
+    socials: { instagram: "https://www.instagram.com/vinizzkf/", linkedin: "https://www.linkedin.com/in/vinicius-ferreira-souza-3507bb398/", email: "#" }
   }
 };
 

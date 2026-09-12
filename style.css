@@ -209,6 +209,7 @@ h2 span{color:var(--blue);}
   .prototype-card{
     aspect-ratio: 4 / 3;
     max-height: 320px;
+    justify-content: center;
   }
 }
 
@@ -468,15 +469,15 @@ h1.headline .accent{color:var(--blue)}
   border-radius: 16px;
   overflow: hidden;
   display: flex;
-  justify-content:center;
+  justify-content: flex-end; /* empurra pro canto direito no desktop */
 }
 .prototype-card img{
-  width: 60%;
+  width: 62%;
   height: 100%;
   object-fit: cover;
   display: block;
+  /* remover a linha: transform: translateX(16rem); */
 }
-
 /* ---------- Footer ---------- */
 footer.site{
   background: var(--navy);
@@ -555,6 +556,7 @@ footer.site{
   .prototype-card{
     aspect-ratio: 4 / 3;
     max-height: 260px;
+    justify-content: center;
   }
 
   /* Botões */
