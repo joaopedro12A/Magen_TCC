@@ -66,87 +66,27 @@
     </button>
   </div>
 </nav>
-
+<div class="hero-video-wrap">
+    <video id="heroVideo" autoplay muted loop playsinline poster="prototipo-poster.jpg">
+      <source src="./Design sem nome.mp4" type="video/mp4">
+    </video>
+  </div>
 <section class="hero">
+  
+
   <div class="hero-copy">
-    <div class="eyebrow"><span class="dot"></span> Sistema MAGEN v2.0 Live</div>
+    <div class="eyebrow"><span class="dot"></span>Protótipo TCC</div>
     <h1 class="headline"><span class="accent">Monitoramento de <br></span> precisão da <br> integridade estrutural</h1>
-    <p class="lede">Detecção avançada em tempo real de fissuras,<br> deformações e análise de estabilidade para engenharia <br> de infraestrutura moderna.</p>
+    <p class="lede">Protótipo desenvolvido como Trabalho de Conclusão de Curso, que usa sensores para identificar o surgimento e a evolução de rachaduras em estruturas de concreto, permitindo intervenção antes que o dano se agrave.</p>
     <div class="hero-ctas">
-      <button class="btn btn-primary btn-lg">Conhecer Site →</button>
+      <button class="btn btn-primary btn-lg">Conhecer Site <img src="Icons/arrow-right.png" alt="" class="btn-icon"></button>
       <button class="btn btn-outline btn-lg">Criar uma conta</button>
-    </div>
-    <div class="stats">
-      <div>
-        <div class="stat-num">99.9%</div>
-        <div class="stat-label">SLA de tempo de atividade</div>
-      </div>
-      <div class="stat-divider"></div>
-      <div>
-        <div class="stat-num" id="sensorCount">50+</div>
-        <div class="stat-label">Tipos de sensores</div>
-      </div>
     </div>
   </div>
 
   <div class="hero-visual">
-    <div class="live-feed-card">
-      <div class="feed-top-bar">
-        <span>📡</span> Live Feed: Sector 7G
-      </div>
-      <div class="feed-canvas-wrap">
-        <canvas id="feedCanvas"></canvas>
-        <div class="feed-tag">#IB960</div>
-      </div>
-
-      <div class="status-card">
-        <div class="title"><span class="dot"></span> System Status</div>
-        <div class="eff-bar-track"><div class="eff-bar-fill" id="effBar"></div></div>
-        <div class="eff-row">Efficiency <b id="effVal">92%</b></div>
-      </div>
-    </div>
-
-    <div class="metrics-panel">
-      <div class="metric-row">
-        <div class="metric-left">
-          <div class="metric-icon">⚡</div>
-          <div>
-            <div class="metric-name">Vibration Analysis</div>
-            <div class="metric-sub">Sensor Array A-12</div>
-          </div>
-        </div>
-        <div>
-          <div class="metric-value green" id="vibVal">0.042g</div>
-          <div class="metric-status good">Normal Range</div>
-        </div>
-      </div>
-      <div class="metric-row">
-        <div class="metric-left">
-          <div class="metric-icon amber">🧱</div>
-          <div>
-            <div class="metric-name">Structural Load</div>
-            <div class="metric-sub">Sensor Array B-04</div>
-          </div>
-        </div>
-        <div>
-          <div class="metric-value" id="loadVal">842 MPa</div>
-          <div class="metric-status good">Stable</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="alert-card">
-      <div class="alert-top">
-        <span class="label">Recent Alerts</span>
-        <span class="live-pill">Live</span>
-      </div>
-      <div class="alert-item">
-        <span class="dot"></span>
-        <div class="alert-text">
-          <b>Micro-fracture detected in Sector B2</b>
-          <div class="alert-time" id="alertTime">2 mins ago</div>
-        </div>
-      </div>
+    <div class="prototype-card">
+      <img src="./YESDO 1.png" alt="Protótipo MAGEN de monitoramento estrutural">
     </div>
   </div>
 </section>
@@ -167,27 +107,29 @@
         </div>
       </div>
 
-      <div class="obj-cards">
-        <div class="obj-card">
-          <div class="obj-icon">◈</div>
-          <div>
-            <h4>Detecção precoce de fissuras</h4>
-            <p>Sensores identificam microdeformações antes que se tornem falhas visíveis.</p>
-          </div>
-        </div>
-        <div class="obj-card">
-          <div class="obj-icon">▤</div>
-          <div>
-            <h4>Redução de custos com manutenção</h4>
-            <p>Manutenção preventiva baseada em dados custa menos que reparos emergenciais.</p>
-          </div>
-        </div>
-        <div class="obj-card">
-          <div class="obj-icon">▲</div>
-          <div>
-            <h4>Decisões guiadas por dados</h4>
-            <p>Relatórios e alertas em tempo real dão suporte direto à equipe de engenharia.</p>
-          </div>
+     <div class="obj-cards">
+  <div class="obj-card">
+    <div class="obj-icon"><img src="Icons/scan-search.png" alt="Detecção precoce"></div>
+    <div>
+      <h4>Detecção precoce de fissuras</h4>
+      <p>Sensores identificam microdeformações antes que se tornem falhas visíveis.</p>
+    </div>
+  </div>
+  <div class="obj-card">
+    <div class="obj-icon"><img src="Icons/trending-down.png" alt="Redução de custos"></div>
+    <div>
+      <h4>Redução de custos com manutenção</h4>
+      <p>Manutenção preventiva baseada em dados custa menos que reparos emergenciais.</p>
+    </div>
+  </div>
+  <div class="obj-card">
+    <div class="obj-icon"><img src="Icons/file-chart-column.png" alt="Decisões guiadas por dados"></div>
+    <div>
+      <h4>Decisões guiadas por dados</h4>
+      <p>Relatórios e alertas em tempo real dão suporte direto à equipe de engenharia.</p>
+    </div>
+  </div>
+</div>
         </div>
       </div>
     </div>
@@ -202,25 +144,24 @@
     <p class="lede">A diferença entre saber o que aconteceu e saber o que está acontecendo agora.</p>
 
     <div class="diff-table">
-      <div class="diff-col old">
-        <div class="diff-label">Método tradicional</div>
-        <div class="diff-row"><span class="mark">–</span>Inspeção visual esporádica, meses entre vistorias</div>
-        <div class="diff-row"><span class="mark">–</span>Depende da experiência do inspetor no momento da visita</div>
-        <div class="diff-row"><span class="mark">–</span>Diagnóstico reativo, após o dano já existir</div>
-        <div class="diff-row"><span class="mark">–</span>Relatórios técnicos densos, pouco acessíveis</div>
-        <div class="diff-row"><span class="mark">–</span>Custo elevado por inspeção presencial</div>
-      </div>
-      <div class="diff-divider"></div>
-      <div class="diff-col new">
-        <div class="diff-label">Com MAGEN</div>
-        <div class="diff-row"><span class="mark">✓</span>Sensores ativos 24/7, sem intervalos cegos</div>
-        <div class="diff-row"><span class="mark">✓</span>Análise preditiva a partir de dados de vibração e deformação</div>
-        <div class="diff-row"><span class="mark">✓</span>Alertas no momento em que a anomalia é detectada</div>
-        <div class="diff-row"><span class="mark">✓</span>Dashboard simples, feito para leitura rápida</div>
-        <div class="diff-row"><span class="mark">✓</span>Escalável para obras de médio porte</div>
-      </div>
-    </div>
+  <div class="diff-col old">
+    <div class="diff-label">Método tradicional</div>
+    <div class="diff-row"><span class="mark"><img src="icons/minus.png" alt=""></span>Inspeção visual esporádica, meses entre vistorias</div>
+    <div class="diff-row"><span class="mark"><img src="icons/minus.png" alt=""></span>Depende da experiência do inspetor no momento da visita</div>
+    <div class="diff-row"><span class="mark"><img src="icons/minus.png" alt=""></span>Diagnóstico reativo, após o dano já existir</div>
+    <div class="diff-row"><span class="mark"><img src="icons/minus.png" alt=""></span>Relatórios técnicos densos, pouco acessíveis</div>
+    <div class="diff-row"><span class="mark"><img src="icons/minus.png" alt=""></span>Custo elevado por inspeção presencial</div>
   </div>
+  <div class="diff-divider"></div>
+  <div class="diff-col new">
+    <div class="diff-label">Com MAGEN</div>
+    <div class="diff-row"><span class="mark"><img src="icons/check.png" alt=""></span>Sensores ativos 24/7, sem intervalos cegos</div>
+    <div class="diff-row"><span class="mark"><img src="icons/check.png" alt=""></span>Análise preditiva a partir de dados de vibração e deformação</div>
+    <div class="diff-row"><span class="mark"><img src="icons/check.png" alt=""></span>Alertas no momento em que a anomalia é detectada</div>
+    <div class="diff-row"><span class="mark"><img src="icons/check.png" alt=""></span>Dashboard simples, feito para leitura rápida</div>
+    <div class="diff-row"><span class="mark"><img src="icons/check.png" alt=""></span>Escalável para obras de médio porte</div>
+  </div>
+</div>
 </section>
 
 <!-- CREDITO / UNASP -->
@@ -231,12 +172,11 @@
       <h2>Construído e projetado por <span>estudantes de TI</span> do Campus UNASP São Paulo</h2>
       <p>O MAGEN é um projeto acadêmico desenvolvido do zero por alunos do curso de Tecnologia da Informação, unindo engenharia de software, IoT e análise de dados em uma solução real de monitoramento estrutural.</p>
       <div class="credito-badges">
-        <div class="credito-badge"><span class="ico">◈</span>Desenvolvido em equipe</div>
-        <div class="credito-badge"><span class="ico">▲</span>Trabalho de Conclusão de Curso</div>
-        <div class="credito-badge"><span class="ico">▤</span>Campus UNASP</div>
-      </div>
-    </div>
-    
+  <div class="credito-badge"><span class="ico"><img src="Icons/user-round-group.png" alt=""></span>Desenvolvido em equipe</div>
+  <div class="credito-badge"><span class="ico"><img src="Icons/cpu.png" alt=""></span>Trabalho de Conclusão de Curso</div>
+  <div class="credito-badge"><span class="ico"><img src="Icons/ab6761610000e5eb5866e6ed0dd4fa7b4c731700-removebg-preview.png" alt=""></span>Campus UNASP</div>
+</div>
+
   </div>
 </section>
 

@@ -671,3 +671,8 @@ body.dark-mode .theme-toggle {
   .instr-hero{padding:36px 32px;}
 }
 
+.link-row .arrow img {
+  width: 14px;
+  height: 14px;
+  vertical-align: middle;
+}
