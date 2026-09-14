@@ -49,35 +49,20 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ==========================================
-  // BOTÃO DE TEMA
-  // ==========================================
+const themeToggle = document.getElementById("themeToggle");
+const themeIcon = document.getElementById("themeIcon");
 
-  const themeToggle = document.getElementById('themeToggle');
+themeToggle.addEventListener("click", () => {
+  document.body.classList.toggle("dark-mode");
 
-  if(themeToggle){
-
-    themeToggle.addEventListener('click', () => {
-
-      // O CSS usa "dark-theme", então o JS também precisa usar
-      document.body.classList.toggle('dark-theme');
-
-      // Verifica se o modo escuro está ativo
-      const darkMode = document.body.classList.contains('dark-theme');
-
-      // Troca o símbolo do botão
-      themeToggle.textContent = darkMode ? '☀' : '☾';
-
-      // Atualiza o texto de acessibilidade
-      themeToggle.setAttribute(
-        'aria-label',
-        darkMode
-          ? 'Ativar modo claro'
-          : 'Ativar modo escuro'
-      );
-
-    });
-
+  if (document.body.classList.contains("dark-mode")) {
+    themeIcon.src = "../sol.png";
+    themeIcon.alt = "Modo claro";
+  } else {
+    themeIcon.src = "../lua.png";
+    themeIcon.alt = "Modo escuro";
   }
-
 });
+
+}
+)
