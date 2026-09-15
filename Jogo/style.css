@@ -519,7 +519,7 @@ footer.site{background: var(--navy); color:#c7cbe6; padding: 64px 48px 28px;}
    TEMA ESCURO
    ================================================== */
 
-body.dark-theme{
+body.dark-mode{
   --ink:#f3f4ff;
   --muted:#aeb4cf;
   --line:#292f4a;
@@ -532,68 +532,68 @@ body.dark-theme{
 
 /* Header */
 
-body.dark-theme header.site{
+body.dark-mode header.site{
   background:rgba(11,16,36,.92);
   border-color:#292f4a;
 }
 
-body.dark-theme .brand{
+body.dark-mode .brand{
   color:#fff;
 }
 
-body.dark-theme nav.main-nav{
+body.dark-mode nav.main-nav{
   color:#c8cce0;
 }
 
-body.dark-theme nav.main-nav a:hover,
-body.dark-theme nav.main-nav a.active{
+body.dark-mode nav.main-nav a:hover,
+body.dark-mode nav.main-nav a.active{
   color:#6f7fff;
 }
 
 
 /* Hambúrguer e menu mobile */
 
-body.dark-theme .hamburger{
+body.dark-mode .hamburger{
   background:#151b35;
   border-color:#303753;
 }
-body.dark-theme .hamburger span{
+body.dark-mode .hamburger span{
   background:#f3f4ff;
 }
 
-body.dark-theme .mobile-menu{
+body.dark-mode .mobile-menu{
   background:#121832;
   box-shadow:-12px 0 40px rgba(0,0,0,.4);
 }
-body.dark-theme .mobile-menu-head{
+body.dark-mode .mobile-menu-head{
   border-color:#292f4a;
 }
-body.dark-theme .mobile-menu-close{
+body.dark-mode .mobile-menu-close{
   background:#151b35;
   border-color:#303753;
   color:#c8cce0;
 }
-body.dark-theme .mobile-nav a{
+body.dark-mode .mobile-nav a{
   color:#f3f4ff;
   border-color:#292f4a;
 }
-body.dark-theme .mobile-nav a.active{
+body.dark-mode .mobile-nav a.active{
   color:#6f7fff;
 }
-body.dark-theme .menu-overlay{
+body.dark-mode .menu-overlay{
   background: rgba(0,0,0,0.6);
 }
 
 
 /* Botão Login */
 
-body.dark-theme .btn-ghost{
+body.dark-mode .btn-ghost{
   background:#151b35;
   border-color:#303753;
   color:#f3f4ff;
 }
 
-body.dark-theme .btn-ghost:hover{
+body.dark-mode .btn-ghost:hover{
   background:#1c2341;
   border-color:#414a69;
 }
@@ -601,15 +601,15 @@ body.dark-theme .btn-ghost:hover{
 
 /* Área principal */
 
-body.dark-theme main,
-body.dark-theme .game-main{
+body.dark-mode main,
+body.dark-mode .game-main{
   background:#0b1024;
 }
 
 
 /* Hero */
 
-body.dark-theme .game-hero{
+body.dark-mode .game-hero{
   background:linear-gradient(
     160deg,
     #080d20,
@@ -621,16 +621,16 @@ body.dark-theme .game-hero{
 
 /* Caixa Como jogar */
 
-body.dark-theme .info-box{
+body.dark-mode .info-box{
   background:#121832;
   border-color:#292f4a;
 }
 
-body.dark-theme .steps li{
+body.dark-mode .steps li{
   color:#c8cce0;
 }
 
-body.dark-theme .step-num{
+body.dark-mode .step-num{
   background:#202957;
   color:#8c99ff;
 }
@@ -638,25 +638,25 @@ body.dark-theme .step-num{
 
 /* Cards */
 
-body.dark-theme .meta-card{
+body.dark-mode .meta-card{
   background:#121832;
   border-color:#292f4a;
 }
 
-body.dark-theme .meta-value{
+body.dark-mode .meta-value{
   color:#f3f4ff;
 }
 
 
 /* Botão voltar */
 
-body.dark-theme .btn-block-ghost{
+body.dark-mode .btn-block-ghost{
   background:#121832;
   border-color:#303753;
   color:#f3f4ff;
 }
 
-body.dark-theme .btn-block-ghost:hover{
+body.dark-mode .btn-block-ghost:hover{
   background:#191f3a;
   border-color:#414a69;
 }
@@ -664,8 +664,31 @@ body.dark-theme .btn-block-ghost:hover{
 
 /* Botão de tema no modo escuro */
 
-body.dark-theme .theme-toggle{
+body.dark-mode .theme-toggle{
   background:#171d38;
   border-color:#343b59;
   color:#fff;
+}
+
+
+/* ---------- Transição entre tema claro/escuro ---------- */
+
+body,
+header.site,
+main,
+.game-hero,
+.game-main,
+.game-frame,
+.info-box,
+.meta-card,
+.btn-ghost,
+.btn-block-ghost,
+.theme-toggle,
+.mobile-menu,
+.hamburger {
+  transition:
+    background-color .3s ease,
+    color .3s ease,
+    border-color .3s ease,
+    box-shadow .3s ease;
 }

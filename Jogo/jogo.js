@@ -49,20 +49,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-const themeToggle = document.getElementById("themeToggle");
-const themeIcon = document.getElementById("themeIcon");
-
-themeToggle.addEventListener("click", () => {
-  document.body.classList.toggle("dark-mode");
-
-  if (document.body.classList.contains("dark-mode")) {
-    themeIcon.src = "../sol.png";
-    themeIcon.alt = "Modo claro";
-  } else {
-    themeIcon.src = "../lua.png";
-    themeIcon.alt = "Modo escuro";
-  }
+  // O tema claro/escuro é controlado globalmente pelo enhance.js
+  // (compartilhado por todas as páginas) — nada a fazer aqui.
 });
-
-}
-)
