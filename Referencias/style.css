@@ -62,8 +62,6 @@ nav.main-nav a.active::after{
   gap:5px;
   width:40px;
   height:40px;
-  border:1px solid var(--line);
-  border-radius:8px;
   background:#fff;
   cursor:pointer;
   flex-shrink:0;
@@ -438,7 +436,7 @@ body.dark-mode nav.main-nav a.active {
 }
 
 body.dark-mode .hamburger{
-  background:#111a2e;
+  
   border-color:#293652;
 }
 body.dark-mode .hamburger span{

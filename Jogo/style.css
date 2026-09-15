@@ -554,7 +554,6 @@ body.dark-mode nav.main-nav a.active{
 /* Hambúrguer e menu mobile */
 
 body.dark-mode .hamburger{
-  background:#151b35;
   border-color:#303753;
 }
 body.dark-mode .hamburger span{
