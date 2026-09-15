@@ -7,37 +7,37 @@
 const TEAM_PROFILES = {
   "erick": {
     name: "Erick Ferraz",
-    role: "Descrição..",
+    role: "Hardware & UI Design",
     image: "../Integrantes/Erick.png",
-    bio: "Ainda não adicionamos uma biografia para este integrante. Edite este texto em team-profiles.js com uma descrição real do papel dele no projeto MAGEN.",
+    bio: "Responsável pela montagem física do protótipo YESOD e pelo design da interface do site.",
     socials: { instagram: "https://www.instagram.com/itz_eerick/", linkedin: "https://www.linkedin.com/in/erick-ferraz-visenfad-17482b396/", email: "#" }
   },
   "joao": {
     name: "João Pedro",
-    role: "Descrição..",
+    role: "Frontend & UI/UX",
     image: "../Integrantes/João.png",
-    bio: "Ainda não adicionamos uma biografia para este integrante. Edite este texto em team-profiles.js com uma descrição real do papel dele no projeto MAGEN.",
+    bio: "Atua no design e desenvolvimento das interfaces do site e do aplicativo, do wireframe à implementação final.",
     socials: { instagram: "https://www.instagram.com/itzjota_/", linkedin: "https://www.linkedin.com/in/jo%C3%A3o-pedro-borges-643352390/", email: "#" }
   },
   "leonardo": {
     name: "Leonardo Braga",
-    role: "Descrição..",
+    role: "Hardware & QA",
     image: "../Integrantes/Leonardo.png",
-    bio: "Ainda não adicionamos uma biografia para este integrante. Edite este texto em team-profiles.js com uma descrição real do papel dele no projeto MAGEN.",
+    bio: "Responsável pela montagem do dispositivo YESOD e pela condução dos testes de validação dos sensores em campo.",
     socials: { instagram: "ttps://www.instagram.com/leozinho007c/", linkedin: "https://www.linkedin.com/in/leonardo-braga-de-souza-479243392/", email: "#" }
   },
   "raul": {
     name: "Raul Egas",
-    role: "Descrição..",
+    role: "Firmware & Integração de Sistemas",
     image: "../Integrantes/Raul.png",
-    bio: "Ainda não adicionamos uma biografia para este integrante. Edite este texto em team-profiles.js com uma descrição real do papel dele no projeto MAGEN.",
+    bio: "Desenvolve o firmware do dispositivo e a camada de comunicação entre sensores, site e aplicativo, além de coordenar a integração técnica do grupo.",
     socials: { instagram: "https://www.instagram.com/raul9egas/", linkedin: "https://www.linkedin.com/in/raul-egas-855a04391/", email: "#" }
   },
   "vini": {
     name: "Vinicius Ferreira",
-    role: "Descrição..",
+    role: "Full Stack Web & QA",
     image: "../Integrantes/Vini.png",
-    bio: "Ainda não adicionamos uma biografia para este integrante. Edite este texto em team-profiles.js com uma descrição real do papel dele no projeto MAGEN.",
+    bio: "Desenvolveu o site do zero — design e codificação — e participa ativamente dos testes do protótipo YESOD.",
     socials: { instagram: "https://www.instagram.com/vinizzkf/", linkedin: "https://www.linkedin.com/in/vinicius-ferreira-souza-3507bb398/", email: "#" }
   }
 };

@@ -200,9 +200,10 @@ main{background: var(--bg); padding: 40px 48px 80px;}
 .author-left{display:flex; align-items:center; gap:10px;}
 .author-avatar{
   width:34px; height:34px; border-radius:50%;
-  background:#e9ebf5; color:#6b7280;
+  background:#2a3ee0; color:#6b7280;
   display:flex; align-items:center; justify-content:center;
   font-size:0.9rem;
+  object-fit: cover;
 }
 .author-name{font-size:0.82rem; font-weight:700;}
 .author-sub{font-size:0.7rem; color: var(--muted);}
@@ -211,6 +212,9 @@ main{background: var(--bg); padding: 40px 48px 80px;}
   white-space:nowrap;
 }
 .read-link:hover{color: var(--blue-dark);}
+.arrow-icon{
+  width:14px; height:14px; display:inline-block; object-fit:contain;
+}
 
 .article-thumb {
   overflow: hidden;
@@ -260,17 +264,6 @@ main{background: var(--bg); padding: 40px 48px 80px;}
   border-top:1px solid var(--line);
 }
 .article-date{font-size:0.78rem; color: var(--muted);}
-.bookmark{
-  width:26px; height:26px; border-radius:6px;
-  display:flex; align-items:center; justify-content:center;
-  color: var(--muted); font-size:0.85rem;
-  border:1px solid var(--line);
-  transition: color .15s ease, border-color .15s ease;
-  cursor:pointer;
-  background:none;
-}
-.bookmark:hover{color: var(--blue); border-color:#c7cdf7;}
-.bookmark.active{color:#fff; background: var(--blue); border-color: var(--blue);}
 
 /* ---------- Footer (shared) ---------- */
 footer.site{background: var(--navy); color:#c7cbe6; padding: 64px 48px 28px;}
@@ -561,25 +554,6 @@ body.dark-mode .article-bottom {
 
 body.dark-mode .article-date {
   color: #8f9ab2;
-}
-
-
-/* ---------- Bookmark ---------- */
-
-body.dark-mode .bookmark {
-  color: #8f9ab2;
-  border-color: #2a3958;
-}
-
-body.dark-mode .bookmark:hover {
-  color: #7d9aff;
-  border-color: #3d4f78;
-}
-
-body.dark-mode .bookmark.active {
-  color: #fff;
-  background: var(--blue);
-  border-color: var(--blue);
 }
 
 

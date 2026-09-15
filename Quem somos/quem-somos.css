@@ -58,6 +58,10 @@ nav.main-nav a.active::after{
 .btn-primary{background: var(--blue); color:#fff;}
 .btn-primary:hover{background:var(--blue-dark);}
 
+.arrow-icon{
+  width:14px; height:14px; display:inline-block; object-fit:contain;
+}
+
 /* O menu mobile (hambúrguer) agora é um componente único, compartilhado
    por todas as páginas do site — veja enhance.css / enhance.js. */
 
