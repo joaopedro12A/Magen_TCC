@@ -900,3 +900,18 @@ body.dark-mode .btn-outline:hover {
   background: #202640;
   border-color: #48506d;
 }
+
+/* ---------- Fix: vídeo do hero em full-bleed ---------- */
+.hero-video-wrap{
+  left: 0;
+  width: 100%;          /* evita a barra de rolagem que o 100vw causa */
+  transform: none;
+}
+
+@media (min-width: 981px){
+  .hero{
+    max-width: none;    /* remove o corte em 1400px */
+    padding-left:  max(48px, calc((100% - 1304px) / 2));
+    padding-right: max(48px, calc((100% - 1304px) / 2));
+  }
+}
