@@ -84,29 +84,9 @@
 })();
 
 (function initThemeToggle() {
-  const STORAGE_KEY = 'magen-theme';
-  const buttons = document.querySelectorAll('.theme-toggle-header, .theme-toggle-mobile-row');
-  if (!buttons.length) return;
-
-  const saved = localStorage.getItem(STORAGE_KEY);
-  if (saved === 'dark') {
-    document.body.classList.add('dark-mode');
-  }
-
-  function applyTheme(isDark) {
-    document.body.classList.toggle('dark-mode', isDark);
-    localStorage.setItem(STORAGE_KEY, isDark ? 'dark' : 'light');
-    buttons.forEach((btn) => {
-      btn.setAttribute('aria-pressed', String(isDark));
-      btn.setAttribute('aria-label', isDark ? 'Ativar tema claro' : 'Ativar tema escuro');
-    });
-  }
-
-  applyTheme(document.body.classList.contains('dark-mode'));
-
-  buttons.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      applyTheme(!document.body.classList.contains('dark-mode'));
-    });
+  // O site agora é sempre exibido no tema escuro; o alternador de tema foi desativado.
+  document.body.classList.add('dark-mode');
+  document.querySelectorAll('.theme-toggle-header, .theme-toggle-mobile-row').forEach((btn) => {
+    btn.style.display = 'none';
   });
 })();
