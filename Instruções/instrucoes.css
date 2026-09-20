@@ -608,15 +608,27 @@ body.dark-mode footer.site {
 
 body.dark-mode header.site,
 body.dark-mode main,
-body.dark-mode .step-card,
-body.dark-mode .tip-card,
-body.dark-mode .links-card,
-body.dark-mode .video-placeholder,
-body.dark-mode .theme-toggle {
+body.dark-mode .theme-toggle,
+body.dark-mode .video-placeholder {
   transition:
     background-color 0.25s ease,
     border-color 0.25s ease,
     color 0.25s ease;
+}
+
+/* .step-card / .tip-card / .links-card também recebem opacity e
+   transform aqui, porque são alvos do .reveal (enhance.css) — sem
+   isso, essa regra (mais especifica que .reveal) apaga a transição
+   que a animação de entrada precisa. */
+body.dark-mode .step-card,
+body.dark-mode .tip-card,
+body.dark-mode .links-card {
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease,
+    opacity .7s cubic-bezier(.16,.8,.24,1),
+    transform .7s cubic-bezier(.16,.8,.24,1);
 }
 
 

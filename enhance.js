@@ -15,7 +15,13 @@
     '.featured', '.product-card',
     '.instr-hero-content',
     '.step-card', '.tip-card', '.video-card', '.links-card',
-    '.footer-grid'
+    '.footer-grid',
+    /* Quem Somos */
+    '.team-head', '.team-card',
+    /* Referências */
+    '.featured-article', '.article-card',
+    /* Jogo */
+    '.game-frame', '.info-box', '.meta-card'
   ];
 
   const els = Array.from(document.querySelectorAll(selectors.join(',')));
