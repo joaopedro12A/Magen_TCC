@@ -4,6 +4,7 @@ function toggleFaq(btn){
   document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
   if(!wasOpen) item.classList.add('open');
 }
+
  
 const heroVideo = document.getElementById('heroVideo');
 if (heroVideo) {
