@@ -5,9 +5,6 @@ function toggleFaq(btn){
   if(!wasOpen) item.classList.add('open');
 }
  
-// A lógica do menu mobile (hambúrguer) e do tema claro/escuro agora vive
-// em enhance.js, compartilhada por todas as páginas do site.
- 
 const heroVideo = document.getElementById('heroVideo');
 if (heroVideo) {
   heroVideo.muted = true;
