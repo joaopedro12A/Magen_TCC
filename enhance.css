@@ -265,6 +265,8 @@ body.dark-mode .theme-toggle-mobile-row {
   padding:0;
   z-index:110;
   flex-shrink:0;
+  grid-column:3;
+  justify-self:end;
 }
 .hamburger span{
   display:block;
