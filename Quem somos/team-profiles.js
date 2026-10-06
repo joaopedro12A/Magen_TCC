@@ -13,7 +13,7 @@ const TEAM_PROFILES = {
     socials: { instagram: "https://www.instagram.com/itz_eerick/", linkedin: "https://www.linkedin.com/in/erick-ferraz-visenfad-17482b396/", email: "#" }
   },
   "joao": {
-    name: "João Pedro",
+    name: "João Pedro Borges",
     role: "Frontend & UI/UX",
     image: "../Integrantes/João.png",
     bio: "Atua no design e desenvolvimento das interfaces do site e do aplicativo, do wireframe à implementação final.",

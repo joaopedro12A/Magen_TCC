@@ -602,3 +602,112 @@ body.dark-mode .profile-modal-socials a{background:#222a3b; color:#aeb6c8;}
 @media (max-width:480px){
   .profile-modal{padding:28px 20px 22px;}
 }
+
+
+/* =========================================================
+   AGRADECIMENTOS (cards iguais aos dos integrantes)
+   ========================================================= */
+.thanks-section{margin-top:84px;}
+.prof-avatar{background:linear-gradient(135deg, var(--blue), #5b6cff);}
+.thanks-special{
+  margin:32px auto 0; max-width:720px; display:flex; align-items:center; gap:14px;
+  padding:18px 22px; border-radius:14px;
+  background:linear-gradient(120deg, #eef0fd, #f6f7fd); border:1px solid #dfe3fa;
+}
+.thanks-heart{
+  flex-shrink:0; width:40px; height:40px; border-radius:50%;
+  background:#fff; color:#e0446a; display:flex; align-items:center; justify-content:center;
+  box-shadow:0 4px 12px rgba(224,68,106,0.18);
+}
+.thanks-heart svg{width:20px; height:20px;}
+.thanks-special p{margin:0; font-size:0.9rem; line-height:1.6; color:#374151;}
+.thanks-special strong{color:var(--blue);}
+
+/* =========================================================
+   CONTATO
+   ========================================================= */
+.contact-section{margin-top:84px;}
+.contact-card{
+  position:relative; overflow:hidden; border-radius:20px;
+  display:grid; grid-template-columns:1fr 1.15fr;
+  background:linear-gradient(120deg, #171d3d 0%, #232c58 55%, #2a336b 100%);
+  box-shadow:0 24px 60px rgba(20,28,60,0.25);
+}
+.contact-card::before{
+  content:""; position:absolute; width:340px; height:340px; border-radius:50%;
+  left:-110px; bottom:-140px; border:1px solid rgba(143,160,255,0.35);
+  box-shadow:0 0 0 40px rgba(143,160,255,0.05), 0 0 0 80px rgba(143,160,255,0.03);
+  pointer-events:none;
+}
+.contact-info{position:relative; z-index:2; padding:44px 40px; color:#fff;}
+.contact-info .eyebrow{color:#a9b4ff; font-size:0.75rem; font-weight:700; letter-spacing:0.03em; margin-bottom:18px;}
+.contact-info h2{font-size:1.9rem; font-weight:700; margin:0 0 14px; letter-spacing:-0.01em; color:#fff;}
+.contact-info p{font-size:0.92rem; line-height:1.65; color:#cfd3f2; margin:0 0 28px; max-width:380px;}
+.contact-mail{
+  display:flex; align-items:center; gap:14px; padding:14px 16px; border-radius:12px;
+  background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.14);
+  font-weight:600; font-size:0.98rem; color:#fff; transition:background .2s ease, transform .2s ease;
+}
+.contact-mail:hover{background:rgba(255,255,255,0.14); transform:translateY(-1px);}
+.contact-mail small{display:block; font-size:0.72rem; font-weight:500; color:#a9b4ff; margin-bottom:2px;}
+.contact-mail-icon{width:42px; height:42px; border-radius:10px; flex-shrink:0; background:var(--blue-light); display:flex; align-items:center; justify-content:center;}
+.contact-mail-icon svg{width:20px; height:20px;}
+.contact-copy{
+  margin-top:14px; background:transparent; border:1px solid rgba(255,255,255,0.28);
+  color:#dfe3ff; font-size:0.82rem; font-weight:500; padding:9px 16px; border-radius:8px; cursor:pointer;
+  transition:background .2s ease, border-color .2s ease;
+}
+.contact-copy:hover{background:rgba(255,255,255,0.1); border-color:rgba(255,255,255,0.5);}
+.contact-form{position:relative; z-index:2; margin:14px; padding:30px 28px; background:#fff; border-radius:14px;}
+.field-row{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
+.field{margin-bottom:16px;}
+.field label{display:block; font-size:0.78rem; font-weight:600; margin-bottom:6px; color:var(--ink);}
+.field input, .field textarea{
+  width:100%; font-family:inherit; font-size:0.9rem; color:var(--ink);
+  padding:11px 13px; border:1px solid #d7dae3; border-radius:9px; background:#fff;
+  transition:border-color .15s ease, box-shadow .15s ease;
+}
+.field textarea{resize:vertical; min-height:110px;}
+.field input::placeholder, .field textarea::placeholder{color:#9aa0b4;}
+.field input:focus, .field textarea:focus{outline:none; border-color:var(--blue); box-shadow:0 0 0 3px rgba(42,62,224,0.15);}
+.field.invalid input, .field.invalid textarea{border-color:#e0445a; box-shadow:0 0 0 3px rgba(224,68,90,0.12);}
+.contact-send{
+  width:100%; display:flex; align-items:center; justify-content:center; gap:8px;
+  padding:13px 18px; border:none; border-radius:10px; cursor:pointer;
+  background:var(--blue); color:#fff; font-size:0.92rem; font-weight:600;
+  transition:background .15s ease, transform .15s ease, box-shadow .15s ease;
+}
+.contact-send:hover{background:var(--blue-dark); transform:translateY(-1px); box-shadow:0 10px 22px rgba(42,62,224,0.3);}
+.contact-send svg{width:17px; height:17px;}
+.contact-status{display:none; margin-top:12px; font-size:0.82rem; text-align:center; line-height:1.5;}
+.contact-status.show{display:block;}
+.contact-status.ok{color:#15803d;}
+.contact-status.error{color:#e0445a;}
+
+body.dark-mode .thanks-special{background:linear-gradient(120deg,#171e36,#1a2240); border-color:#2a3355;}
+body.dark-mode .thanks-special p{color:#c5cbe0;}
+body.dark-mode .thanks-special strong{color:#8f9cff;}
+body.dark-mode .thanks-heart{background:#222a3b;}
+body.dark-mode .contact-card{background:linear-gradient(120deg, #10152c 0%, #181f3d 55%, #202952 100%); box-shadow:0 24px 60px rgba(0,0,0,0.45);}
+body.dark-mode .contact-form{background:#151b29;}
+body.dark-mode .field label{color:#e4e8f4;}
+body.dark-mode .field input, body.dark-mode .field textarea{background:#0f1421; border-color:#343c50; color:#f1f3f9;}
+body.dark-mode .field input::placeholder, body.dark-mode .field textarea::placeholder{color:#6f7891;}
+body.dark-mode .field input:focus, body.dark-mode .field textarea:focus{border-color:#7180ff; box-shadow:0 0 0 3px rgba(113,128,255,0.22);}
+body.dark-mode .contact-status.ok{color:#4ade80;}
+
+@media (max-width: 900px){
+  .contact-card{grid-template-columns:1fr;}
+  .contact-info{padding:36px 28px 22px;}
+  .contact-info p{max-width:100%;}
+}
+@media (max-width: 425px){
+  .thanks-section, .contact-section{margin-top:56px;}
+  .thanks-special{flex-direction:column; text-align:center; padding:18px 16px;}
+  .contact-card{border-radius:16px;}
+  .contact-info{padding:30px 20px 18px;}
+  .contact-info h2{font-size:1.5rem;}
+  .contact-mail{font-size:0.9rem; padding:12px;}
+  .contact-form{margin:10px; padding:22px 16px;}
+  .field-row{grid-template-columns:1fr; gap:0;}
+}
