@@ -606,13 +606,13 @@ body.dark-mode .info-card:hover{box-shadow:0 14px 30px rgba(0,0,0,0.30); border-
 body.dark-mode .info-name{color:#f4f6fb;}
 body.dark-mode .info-role{background:#1b2240; border-left-color:#7180ff; color:#c5cbe0;}
 
-@media (max-width: 1080px){ @media (max-width: 900px){ .info-grid{grid-template-columns:repeat(2, 1fr);} }
+@media (max-width: 900px){ .info-grid{grid-template-columns:repeat(2, 1fr);} }
 @media (max-width: 640px){
   .info-section{margin-top:52px;}
-  .info-grid,   .section-head h2{font-size:1.35rem;}
+  .info-grid{grid-template-columns:1fr; gap:14px;}
+  .section-head h2{font-size:1.35rem;}
   .info-card{padding:20px 18px;}
 }
-
 
 /* ---------- Rodapé simplificado (só o copyright) ---------- */
 footer.site{padding:22px 48px;}
