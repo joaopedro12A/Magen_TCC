@@ -183,55 +183,55 @@
   <div class="wrap">
     <span class="eyebrow"><span class="dot"></span>Perguntas frequentes</span>
     <h2>FAQ</h2>
-    <p class="lede">O que engenheiros e gestores de obra costumam perguntar sobre o sistema.</p>
+    <p class="lede">Dúvidas sobre como o MAGEN funciona, do sensor ao celular.</p>
 
     <div class="faq-list">
       <div class="faq-item open">
         <button class="faq-q" onclick="toggleFaq(this)">
-          Como funciona a detecção de fissuras?
+          Como o MAGEN identifica sinais de fissuras?
           <span class="plus">+</span>
         </button>
-        <div class="faq-a"><div class="faq-a-inner">Sensores de vibração e deformação instalados em pontos estratégicos da estrutura coletam dados continuamente. O sistema compara essas leituras com faixas normais de operação e identifica padrões que indicam formação ou evolução de fissuras.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Cada unidade do YESOD tem um sensor MPU6050, que mede aceleração e rotação em 6 eixos, ligado a um ESP32. O ESP32 envia as leituras por Wi-Fi e o sistema procura vibrações e deformações fora do normal, que podem indicar que uma rachadura está se formando.</div></div>
       </div>
 
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">
-          Quais tipos de sensores são compatíveis?
+          Quais componentes formam o sistema?
           <span class="plus">+</span>
         </button>
-        <div class="faq-a"><div class="faq-a-inner">O sistema suporta múltiplos tipos de sensores (vibração, deformação, inclinação, temperatura), permitindo adaptação a diferentes tipos de estrutura e escopo de projeto.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">O kit YESOD tem 3 unidades espalhadas pela estrutura, e cada uma combina um sensor MPU6050 com um ESP32. O Arduino Uno foi usado nos testes e na validação inicial dos sensores, antes da integração com o ESP32. Veja os detalhes na página <a href="Produtos/index.html">Produtos</a>.</div></div>
       </div>
 
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">
-          O MAGEN substitui inspeções humanas?
+          O que acontece com os dados, do sensor até o celular?
           <span class="plus">+</span>
         </button>
-        <div class="faq-a"><div class="faq-a-inner">Não. O sistema complementa a inspeção humana, reduzindo o intervalo entre vistorias e sinalizando pontos de atenção para que o engenheiro responsável priorize onde investigar presencialmente.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">O sensor mede a vibração várias vezes por segundo. Um código em Python processa essas medições e gera um resumo, e só o resumo é guardado no banco de dados (MySQL) e mostrado no app. Assim você vê um índice simples, sem números brutos para interpretar.</div></div>
       </div>
 
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">
-          Qual a precisão dos dados coletados?
+          Preciso instalar um aplicativo?
           <span class="plus">+</span>
         </button>
-        <div class="faq-a"><div class="faq-a-inner">A precisão depende do sensor utilizado e da calibração no local de instalação. O sistema exibe a margem de leitura junto de cada métrica, como visto no protótipo de análise de vibração.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Não. O MAGEN abre direto no navegador do celular, sem passar por loja de aplicativos. Na primeira vez, você informa seu nome e autoriza as notificações para receber os avisos de alerta.</div></div>
       </div>
 
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">
-          É possível integrar com sistemas já existentes?
+          O que significam a porcentagem e as cores?
           <span class="plus">+</span>
         </button>
-        <div class="faq-a"><div class="faq-a-inner">Sim, a arquitetura foi pensada para expor os dados via API, permitindo integração com plataformas de gestão de obra já utilizadas pela equipe.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">A tela de monitoramento mostra o índice de integridade da estrutura em porcentagem. De 60% a 100% é normal (verde), de 30% a 60% é atenção (amarelo) e de 0% a 30% é alerta (vermelho), com notificação no celular.</div></div>
       </div>
 
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">
-          Qual o custo de implementação?
+          O MAGEN substitui a inspeção de um profissional?
           <span class="plus">+</span>
         </button>
-        <div class="faq-a"><div class="faq-a-inner">O custo varia conforme o número de sensores e a área monitorada. O objetivo do projeto é oferecer uma alternativa mais acessível que o monitoramento estrutural tradicional.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Não. O MAGEN é um protótipo acadêmico, desenvolvido como TCC no Campus UNASP São Paulo, e funciona como apoio ao monitoramento. Se o índice cair abaixo de 30%, verifique a estrutura e conte com um profissional habilitado.</div></div>
       </div>
     </div>
   </div>
