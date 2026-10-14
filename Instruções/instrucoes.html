@@ -72,9 +72,9 @@
   <img src="../Instruções/Project Team.png" class="instr-hero-bg" alt="">
 
   <div class="instr-hero-content">
-    <span class="instr-badge">GUIA DE INTERAÇÃO</span>
-    <h1>Domine o Magen com Precisão Técnica</h1>
-    <p>Nossa metodologia passo a passo foi projetada para otimizar seu caminho de aprendizado e garantir que cada marco seja alcançado com eficiência e clareza.</p>
+    <span class="instr-badge">GUIA DE USO</span>
+    <h1>Do sensor ao alerta: como usar o MAGEN</h1>
+    <p>O MAGEN acompanha a vibração de uma estrutura e mostra, no seu celular, se ela está saudável. Veja como instalar o sensor, abrir o aplicativo e entender o que cada leitura significa.</p>
     <a href="#fluxo" class="btn-white">Começar Agora <img src="../Icons/arrow-right_blue.png" alt="" class="btn-icon"></a>
   </div>
 
@@ -84,30 +84,38 @@
       <div>
        <h2 class="section-title" id="fluxo">
   <img src="./icons/Planilha.png" class="title-icon" alt="">
-  Fluxo de Implementação
+  Passo a Passo
       </h2>
 
         <div class="step-card">
           <div class="step-num">1</div>
           <div class="step-body">
-            <h3>Configuração do Ambiente</h3>
-            <p>Prepare os sensores e conecte o hardware ao painel central antes de iniciar o monitoramento.</p>
+            <h3>Instale o sensor</h3>
+            <p>Fixe o módulo com o sensor MPU6050 em uma superfície firme da estrutura que será monitorada e ligue o ESP32 à alimentação. Um sensor bem preso mede melhor a vibração real.</p>
           </div>
         </div>
 
         <div class="step-card">
           <div class="step-num">2</div>
           <div class="step-body">
-            <h3>Alocação de Recursos</h3>
-            <p>Defina quais setores da estrutura receberão prioridade de análise em tempo real.</p>
+            <h3>Abra o MAGEN no celular</h3>
+            <p>Não é preciso instalar nada pela loja de aplicativos: o MAGEN abre direto no navegador do celular. Na primeira vez, informe seu nome e autorize as notificações para receber avisos de alerta.</p>
           </div>
         </div>
 
         <div class="step-card">
           <div class="step-num">3</div>
           <div class="step-body">
-            <h3>Verificação &amp; Reprodução</h3>
-            <p>Valide as leituras iniciais e reproduza o cenário de teste para calibrar os alertas.</p>
+            <h3>Acompanhe a integridade</h3>
+            <p>A tela de monitoramento mostra o índice de integridade da estrutura em porcentagem, atualizado conforme o sensor envia novas medições.</p>
+          </div>
+        </div>
+
+        <div class="step-card">
+          <div class="step-num">4</div>
+          <div class="step-body">
+            <h3>Interprete as cores</h3>
+            <p><strong>60% a 100%:</strong> normal (verde). <strong>30% a 60%:</strong> atenção (amarelo), vale observar com mais frequência. <strong>0% a 30%:</strong> alerta (vermelho), você recebe uma notificação.</p>
           </div>
         </div>
 
@@ -140,38 +148,38 @@
      <div>
   <h2 class="section-title">
     <img src="./icons/Lampada.png" class="title-icon" alt="">
-    Dicas de Especialistas
+    Dicas de Uso
   </h2>
 
   <div class="tip-card">
     <h4>
       <img src="./icons/Velocidade.png" class="tip-icon" alt="">
-      Atalho Rápido
+      Leitura contínua
     </h4>
-    <p>Use Ctrl+K para abrir a busca global e navegar entre sensores instantaneamente.</p>
+    <p>O sensor mede a vibração várias vezes por segundo. O MAGEN processa esses dados e mostra apenas um resumo simples, sem números brutos para interpretar.</p>
   </div>
 
   <div class="tip-card">
     <h4>
       <img src="./icons/Terminal.png" class="tip-icon" alt="">
-      Modo Headless
+      Teste antes de usar
     </h4>
-    <p>Rode o Magen sem interface gráfica em servidores dedicados para monitoramento contínuo.</p>
+    <p>Com a estrutura em repouso, confira se o sensor está firme e se a conexão está estável. Isso evita falsos alertas causados por fixação solta.</p>
   </div>
 
   <div class="tip-card">
     <h4>
       <img src="./icons/Segurança.png" class="tip-icon" alt="">
-      Verificação de Segurança
+      Em caso de alerta
     </h4>
-    <p>Revise as permissões de acesso da equipe antes de liberar o ambiente em produção.</p>
+    <p>Se o índice cair abaixo de 30%, verifique a estrutura. O MAGEN é um apoio ao monitoramento e não substitui a inspeção de um profissional habilitado.</p>
   </div>
 
         <div class="links-card">
-          <h4>Links</h4>
-          <div class="link-row"><span>Documentação da API</span><span class="arrow"><img src="../Icons/arrow-right_blue.png" alt=""></span></div>
-<div class="link-row"><span>Comunidade</span><span class="arrow"><img src="../Icons/arrow-right_blue.png" alt=""></span></div>
-<div class="link-row"><span>Notas</span><span class="arrow"><img src="../Icons/arrow-right_blue.png" alt=""></span></div>
+          <h4>Saiba Mais</h4>
+          <div class="link-row"><span>Artigo do TCC</span><span class="arrow"><img src="../Icons/arrow-right_blue.png" alt=""></span></div>
+<div class="link-row"><span>Componentes do projeto</span><span class="arrow"><img src="../Icons/arrow-right_blue.png" alt=""></span></div>
+<div class="link-row"><span>Quem somos</span><span class="arrow"><img src="../Icons/arrow-right_blue.png" alt=""></span></div>
         </div>
       </div>
     </div>
