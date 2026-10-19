@@ -21,7 +21,7 @@ const PRODUCTS = {
   },
   "esp32": {
     name: "ESP32",
-    price: "$0.00",
+    price: "$13.00-$19.00",
     image: "./ESP.png",
     description:
       "Microcontrolador com Wi-Fi e Bluetooth integrados, responsável por coletar as leituras dos sensores e transmiti-las ao painel do MAGEN. É o cérebro de comunicação de cada unidade sensora, escolhido pelo baixo custo e pelo bom desempenho em aplicações de IoT.",
@@ -39,7 +39,7 @@ const PRODUCTS = {
   },
   "mpu6050": {
     name: "MPU6030",
-    price: "$0.00",
+    price: "$35.00-$46.00",
     image: "./MPU.png",
     description:
       "Sensor inercial de 6 eixos (acelerômetro + giroscópio) usado para captar vibração e microdeformações da estrutura. É um dos principais responsáveis pela detecção precoce de fissuras no sistema MAGEN, comparando as leituras com as faixas normais de operação.",
@@ -57,7 +57,7 @@ const PRODUCTS = {
   },
   "arduino-uno": {
     name: "Arduino UNO",
-    price: "$0.00",
+    price: "$35.00-$99.00",
     image: "./Arduino uno.png",
     description:
       "Placa de prototipagem baseada no microcontrolador ATmega328P, utilizada nos testes e na validação inicial dos sensores antes da integração com o ESP32. Sua ampla comunidade e documentação facilitam a etapa de desenvolvimento do projeto.",

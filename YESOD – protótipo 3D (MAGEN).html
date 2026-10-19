@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>YESOD – protótipo 3D (MAGEN)</title>
+<style>
+:root{--bg:#eef1f5;--fg:#1b1f24;--card:rgba(255,255,255,.85);--bd:#cfd6df;--ac:#0b6bcb;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1217;--fg:#e8ecf1;--card:rgba(26,32,40,.85);--bd:#2e3844;--ac:#5aa9ff}}
+:root[data-theme="dark"]{--bg:#0e1217;--fg:#e8ecf1;--card:rgba(26,32,40,.85);--bd:#2e3844;--ac:#5aa9ff}
+html,body{height:100%;margin:0;background:var(--bg);color:var(--fg);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+#v{position:relative;width:100%;height:100%;overflow:hidden;touch-action:none}
+canvas{display:block}
+.p{position:absolute;left:12px;right:12px;top:12px;max-width:340px;background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px;backdrop-filter:blur(6px);pointer-events:none}
+.p h1{font-size:16px;margin:0 0 2px}
+.p small{opacity:.75;font-size:12px;line-height:1.4;display:block}
+.b{position:absolute;left:12px;right:12px;bottom:12px;display:flex;gap:8px;flex-wrap:wrap}
+button{background:var(--card);color:var(--fg);border:1px solid var(--bd);border-radius:10px;padding:10px 14px;font-size:14px;cursor:pointer}
+button.on{border-color:var(--ac);color:var(--ac)}
+.pin{position:absolute;width:26px;height:26px;margin:-13px 0 0 -13px;border-radius:50%;background:var(--ac);color:#fff;font:700 13px system-ui,sans-serif;display:flex;align-items:center;justify-content:center;border:2px solid #fff;box-shadow:0 1px 6px rgba(0,0,0,.4);cursor:pointer;z-index:5;user-select:none}
+.pin.sel{outline:3px solid var(--ac);outline-offset:2px}
+#bub{position:absolute;max-width:240px;background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:10px 12px;font-size:13px;line-height:1.4;z-index:6;backdrop-filter:blur(6px);display:none;cursor:pointer}
+#bub b{display:block;margin-bottom:3px}
+</style>
+</head>
+<body>
+<div id="v">
+  <div class="p">
+    <h1>YESOD · protótipo do MAGEN</h1>
+    <small>Arraste para girar, pinça/scroll para zoom, dois dedos (ou botão direito) para mover. Toque em “Abrir tampa” para ver a eletrônica (ESP32 + MPU6050). Toque nos números azuis para ler os comentários.</small>
+  </div>
+  <div class="b">
+    <button id="bo">Abrir tampa</button>
+    <button id="ba">Girar sozinho</button>
+    <button id="bn" class="on">Comentários</button>
+    <button id="br">Resetar vista</button>
+  </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script>
+const el=document.getElementById('v');
+const R=new THREE.WebGLRenderer({antialias:true,alpha:true});
+R.setPixelRatio(Math.min(devicePixelRatio,2));
+R.outputEncoding=THREE.sRGBEncoding;
+el.insertBefore(R.domElement,el.firstChild);
+const S=new THREE.Scene();
+const C=new THREE.PerspectiveCamera(38,1,0.1,300);
+const home=new THREE.Vector3(14,7,26),tgt=new THREE.Vector3(0,0,2);
+C.position.copy(home);
+const O=new THREE.OrbitControls(C,R.domElement);
+O.enableDamping=true;O.target.copy(tgt);O.autoRotateSpeed=1.5;
+S.add(new THREE.HemisphereLight(0xffffff,0x667788,0.95));
+const dl=new THREE.DirectionalLight(0xffffff,0.8);dl.position.set(8,12,14);S.add(dl);
+const dl2=new THREE.DirectionalLight(0xffffff,0.35);dl2.position.set(-10,-4,-8);S.add(dl2);
+
+function rr(w,h,r){const s=new THREE.Shape(),x=-w/2,y=-h/2;
+  s.moveTo(x+r,y);s.lineTo(x+w-r,y);s.quadraticCurveTo(x+w,y,x+w,y+r);s.lineTo(x+w,y+h-r);
+  s.quadraticCurveTo(x+w,y+h,x+w-r,y+h);s.lineTo(x+r,y+h);s.quadraticCurveTo(x,y+h,x,y+h-r);
+  s.lineTo(x,y+r);s.quadraticCurveTo(x,y,x+r,y);return s;}
+function ext(shape,depth){const g=new THREE.ExtrudeGeometry(shape,{depth:depth,bevelEnabled:true,bevelThickness:.15,bevelSize:.15,bevelSegments:3,curveSegments:12});g.translate(0,0,.15);return g;}
+const gray=new THREE.MeshStandardMaterial({color:0xd6d9dc,roughness:.55,metalness:.05});
+const gray2=new THREE.MeshStandardMaterial({color:0xdfe2e5,roughness:.5,metalness:.05});
+
+// corpo (bandeja oca) + fundo
+const hole=rr(7.3,13.3,.6);
+const bs=rr(7.7,13.7,.85);bs.holes.push(hole);
+S.add(new THREE.Mesh(ext(bs,3.1),gray));
+S.add(new THREE.Mesh(ext(rr(7.7,13.7,.85),.1),gray));
+
+// tampa
+const lid=new THREE.Group();S.add(lid);lid.position.z=3.4;
+lid.add(new THREE.Mesh(ext(rr(8.0,14.0,.9),.9),gray2));
+// logo (canvas)
+const cv=document.createElement('canvas');cv.width=512;cv.height=896;
+const x=cv.getContext('2d'),cx=256;
+x.clearRect(0,0,512,896);
+const sy=190,w=250,hh=290;
+function shield(inset,col){const a=cx-w/2+inset,b=cx+w/2-inset,t=sy+inset,m=sy+hh*.55,bt=sy+hh-inset*1.2;
+  x.beginPath();x.moveTo(a,t);x.lineTo(b,t);x.lineTo(b,m);x.quadraticCurveTo(b,bt-40,cx,bt);x.quadraticCurveTo(a,bt-40,a,m);x.closePath();x.fillStyle=col;x.fill();}
+shield(0,'#8b98a6');shield(12,'#1d409a');
+x.fillStyle='#fff';x.textAlign='center';x.font='bold 44px "Times New Roman",serif';
+x.fillText('מָגֵן',cx,sy+70);
+x.strokeStyle='#fff';x.lineWidth=30;x.lineCap='round';x.lineJoin='round';
+x.beginPath();x.moveTo(cx-48,sy+150);x.lineTo(cx-12,sy+190);x.lineTo(cx+55,sy+112);x.stroke();
+x.fillStyle='#1c3f94';x.font='bold 84px Arial,Helvetica,sans-serif';x.fillText('YESOD',cx,sy+hh+135);
+const tex=new THREE.CanvasTexture(cv);tex.encoding=THREE.sRGBEncoding;tex.anisotropy=8;
+const logo=new THREE.Mesh(new THREE.PlaneGeometry(8,14),new THREE.MeshStandardMaterial({map:tex,transparent:true,roughness:.5}));
+logo.position.z=1.22;lid.add(logo);
+// parafusos
+[[-2.9,5.8],[2.9,5.8],[-2.9,-5.8],[2.9,-5.8]].forEach(p=>{
+  const s=new THREE.Group();s.rotation.x=Math.PI/2;s.position.set(p[0],p[1],1.2);
+  const o=new THREE.Mesh(new THREE.CylinderGeometry(.5,.5,.3,24),new THREE.MeshStandardMaterial({color:0x3a3d41,roughness:.5,metalness:.4}));
+  const m=new THREE.Mesh(new THREE.CylinderGeometry(.33,.33,.34,24),new THREE.MeshStandardMaterial({color:0x8d9196,roughness:.35,metalness:.8}));
+  const h=new THREE.Mesh(new THREE.CylinderGeometry(.15,.15,.36,6),new THREE.MeshStandardMaterial({color:0x1a1a1a}));
+  s.add(o,m,h);lid.add(s);});
+
+// eletrônica interna (eixo local y = para frente)
+const inn=new THREE.Group();inn.rotation.x=Math.PI/2;inn.position.set(0,0,1.4);S.add(inn);
+function bx(w,h,d,col,px,py,pz,o){const m=new THREE.Mesh(new THREE.BoxGeometry(w,h,d),new THREE.MeshStandardMaterial(Object.assign({color:col,roughness:.55,metalness:.15},o||{})));m.position.set(px,py,pz);inn.add(m);return m;}
+function so(px,pz){const m=new THREE.Mesh(new THREE.CylinderGeometry(.22,.22,1,14),new THREE.MeshStandardMaterial({color:0xb0b8c2,metalness:.4,roughness:.4}));m.position.set(px,-.5,pz);inn.add(m);}
+const ez=-3.2;
+bx(5.6,.15,2.8,0x1b2a3a,0,0,ez);
+bx(1.9,.3,1.7,0xc9ced4,-1.0,.22,ez,{metalness:.8,roughness:.3});
+bx(1.0,.03,1.7,0x0e1620,-2.3,.1,ez);
+bx(.8,.3,.6,0xd8dce0,2.9,.22,ez,{metalness:.8,roughness:.3});
+bx(.5,.2,.5,0x222222,1.6,.17,ez-.8);bx(.5,.2,.5,0x222222,1.6,.17,ez+.8);
+bx(.15,.1,.15,0x30e060,.6,.12,ez+1,{emissive:0x10a030});
+bx(4.8,.25,.25,0x111111,.2,-.2,ez-1.2);bx(4.8,.25,.25,0x111111,.2,-.2,ez+1.2);
+[[-2.4,ez-1.1],[2.4,ez-1.1],[-2.4,ez+1.1],[2.4,ez+1.1]].forEach(p=>so(p[0],p[1]));
+const mz=2.8;
+bx(2.1,.12,1.6,0x1f5fd0,0,.05,mz);
+bx(.5,.1,.5,0x151515,.1,.16,mz);
+bx(1.2,.25,.25,0x111111,-.4,-.1,mz-.65);
+so(-.8,mz+.5);so(.8,mz+.5);
+const ax=new THREE.AxesHelper(1.6);ax.position.set(.1,.25,mz);inn.add(ax);
+[[0xe03030,-.6],[0x151515,-.2],[0xe0c020,.2],[0x30b030,.6]].forEach((wc,i)=>{
+  const a=new THREE.Vector3(wc[1]-.3,-.2,ez+1.2),b=new THREE.Vector3(-.8+i*.35,-.1,mz-.65);
+  const mid=a.clone().lerp(b,.5);mid.y=-.5-i*.08;
+  inn.add(new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3([a,mid,b]),20,.05,6,false),new THREE.MeshStandardMaterial({color:wc[0],roughness:.6})));});
+
+let sel=null,showN=true;
+const notes=[];
+const bub=document.createElement('div');bub.id='bub';el.appendChild(bub);
+bub.onclick=function(){sel=null;};
+function note(num,title,txt,parent,p,nrm,inside){
+  const a=new THREE.Object3D();a.position.set(p[0],p[1],p[2]);parent.add(a);
+  const d=document.createElement('div');d.className='pin';d.textContent=num;el.appendChild(d);
+  const o={a:a,d:d,num:num,title:title,txt:txt,parent:parent,n:new THREE.Vector3(nrm[0],nrm[1],nrm[2]),inside:!!inside,vis:false,x:0,y:0};
+  d.onclick=function(e){e.stopPropagation();sel=(sel===o)?null:o;};
+  notes.push(o);
+}
+note(1,'Tampa','Tampa cinza da caixa, presa por 4 parafusos. Toque em “Abrir tampa” para ver a eletrônica.',lid,[4.2,3,.6],[1,0,0]);
+[[-2.9,5.8],[2.9,5.8],[-2.9,-5.8],[2.9,-5.8]].forEach(function(p){note(2,'Parafuso M6','Um dos 4 parafusos M6 que fixam a tampa ao corpo da caixa.',lid,[p[0],p[1],1.45],[0,0,1]);});
+note(3,'Logo MAGEN','Escudo com check e o nome YESOD: identidade visual do MAGEN (monitoramento de integridade estrutural).',lid,[1.6,3.6,1.3],[0,0,1]);
+note(4,'Corpo da caixa','Corpo cinza que protege a eletrônica do sensor.',S,[4,-3,1.7],[1,0,0]);
+note(5,'ESP32','Microcontrolador com Wi-Fi que lê o sensor e envia os dados.',inn,[0,.45,-3.2],[0,1,0],true);
+note(6,'MPU6050','Acelerômetro e giroscópio que medem a inclinação e as vibrações da estrutura.',inn,[0,.45,2.8],[0,1,0],true);
+note(7,'Fios jumper','Ligam o ESP32 ao MPU6050 (alimentação e comunicação).',inn,[0,-.45,-.4],[0,1,0],true);
+const _v=new THREE.Vector3(),_n=new THREE.Vector3(),_c=new THREE.Vector3();
+function place(){
+  const W=el.clientWidth,H=el.clientHeight;
+  notes.forEach(function(o){
+    o.a.getWorldPosition(_v);
+    _n.copy(o.n).transformDirection(o.parent.matrixWorld);
+    _c.copy(C.position).sub(_v);
+    const p=_v.clone().project(C);
+    const ok=showN&&_n.dot(_c)>0&&p.z<1&&(!o.inside||t>.6);
+    o.vis=ok;o.d.style.display=ok?'flex':'none';
+    o.d.classList.toggle('sel',o===sel);
+    if(ok){o.x=(p.x*.5+.5)*W;o.y=(-p.y*.5+.5)*H;o.d.style.left=o.x+'px';o.d.style.top=o.y+'px';}
+  });
+  if(sel&&sel.vis){
+    bub.innerHTML='<b>'+sel.num+' · '+sel.title+'</b>'+sel.txt;
+    bub.style.display='block';
+    bub.style.left=Math.max(8,Math.min(sel.x+18,W-bub.offsetWidth-8))+'px';
+    bub.style.top=Math.max(8,Math.min(sel.y-10,H-bub.offsetHeight-70))+'px';
+  }else bub.style.display='none';
+}
+document.getElementById('bn').onclick=function(){showN=!showN;this.classList.toggle('on',showN);if(!showN)sel=null;};
+const gr=new THREE.GridHelper(60,60,0x8899aa,0x8899aa);gr.position.y=-7.6;gr.material.transparent=true;gr.material.opacity=.22;S.add(gr);
+
+function fit(){const w=el.clientWidth,h=el.clientHeight;R.setSize(w,h);C.aspect=w/h;C.position.z=Math.max(26,26*(1.1/Math.min(1.1,C.aspect)));C.updateProjectionMatrix();}
+addEventListener('resize',fit);fit();
+let open=false,t=0;
+const bo=document.getElementById('bo'),ba=document.getElementById('ba');
+bo.onclick=()=>{open=!open;bo.classList.toggle('on',open);bo.textContent=open?'Fechar tampa':'Abrir tampa';};
+ba.onclick=()=>{O.autoRotate=!O.autoRotate;ba.classList.toggle('on',O.autoRotate);};
+document.getElementById('br').onclick=()=>{C.position.copy(home);O.target.copy(tgt);O.update();};
+(function loop(){requestAnimationFrame(loop);
+  t+=((open?1:0)-t)*.08;
+  lid.position.set(t*9,t*1,3.4+t*7);lid.rotation.y=t*.5;
+  O.update();R.render(S,C);place();})();
+</script>
+</body>
+</html>

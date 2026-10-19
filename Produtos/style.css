@@ -135,11 +135,11 @@ main{background: var(--bg); padding: 40px 48px 80px;}
 
 .featured-image {
   width: 100%;
-  max-width: 423px;
-  height: 430px;
+  max-width: 500px;
+  height: 500px;
   object-fit: contain;
 
-  transform: translate(100px, 0px);
+  transform: translate(59px, 0px);
 }
 
 .product-thumb {
