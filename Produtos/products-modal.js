@@ -56,22 +56,22 @@ const PRODUCTS = {
     ]
   },
   "arduino-uno": {
-    name: "Arduino UNO",
-    price: "$35.00-$99.00",
-    image: "./Arduino uno.png",
+    name: "Protoboard",
+    price: "$35.00-$60.00",
+    image: "./br-11134201-820m9-mqx7le0e5qmcc1.jpg",
     description:
-      "Placa de prototipagem baseada no microcontrolador ATmega328P, utilizada nos testes e na validação inicial dos sensores antes da integração com o ESP32. Sua ampla comunidade e documentação facilitam a etapa de desenvolvimento do projeto.",
+      "Placa de ensaio usada para montar e testar os circuitos do MAGEN sem precisar soldar. Nela conectamos o ESP32 e o sensor MPU6050, o que facilita ajustar ligações e validar o funcionamento antes da montagem final.",
     components: [
-      "Microcontrolador ATmega328P, 16 MHz",
-      "14 pinos digitais e 6 entradas analógicas",
-      "Alimentação via USB ou fonte externa (7–12V)",
-      "Compatível com a IDE Arduino e grande variedade de shields"
-    ],
-    stores: [
-      { name: "FilipeFlop", note: "Placas originais e clones com boa procedência", url: "https://www.filipeflop.com" },
-      { name: "Curto Circuito", note: "Kits completos para quem está começando", url: "https://www.curtocircuito.com.br" },
-      { name: "Mercado Livre", note: "Boa opção para comparar preços rapidamente", url: "https://www.mercadolivre.com.br" }
-    ]
+    "Furos conectados internamente em trilhas, sem necessidade de solda",
+    "Trilhas de alimentação (+ e −) nas laterais",
+    "Compatível com jumpers e terminais de componentes comuns",
+    "Reutilizável, ideal para prototipagem e testes"
+  ],
+   stores: [
+    { name: "FilipeFlop", note: "Protoboards de vários tamanhos", url: "https://www.filipeflop.com" },
+    { name: "Eletrogate", note: "Bom preço em kits com jumpers", url: "https://www.eletrogate.com" },
+    { name: "Mercado Livre", note: "Fácil comparar vendedores e prazos", url: "https://www.mercadolivre.com.br" }
+  ]
   }
 };
 
